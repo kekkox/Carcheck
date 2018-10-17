@@ -19,7 +19,7 @@ he will be able to obtain information concerning about:
 - General information about vehicle.
 
 
-Let's imagine some scenarios:
+Let's imagine some use cases:
 - An user wants to buy a used vehicle. Thanks to Carcheck the user can verify that the vehicle is not stolen;
 - An user doesn't remember when his MOT exspires. Thanks to Carcheck, he can easily find the answer.
 -  A novice driver that doesn't know if a specific vehicle is suitable for him, can check the vehicle information on Carcheck and he will resolve this doubt.
