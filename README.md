@@ -1,5 +1,5 @@
 <p align = "center">
-  <img src="https://github.com/kekkox/Carcheck/blob/master/resource/img/Logo.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/resource/img/Logo.png" width="128" height="128" />
+  <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20Product/Resource/img/Logo.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20Product/Resource/img/Logo.png" width="128" height="128" />
 </p>
 
 # Carcheck
