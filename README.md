@@ -1,25 +1,35 @@
 <p align = "center">
-  <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" width="128" height="128" />
+  
+  <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" data-canonical     src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" width="240" height="240" />
+ 
 </p>
 
-# Carcheck
-A web-based platform for automobilist
+ <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" width="128" height="128" />
 
-### DESCRIPTION
-The Italian Minister of Infrastructure and Transport needs to realize an application that allow the italian drivers to keep under control the information about their own vehicles. 
-###Features
-The user, 
-inserting his license plate number, 
-he will be able to obtain information concerning about:
+<p align = "center"><b>Progetto universitario del corso di Ingegneria del software</b></p>
+<br>
+<br>
+#-Università degli studi Salerno
+#-Facoltà di Informatica
+<br>
+<br>
+Il team di Carcheck è così composto:
+  -Francesco Capriglione - Team Leader
+  -Giovanni Iacovazzo 
+  -Aldo D'auria
+  -Daniele De Falco
+<hr>
+<br><br><br>
+<b>Carcheck</b> è un sistema che permette agli utenti di scoprire in maniera semplice e veloce informazioni sul proprio veicolo.
+Per lo sviluppo del progetto sono stati analizzati i problemi più comuni degli automobilisti,(e non solo),e si è cercato di ideare una soluzione adatta anche ai meno "esperti" con la tecnologia.
+<br>
+Per dare il via al progetto abbiamo effettuato una serie di scelte. Ad esempio abbiamo <b>immaginato</b> una commissione da parte del Ministero delle infrastrutture e trasposti italiano.Carcheck deve rappresentare un sistema di gestione di dati relativi a veicoli in concomitanza con una serie di Autofficine che decidono di aderire al progetto.
+<br>
+<br>
+Esso però non deve essere visto "semplicemente" come una mera collezione di dati,ma come uno strumento che permette da una parte di semplificare ed ottimizare il lavoro alle autofficine,dall'altra di aiutare l'automobilista nelle varie situazioni in cui quotidianamente può trovarsi.
 
-- Status of his car insurance;
-- Car tax;
-- Presence of a report on the vehicle;
-- Details about MOT test;
-- General information about vehicle.
 
-
-Let's imagine some use cases:
-- An user wants to buy a used vehicle. Thanks to Carcheck the user can verify that the vehicle is not stolen;
-- An user doesn't remember when his MOT exspires. Thanks to Carcheck, he can easily find the answer.
-- A novice driver that doesn't know if a specific vehicle is suitable for him, can check the vehicle information on Carcheck and he will resolve this doubt.
+<br><br><br>
+The material contained in this project is copyright free.
+If any violation is if any violation is present,please report us and the
+material in question will be immediately removed
