@@ -38,7 +38,7 @@ Per dare il via al progetto abbiamo effettuato una serie di scelte. Ad esempio a
 <br>
 Esso però non deve essere visto "semplicemente" come una mera collezione di dati,ma come uno strumento che permette da una parte di semplificare ed ottimizare il lavoro alle autofficine,dall'altra di aiutare l'automobilista nelle varie situazioni in cui quotidianamente può trovarsi.
 <br>
-<p align = "center"> <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/SecondLogoV2.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/SecondLogoV2.png" width="220" height="220" />
+<p align = "center"> <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/SecondLogoV2.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/SecondLogoV2.png" width="350" height="240" />
 </p>
 
 <hr>
