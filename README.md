@@ -1,4 +1,7 @@
 <body bgcolor="#f8e861">
+
+<h1 align="center">Carcheck</h1>  
+
 <p align = "center">
 
   <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" data-canonical     src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" width="240" height="240" />
@@ -16,8 +19,8 @@
 <br>
 <p align = "center"> <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" width="128" height="128" />
 </p>
-<br>
-<br>
+
+
 <br>
 <br>
 Il team di Carcheck è così composto:<br>
@@ -34,10 +37,14 @@ Per dare il via al progetto abbiamo effettuato una serie di scelte. Ad esempio a
 <br>
 <br>
 Esso però non deve essere visto "semplicemente" come una mera collezione di dati,ma come uno strumento che permette da una parte di semplificare ed ottimizare il lavoro alle autofficine,dall'altra di aiutare l'automobilista nelle varie situazioni in cui quotidianamente può trovarsi.
+<br>
+<p align = "center"> <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/SecondLogoV2.png
+" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/SecondLogoV2.png
+" width="220" height="220" />
+</p>
 
-
-<br><br>
 <hr>
+<br><br><br><br><br>
 The material contained in this project is copyright free.
 If any violation is if any violation is present,please report us and the
 material in question will be immediately removed
