@@ -1,25 +1,32 @@
+<body bgcolor="f8e861">
 <p align = "center">
-  
+Carcheck  
   <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" data-canonical     src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" width="240" height="240" />
  
 </p>
 
- <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" width="128" height="128" />
 
-<p align = "center"><b>Progetto universitario del corso di Ingegneria del software</b></p>
+<p align = "center"><b>Progetto universitario del corso di Ingegneria del software</b>
+  <br>
+  Università degli studi Salerno
+  <br>
+  Facoltà di Informatica
+</p>
 <br>
 <br>
-#-Università degli studi Salerno
-#-Facoltà di Informatica
+<p align = "center"> <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" data-canonical src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/logoUnisa.png" width="128" height="128" />
+</p>
+<br>
+<br>
 <br>
 <br>
 Il team di Carcheck è così composto:
-  -Francesco Capriglione - Team Leader
-  -Giovanni Iacovazzo 
-  -Aldo D'auria
-  -Daniele De Falco
+  -Francesco Capriglione - Team Leader<br>
+  -Giovanni Iacovazzo<br>
+  -Aldo D'auria<br>
+  -Daniele De Falco<br>
 <hr>
-<br><br><br>
+<br><br>
 <b>Carcheck</b> è un sistema che permette agli utenti di scoprire in maniera semplice e veloce informazioni sul proprio veicolo.
 Per lo sviluppo del progetto sono stati analizzati i problemi più comuni degli automobilisti,(e non solo),e si è cercato di ideare una soluzione adatta anche ai meno "esperti" con la tecnologia.
 <br>
@@ -29,7 +36,9 @@ Per dare il via al progetto abbiamo effettuato una serie di scelte. Ad esempio a
 Esso però non deve essere visto "semplicemente" come una mera collezione di dati,ma come uno strumento che permette da una parte di semplificare ed ottimizare il lavoro alle autofficine,dall'altra di aiutare l'automobilista nelle varie situazioni in cui quotidianamente può trovarsi.
 
 
-<br><br><br>
+<br><br>
+<hr>
 The material contained in this project is copyright free.
 If any violation is if any violation is present,please report us and the
 material in question will be immediately removed
+</body>
