@@ -1,6 +1,6 @@
-<body bgcolor="f8e861">
+<body bgcolor="#f8e861">
 <p align = "center">
-Carcheck  
+
   <img src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" data-canonical     src="https://github.com/kekkox/Carcheck/blob/master/Work%20product/Resource/img/Logo.png" width="240" height="240" />
  
 </p>
@@ -20,7 +20,7 @@ Carcheck
 <br>
 <br>
 <br>
-Il team di Carcheck è così composto:
+Il team di Carcheck è così composto:<br>
   -Francesco Capriglione - Team Leader<br>
   -Giovanni Iacovazzo<br>
   -Aldo D'auria<br>
