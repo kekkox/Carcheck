@@ -1,0 +1,78 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+    width: 90%;
+    padding: 0 12px;
+    height: 64px;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+}
+
+.login_container {
+    height: fit-content;
+    padding: 45px 55px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.login_container span {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.login_container form {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.login_container button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 25px;
+    background-color: #06c;
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: 0.2s all;
+}
+
+.login_container button:hover {
+    cursor: pointer;
+    background-color: #046de0;
+}
+
+.form_footer {
+    color: #999999;
+}
+
+.form_footer a {
+    color: #06c;
+    text-decoration: none;
+}
+
+.form_footer a:hover {
+    color: #046de0;
+    text-decoration: underline;
+}
+
+.form_footer a:visited {
+    color: #06c;
+}
