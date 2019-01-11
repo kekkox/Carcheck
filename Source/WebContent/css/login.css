@@ -8,14 +8,21 @@ html, body {
 input {
     font-family: 'Open Sans', sans-serif;
     width: 90%;
+    border: 2px solid transparent;
     padding: 0 12px;
     height: 64px;
     font-size: 15px;
     line-height: 1.2;
+    transition: all 0.2s;
+}
+
+input:focus {
+	outline: none;
+	border-bottom: 2px solid #06c;
 }
 
 .container {
-    height: 100%;
+    height: calc(100% - 70px); /*70px is the height of menu*/
     width: 100%;
     display: flex;
     align-items: center;
@@ -75,4 +82,13 @@ input {
 
 .form_footer a:visited {
     color: #06c;
+}
+
+/*Responsive*/
+@media screen and (max-width: 450px) {
+	.login_container {
+		padding: 15px 25px;
+		margin: 0 15px;
+		width: 100%;
+	}
 }

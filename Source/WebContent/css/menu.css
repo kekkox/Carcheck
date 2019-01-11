@@ -1,0 +1,51 @@
+ .menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.menu.fill {
+	position: initial;
+	background: rgba(4,109,224,0.9);
+	height: 70px;
+}
+
+.menu a {
+	text-decoration: none;
+}
+
+.login {
+  margin: 15px 25px;
+  padding-bottom: 5px;
+  float: right;
+  color: #B3B3B3;
+  font-size: 20px;
+  transition: 0.2s all;
+}
+
+.login:hover {
+  cursor: pointer;
+  color: #fff;
+  border-bottom: solid 2px #fff;
+}
+
+.logo {
+  margin: 15px 25px;
+  float: left;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: 0.2s all;
+}
+
+.logo:hover{
+  cursor: pointer;
+  border-bottom: solid 2px #fff;
+}
+
+@media screen and (max-width: 500px) {
+	
+}

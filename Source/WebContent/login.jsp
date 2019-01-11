@@ -1,18 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="it" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Login officina</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/menu.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Open+Sans+Condensed:300,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+  	<jsp:include page = "menu.jsp"/>
     <div class="container">
-
-        <div class="menu">
-          <a class="logo" href="index.html">CarCheck</a>
-          <a class="login" href="login.html">Sei un officina? Accedi qui</a>
-        </div>
 
       <div class="login_container">
 
@@ -20,7 +20,7 @@
 
         <form action="" method="post">
           <input type="email" name="email" placeholder="Indirizzo email"><br>
-          <input type="password" name="email" placeholder="Password"><br>
+          <input type="password" name="password" placeholder="Password"><br>
           <button type="button" name="button">LOGIN</button>
         </form>
 
@@ -32,3 +32,4 @@
     </div>
   </body>
 </html>
+    

@@ -33,6 +33,7 @@ a:visited {
   height: 100%;
   background: url("../img/home-1.jpg");
   background-size: cover;
+  background-position: center;
 }
 
 .search_bar {
@@ -77,40 +78,24 @@ a:visited {
   color: #fff;
 }
 
-.menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-}
-
-.login {
-  margin: 15px 25px;
-  padding-bottom: 5px;
-  float: right;
-  color: #B3B3B3;
-  font-size: 20px;
-  transition: 0.2s all;
-}
-
-.login:hover {
-  cursor: pointer;
-  color: #fff;
-  border-bottom: solid 2px #fff;
-}
-
-.logo {
-  margin: 15px 25px;
-  float: left;
-  font-family: 'Montserrat',sans-serif;
-  font-size: 30px;
-  text-transform: uppercase;
-  color: #fff;
-  transition: 0.2s all;
-}
-
-.logo:hover{
-  cursor: pointer;
-  border-bottom: solid 2px #fff;
+/*Responsive*/
+@media screen and (max-width: 600px) {
+	
+	.search_bar {
+		width: 90%;
+		display: grid;
+	}
+	
+	.search_bar select {
+		border-top-right-radius: 5px;
+		border-bottom-left-radius: initial;
+	}
+	
+	.search_bar button {
+		padding: 10px 30px;
+		height: 51px;
+		border-top-right-radius: initial;
+		border-bottom-left-radius: 5px;
+	}
+	
 }

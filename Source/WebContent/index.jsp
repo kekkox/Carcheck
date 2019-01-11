@@ -1,9 +1,12 @@
- <!DOCTYPE html>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
  <html lang="it" dir="ltr">
    <head>
      <meta charset="utf-8">
      <title>Carcheck</title>
      <link rel="stylesheet" href="css/index.css">
+     <link rel="stylesheet" href="css/menu.css">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
      <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Open+Sans+Condensed:300,700" rel="stylesheet">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +14,7 @@
    <body>
      <div class="container">
 
-       <div class="menu">
-         <a class="logo" href="index.html">CarCheck</a>
-         <a class="login" href="login.html">Sei un officina? Accedi qui</a>
-       </div>
+	<jsp:include page="menu.jsp" />
 
        <div class="overlay"></div>
 
