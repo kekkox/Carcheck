@@ -2,23 +2,20 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
-	final String LOGIN_PAGE = "login.jsp"; 
+	final String HOMEPAGE_URI = "index.jsp"; 
 	String uri = request.getRequestURI();
 	uri = uri.substring(uri.lastIndexOf('/') + 1);
 	
-	if(uri.equals(LOGIN_PAGE)) {
+	if(uri.equals(HOMEPAGE_URI)) {
 %>    
-	<div class="menu fill">
-	  <a class="logo" href="index.jsp">CarCheck</a>
-	</div>
-
-<%	}
-	
-	else { %>
-
 	<div class="menu">
 	  <a class="logo" href="index.jsp">CarCheck</a>
 	  <a class="login" href="login.jsp">Sei un officina? Accedi qui</a>
 	</div>
+<%	}
 	
+	else { %>
+		<div class="menu fill">
+		  <a class="logo" href="index.jsp">CarCheck</a>
+		</div>
 <% } %>
