@@ -1,9 +1,11 @@
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
+/*
+	Color palette:
+		RED: 		#F44336;
+		GREY:		#f2f2f2;
+		BLUE:		#06c;
+		DARK BLUE: 	#046DE0;
+		WHITE:		#fff;
+*/
 
 input {
     font-family: 'Open Sans', sans-serif;
@@ -46,7 +48,7 @@ input:focus {
 }
 
 .login_container form {
-    margin-top: 25px;
+    margin-top: 0px;
     margin-bottom: 25px;
 }
 
