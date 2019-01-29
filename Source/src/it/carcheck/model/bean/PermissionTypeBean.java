@@ -8,23 +8,22 @@ import it.carcheck.fastcrud.core.enums.Type;
 public class PermissionTypeBean {
 	
 	@TableName(name = "permissionType")
-	public PermissionTypeBean(){
-	}
+	public PermissionTypeBean() {}
 
 	public int getId() {
-		return this.Id;
+		return this.id;
 	}
 	public void setId(int id) {
-		this.Id = id;
+		this.id = id;
 	}
 	public String getDescription() {
-		return this.Description;
+		return this.description;
 	}
 	public void setDescription(String description) {
-		this.Description = description;
+		this.description = description;
 	}
 	
 	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
-	private int Id;
-	private String Description;
+	private int id;
+	private String description;
 }

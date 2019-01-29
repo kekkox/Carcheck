@@ -1,20 +1,16 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-import java.util.Calendar;
+import java.sql.Date;
 
-public class People {
-    public People(String fiscalCode, String name, String surname, String numberPhone, Calendar birthDate, Gender gender, City city)
-    {
-        this.fiscalCode=fiscalCode;
-        this.name=name;
-        this.surname=surname;
-        this.numberPhone=numberPhone;
-        this.birthDate=birthDate;
-        this.gender=gender;
-        this.city=city;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
-    private String fiscalCode,name,surname,numberPhone;
+public class PeopleBean {
+	
+	@TableName(name = "people")
+    public PeopleBean() {}
 
     public String getFiscalCode() {
         return fiscalCode;
@@ -40,39 +36,45 @@ public class People {
         this.surname = surname;
     }
 
-    public String getNumberPhone() {
-        return numberPhone;
+    public String getTelephoneNumber() {
+        return telephoneNumber;
     }
 
-    public void setNumberPhone(String numberPhone) {
-        this.numberPhone = numberPhone;
+    public void setTelephoneNumber(String numberPhone) {
+        this.telephoneNumber = numberPhone;
     }
 
-    public Calendar getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Calendar birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public City getCity() {
-        return city;
+    public String getBirthCity() {
+        return birthCity;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setBirthCity(String city) {
+        this.birthCity = city;
     }
-
-    private Calendar birthDate;
-    private Gender gender;
-    private City city;
+    
+    
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+    private String fiscalCode;
+    private String name;
+    private String surname;
+    private String telephoneNumber;
+    private String birthCity;
+    private Date birthDate;
+    private String gender;
 }

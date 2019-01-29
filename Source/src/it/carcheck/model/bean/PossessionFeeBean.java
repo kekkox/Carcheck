@@ -1,14 +1,16 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-import java.util.Calendar;
+import java.sql.Date;
 
-public class PossessionFee {
-    public PossessionFee(int id, Vehicle vehicle,Calendar expirationDate)
-    {
-        this.id=id;
-        this.vehicle=vehicle;
-        this.expirationDate=expirationDate;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
+
+public class PossessionFeeBean {
+	
+	@TableName(name = "possessionfee")
+    public PossessionFeeBean() {}
 
     public int getId() {
         return id;
@@ -18,24 +20,25 @@ public class PossessionFee {
         this.id = id;
     }
 
-    public Vehicle getVehicle() {
+    public String getVehicle() {
         return vehicle;
     }
 
-    public void setVehicle(Vehicle vehicle) {
+    public void setVehicle(String vehicle) {
         this.vehicle = vehicle;
     }
 
-    public Calendar getExpirationDate() {
+    public Date getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Calendar expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
 
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
     private int id;
-    private Vehicle vehicle;
-    private Calendar expirationDate;
+    private String vehicle;
+    private Date expirationDate;
 }
 

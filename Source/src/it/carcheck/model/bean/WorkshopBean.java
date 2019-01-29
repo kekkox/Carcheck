@@ -1,27 +1,25 @@
 package it.carcheck.model.bean;
 
-public class WorkShopBean {
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
-	/*
-	 * Basic constructor
-	 */
-	public WorkShopBean(String businessName, String pIva, String address, String owner, String description,
-			String telephone, String email, String password, boolean isFirstLogin) {
-		super();
-		this.businessName = businessName;
-		this.pIva = pIva;
-		this.address = address;
-		this.owner = owner;
-		this.description = description;
-		this.telephone = telephone;
-		this.email = email;
-		this.password = password;
-		this.isFirstLogin = isFirstLogin;
-	}
+public class WorkshopBean {
+
+	@TableName(name = "workshop")
+	public WorkshopBean() {}
 
 	/*
 	 * Getters and setters methods
 	 */
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getBusinessName() {
 		return businessName;
@@ -98,6 +96,8 @@ public class WorkShopBean {
 	/*
 	 * Instance Variables
 	 */
+	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+	private int id;
 	private String businessName, pIva, address, owner, description, telephone;
 	private String email, password;
 	private boolean isFirstLogin;

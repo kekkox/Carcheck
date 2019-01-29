@@ -57,7 +57,9 @@ public class BeanManager {
 			
 			return objects;
 			
-		}catch(Exception e) {}
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		return null;
 	}

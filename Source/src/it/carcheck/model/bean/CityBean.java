@@ -1,14 +1,14 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-public class City {
-    public City(String istat,String name,short cap,Province province){
-    this.istat=istat;
-    this.name=name;
-    this.cap=cap;
-    this.province=province;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
-    private String istat;
+public class CityBean {
+	
+	@TableName(name = "city")
+    public CityBean() {}
 
     public String getIstat() {
         return istat;
@@ -26,23 +26,25 @@ public class City {
         this.name = name;
     }
 
-    public short getCap() {
+    public String getCap() {
         return cap;
     }
 
-    public void setCap(short cap) {
+    public void setCap(String cap) {
         this.cap = cap;
     }
 
-    public Province getProvince() {
+    public String getProvince() {
         return province;
     }
 
-    public void setProvince(Province province) {
+    public void setProvince(String province) {
         this.province = province;
     }
-
+    
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+    private String istat;
     private String name;
-    private short cap;
-    private Province province;
+    private String cap;
+    private String province;
 }

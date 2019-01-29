@@ -1,32 +1,38 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-import java.util.Calendar;
+import java.sql.Date;
 
-public class VehicleInspection {
-    public VehicleInspection(Calendar inspectionDate, Calendar expirationDate,short km,boolean result,String photo,Vehicle vehicle,WorkShop workShop)
-    {
-        this.inspectionDate=inspectionDate;
-        this.expirationDate=expirationDate;
-        this.km=km;
-        this.result=result;
-        this.photo=photo;
-        this.vehicle=vehicle;
-        this.workShop=workShop;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
-    public Calendar getInspectionDate() {
+public class VehicleInspectionBean {
+	
+	@TableName(name = "vehicleinspection")
+    public VehicleInspectionBean() {}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+    public Date getInspectionDate() {
         return inspectionDate;
     }
 
-    public void setInspectionDate(Calendar inspectionDate) {
+    public void setInspectionDate(Date inspectionDate) {
         this.inspectionDate = inspectionDate;
     }
 
-    public Calendar getExpirationDate() {
+    public Date getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Calendar expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -54,27 +60,29 @@ public class VehicleInspection {
         this.photo = photo;
     }
 
-    public WorkShop getWorkShop() {
+    public int getWorkShop() {
         return workShop;
     }
 
-    public void setWorkShop(WorkShop workShop) {
+    public void setWorkShop(int workShop) {
         this.workShop = workShop;
     }
 
-    public Vehicle getVehicle() {
+    public String getVehicle() {
         return vehicle;
     }
 
-    public void setVehicle(Vehicle vehicle) {
+    public void setVehicle(String vehicle) {
         this.vehicle = vehicle;
     }
 
-    private Calendar inspectionDate,expirationDate;
+	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+    private int id;
+    private Date inspectionDate,expirationDate;
     private short km;
     private boolean result;
     private String photo;
-    private WorkShop workShop;
-    private Vehicle vehicle;
+    private int workShop;
+    private String vehicle;
 }
 

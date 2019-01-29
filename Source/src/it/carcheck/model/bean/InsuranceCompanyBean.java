@@ -1,11 +1,14 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-public class InsuranceCompany {
-    public InsuranceCompany(short id,String companyName)
-    {
-        this.id=id;
-        this.companyName=companyName;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
+
+public class InsuranceCompanyBean {
+	
+	@TableName(name = "insurancecompany")
+    public InsuranceCompanyBean() {}
 
 
     public short getId() {
@@ -24,6 +27,7 @@ public class InsuranceCompany {
         this.companyName = companyName;
     }
 
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
     private short id;
     private String companyName;
 }

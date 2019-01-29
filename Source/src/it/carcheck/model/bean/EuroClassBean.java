@@ -1,11 +1,14 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-public class EuroClass{
-    public EuroClass(short id,String description)
-    {
-        this.id=id;
-        this.description=description;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
+
+public class EuroClassBean {
+	
+	@TableName(name = "euroclass")
+    public EuroClassBean() {}
 
     public short getId() {
         return id;
@@ -23,6 +26,7 @@ public class EuroClass{
         this.description = description;
     }
 
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
     private short id;
     private String description;
 }

@@ -1,13 +1,42 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-public class Province {
-    public Province(String provinceCode,String name,Region region)
-    {
-        this.provinceCode=provinceCode;
-        this.name=name;
-        this.region=region;
-    }
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
-    private String provinceCode,name;
-    private Region region;
+public class ProvinceBean {
+	
+	@TableName(name = "province")
+    public ProvinceBean() {}
+
+	
+    public String getProvinceCode() {
+		return provinceCode;
+	}
+    
+	public void setProvinceCode(String provinceCode) {
+		this.provinceCode = provinceCode;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getRegion() {
+		return region;
+	}
+	
+	public void setRegion(int region) {
+		this.region = region;
+	}
+
+	@EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+	private String provinceCode;
+	private String name;
+    private int region;
 }

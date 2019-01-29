@@ -1,22 +1,26 @@
 package it.carcheck.model.bean;
 
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
+
 public class AdminBean {
 
-	/*
-	 * Basic constructor
-	 */
-	public AdminBean(String name, String surname, String email, String password, boolean isFirstLogin) {
-		super();
-		this.name = name;
-		this.surname = surname;
-		this.email = email;
-		this.password = password;
-		this.isFirstLogin = isFirstLogin;
-	}
+	@TableName(name = "admin")
+	public AdminBean() {}
 
 	/*
 	 * Getters and setters methods
 	 */
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -60,6 +64,8 @@ public class AdminBean {
 	/*
 	 * Instance Variables
 	 */
+	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+	int id;
 	private String name, surname;
 	private String email, password;
 	private boolean isFirstLogin;

@@ -1,22 +1,15 @@
-package it.carchek.model.bean;
+package it.carcheck.model.bean;
 
-public class Vehicle {
+import it.carcheck.fastcrud.core.EntityType;
+import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
-    public Vehicle(String licensePlate,String description,short yearOfRegistration,int displacement,int kw,boolean scrapped,Category category,Fuel fuel, EuroClass euroClass)
-    {
-       this.licensePlate=licensePlate;
-       this.description=description;
-       this.yearOfRegistration=yearOfRegistration;
-       this.displacement=displacement;
-       this.kw=kw;
-       this.scrapped=scrapped;
-       this.category=category;
-       this.fuel=fuel;
-       this.euroClass=euroClass;
-    }
+public class VehicleBean {
 
+	@TableName(name = "vehicle")
+    public VehicleBean() {}
 
-    private String licensePlate,description;
 
     public String getLicensePlate() {
         return licensePlate;
@@ -66,42 +59,37 @@ public class Vehicle {
         this.scrapped = scrapped;
     }
 
-    public Category getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
-    public Fuel getFuel() {
+    public int getFuel() {
         return fuel;
     }
 
-    public void setFuel(Fuel fuel) {
+    public void setFuel(int fuel) {
         this.fuel = fuel;
     }
 
-    public EuroClass getEuroClass() {
+    public int getEuroClass() {
         return euroClass;
     }
 
-    public void setEuroClass(EuroClass euroClass) {
+    public void setEuroClass(int euroClass) {
         this.euroClass = euroClass;
     }
 
-    public Insurance isInsured()
-    {
-     return null;
-    }
-    public boolean isForYoundDriver()
-    {
-        return false;
-    }
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+    private String licensePlate;
+    private String description;
     private short yearOfRegistration;
     private int displacement,kw;
     private boolean scrapped;
-    private Category category;
-    private Fuel fuel;
-    private EuroClass euroClass;
+    private int category;
+    private int fuel;
+    private int euroClass;
 }
