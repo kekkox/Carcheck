@@ -5,10 +5,10 @@ import it.carcheck.fastcrud.core.TableName;
 import it.carcheck.fastcrud.core.enums.PKType;
 import it.carcheck.fastcrud.core.enums.Type;
 
-public class PermissionType {
+public class PermissionTypeBean {
 	
 	@TableName(name = "permissionType")
-	public PermissionType(){
+	public PermissionTypeBean(){
 	}
 
 	public int getId() {
