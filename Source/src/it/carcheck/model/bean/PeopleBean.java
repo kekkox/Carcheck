@@ -7,6 +7,9 @@ import it.carcheck.fastcrud.core.TableName;
 import it.carcheck.fastcrud.core.enums.PKType;
 import it.carcheck.fastcrud.core.enums.Type;
 
+/**
+ * Represent the People table of database
+ */
 public class PeopleBean {
 	
 	@TableName(name = "people")

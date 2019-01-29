@@ -7,6 +7,9 @@ import it.carcheck.fastcrud.core.TableName;
 import it.carcheck.fastcrud.core.enums.PKType;
 import it.carcheck.fastcrud.core.enums.Type;
 
+/**
+ * Represent the VehicleInspection table of database
+ */
 public class VehicleInspectionBean {
 	
 	@TableName(name = "vehicleinspection")

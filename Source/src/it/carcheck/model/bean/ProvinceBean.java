@@ -5,6 +5,9 @@ import it.carcheck.fastcrud.core.TableName;
 import it.carcheck.fastcrud.core.enums.PKType;
 import it.carcheck.fastcrud.core.enums.Type;
 
+/**
+ * Represent the Province table of database
+ */
 public class ProvinceBean {
 	
 	@TableName(name = "province")

@@ -7,6 +7,9 @@ import it.carcheck.fastcrud.core.TableName;
 import it.carcheck.fastcrud.core.enums.PKType;
 import it.carcheck.fastcrud.core.enums.Type;
 
+/**
+ * Represent the PossessionFee table of database
+ */
 public class PossessionFeeBean {
 	
 	@TableName(name = "possessionfee")
