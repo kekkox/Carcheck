@@ -1,6 +1,6 @@
 package it.carchek.model.bean;
 
-public class Fuel implements VehicleProperty {
+public class Fuel{
    public Fuel(short id,String description)
     {
     this.id=id;

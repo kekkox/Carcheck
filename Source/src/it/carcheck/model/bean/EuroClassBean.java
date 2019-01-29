@@ -1,6 +1,6 @@
 package it.carchek.model.bean;
 
-public class EuroClass implements VehicleProperty {
+public class EuroClass{
     public EuroClass(short id,String description)
     {
         this.id=id;

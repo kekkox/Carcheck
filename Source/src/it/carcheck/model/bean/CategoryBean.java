@@ -1,6 +1,6 @@
 package it.carchek.model.bean;
 
-public class Category implements VehicleProperty {
+public class Category  {
     public Category(short id,String description)
     {
         this.id=id;
