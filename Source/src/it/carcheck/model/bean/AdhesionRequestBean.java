@@ -2,15 +2,16 @@ package it.carcheck.model.bean;
 
 import java.sql.Date;
 
+import it.carcheck.fastcrud.core.EntityType;
 import it.carcheck.fastcrud.core.TableName;
+import it.carcheck.fastcrud.core.enums.PKType;
+import it.carcheck.fastcrud.core.enums.Type;
 
 public class AdhesionRequestBean {
 
 
-	@TableName(name = "category")
-	public AdhesionRequestBean() {
-		super();
-	}
+	@TableName(name = "adhesionrequest")
+	public AdhesionRequestBean() {}
 	/*
 	 * Getters and setters methods
 	 */
@@ -21,22 +22,17 @@ public class AdhesionRequestBean {
 		this.id = id;
 	}
 	public int getWorkshopCode() {
-		return workshopCode;
+		return workshop;
 	}
 	public void setWorkshopCode(int workshopCode) {
-		this.workshopCode = workshopCode;
+		this.workshop = workshopCode;
 	}
-	public int getRequestStateCode() {
-		return requestStateCode;
-	}
-	public void setRequestStateCode(int requestStateCode) {
-		this.requestStateCode = requestStateCode;
-	}
+
 	public int getAdminCode() {
-		return adminCode;
+		return admin;
 	}
 	public void setAdminCode(int adminCode) {
-		this.adminCode = adminCode;
+		this.admin = adminCode;
 	}
 	public int getStatus() {
 		return status;
@@ -58,12 +54,9 @@ public class AdhesionRequestBean {
 	}
 	
 	
-	
-	private int id,workshopCode,requestStateCode,adminCode,status;
-	private Date meetingDate,meeetingHour;
-	
-	
-	
-	
+    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+	private int id;
+	private int workshop,admin,status;
+	private Date meetingDate,meeetingHour;	
 	
 }

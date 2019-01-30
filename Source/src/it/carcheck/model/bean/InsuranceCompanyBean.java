@@ -14,11 +14,11 @@ public class InsuranceCompanyBean {
     public InsuranceCompanyBean() {}
 
 
-    public short getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(short id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -31,6 +31,6 @@ public class InsuranceCompanyBean {
     }
 
     @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
-    private short id;
+    private int id;
     private String companyName;
 }

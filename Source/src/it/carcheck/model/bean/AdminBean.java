@@ -63,6 +63,15 @@ public class AdminBean {
 	public void setFirstLogin(boolean isFirstLogin) {
 		this.isFirstLogin = isFirstLogin;
 	}
+	
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+
 
 	/*
 	 * Instance Variables
@@ -72,5 +81,6 @@ public class AdminBean {
 	private String name, surname;
 	private String email, password;
 	private boolean isFirstLogin;
+	private int grade;
 
 }

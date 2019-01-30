@@ -11,88 +11,88 @@ import it.carcheck.fastcrud.core.enums.Type;
 public class VehicleBean {
 
 	@TableName(name = "vehicle")
-    public VehicleBean() {}
+	public VehicleBean() {
+	}
 
+	public String getLicensePlate() {
+		return licensePlate;
+	}
 
-    public String getLicensePlate() {
-        return licensePlate;
-    }
+	public void setLicensePlate(String licensePlate) {
+		this.licensePlate = licensePlate;
+	}
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public short getYearOfRegistration() {
+		return yearOfRegistration;
+	}
 
-    public short getYearOfRegistration() {
-        return yearOfRegistration;
-    }
+	public void setYearOfRegistration(short yearOfRegistration) {
+		this.yearOfRegistration = yearOfRegistration;
+	}
 
-    public void setYearOfRegistration(short yearOfRegistration) {
-        this.yearOfRegistration = yearOfRegistration;
-    }
+	public int getDisplacement() {
+		return displacement;
+	}
 
-    public int getDisplacement() {
-        return displacement;
-    }
+	public void setDisplacement(int displacement) {
+		this.displacement = displacement;
+	}
 
-    public void setDisplacement(int displacement) {
-        this.displacement = displacement;
-    }
+	public int getKw() {
+		return kw;
+	}
 
-    public int getKw() {
-        return kw;
-    }
+	public void setKw(int kw) {
+		this.kw = kw;
+	}
 
-    public void setKw(int kw) {
-        this.kw = kw;
-    }
+	public boolean isScrapped() {
+		return scrapped;
+	}
 
-    public boolean isScrapped() {
-        return scrapped;
-    }
+	public void setScrapped(boolean scrapped) {
+		this.scrapped = scrapped;
+	}
 
-    public void setScrapped(boolean scrapped) {
-        this.scrapped = scrapped;
-    }
+	public String getCategory() {
+		return category;
+	}
 
-    public int getCategory() {
-        return category;
-    }
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
-    public void setCategory(int category) {
-        this.category = category;
-    }
+	public String getFuel() {
+		return fuel;
+	}
 
-    public int getFuel() {
-        return fuel;
-    }
+	public void setFuel(String fuel) {
+		this.fuel = fuel;
+	}
 
-    public void setFuel(int fuel) {
-        this.fuel = fuel;
-    }
+	public String getEuroClass() {
+		return euroClass;
+	}
 
-    public int getEuroClass() {
-        return euroClass;
-    }
+	public void setEuroClass(String euroClass) {
+		this.euroClass = euroClass;
+	}
 
-    public void setEuroClass(int euroClass) {
-        this.euroClass = euroClass;
-    }
-
-    @EntityType(type = Type.PrimaryKey, pkType = PKType.None)
-    private String licensePlate;
-    private String description;
-    private short yearOfRegistration;
-    private int displacement,kw;
-    private boolean scrapped;
-    private int category;
-    private int fuel;
-    private int euroClass;
+	@EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+	private String licensePlate;
+	private String description;
+	private short yearOfRegistration;
+	private int displacement, kw;
+	private boolean scrapped;
+	private String category;
+	private String fuel;
+	private String euroClass;
 }

@@ -4,32 +4,28 @@ import it.carcheck.fastcrud.core.TableName;
 
 public class OwnerBean {
 
-	@TableName(name = "category")
+	@TableName(name = "owner")
 	public OwnerBean() {
-		super();
 	}
 
 	/*
 	 * Getters and setters methods
 	 */
-	public String getPersonCode() {
-		return personCode;
+	public String getPeople() {
+		return people;
 	}
 
-	public void setPersonCode(String personCode) {
-		this.personCode = personCode;
+	public void setPeople(String people) {
+		this.people = people;
 	}
 
-	public String getVehicleCode() {
-		return vehicleCode;
+	public String getVehicle() {
+		return vehicle;
 	}
 
-	public void setVehicleCode(String vehicleCode) {
-		this.vehicleCode = vehicleCode;
+	public void setVehicle(String vehicle) {
+		this.vehicle = vehicle;
 	}
 
-	
-	
-	private String personCode,vehicleCode;
-	
+	private String people, vehicle;
 }

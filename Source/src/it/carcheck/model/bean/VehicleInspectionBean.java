@@ -39,11 +39,11 @@ public class VehicleInspectionBean {
         this.expirationDate = expirationDate;
     }
 
-    public short getKm() {
+    public int getKm() {
         return km;
     }
 
-    public void setKm(short km) {
+    public void setKm(int km) {
         this.km = km;
     }
 
@@ -82,7 +82,7 @@ public class VehicleInspectionBean {
 	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
     private int id;
     private Date inspectionDate,expirationDate;
-    private short km;
+    private int km;
     private boolean result;
     private String photo;
     private int workShop;
