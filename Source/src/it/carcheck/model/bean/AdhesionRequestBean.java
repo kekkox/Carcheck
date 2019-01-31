@@ -1,6 +1,7 @@
 package it.carcheck.model.bean;
 
 import java.sql.Date;
+import java.sql.Time;
 
 import it.carcheck.fastcrud.core.EntityType;
 import it.carcheck.fastcrud.core.TableName;
@@ -46,10 +47,10 @@ public class AdhesionRequestBean {
 	public void setMeetingDate(Date meetingDate) {
 		this.meetingDate = meetingDate;
 	}
-	public Date getMeeetingHour() {
+	public Time getMeeetingHour() {
 		return meeetingHour;
 	}
-	public void setMeeetingHour(Date meeetingHour) {
+	public void setMeeetingHour(Time meeetingHour) {
 		this.meeetingHour = meeetingHour;
 	}
 	
@@ -57,6 +58,7 @@ public class AdhesionRequestBean {
     @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
 	private int id;
 	private int workshop,admin,status;
-	private Date meetingDate,meeetingHour;	
+	private Date meetingDate;
+	private Time meeetingHour;	
 	
 }
