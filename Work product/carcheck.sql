@@ -81,7 +81,7 @@ CREATE TABLE `city` (
 -- Dump dei dati per la tabella `city`
 --
 
-INSERT INTO `city` (`istat`, `cap`, `name`, `province`) VALUES
+INSERT INTO `city` (`istat`, `name`, `province`, `cap`) VALUES
     ("028001","Abano Terme","PD","35031"),
         ("098001","Abbadia Cerreto","LO","26834"),
         ("097001","Abbadia Lariana","LC","23821"),
