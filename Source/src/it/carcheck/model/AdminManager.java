@@ -5,13 +5,13 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import it.carcheck.fastcrud.Configuration;
 import it.carcheck.fastcrud.Database;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.enums.Grade;
 import it.carcheck.model.bean.enums.RequestStatus;
 import it.carcheck.model.interfaces.IAdmin;
+import it.carcheck.utility.PasswordHasher;
 
 public class AdminManager implements IAdmin{
 	
@@ -22,7 +22,8 @@ public class AdminManager implements IAdmin{
 	
 	@Override
 	public AdminBean doLogin(String email, String password) throws SQLException {
-		AdminBean admin = (AdminBean) database.Find(new AdminBean(), "SELECT * FROM admin WHERE email = " + email + " AND password = " + password).get(0);
+		String cryptedPassword = PasswordHasher.Encrypt(password);
+		AdminBean admin = (AdminBean) database.Find(new AdminBean(), "SELECT * FROM admin WHERE email = " + email + " AND password = " + cryptedPassword).get(0);
 		return admin;
 	}
 
@@ -30,7 +31,8 @@ public class AdminManager implements IAdmin{
 
 	@Override
 	public void doChangePassword(AdminBean user, String password) throws SQLException {
-		user.setPassword(password);
+		String cryptedPassword = PasswordHasher.Encrypt(password);
+		user.setPassword(cryptedPassword);
 		database.Update(user);
 	}
 
@@ -113,6 +115,7 @@ public class AdminManager implements IAdmin{
 		request.setStatus(RequestStatus.APPOINTMENT);
 		request.setMeeetingHour(time);
 		request.setMeetingDate(date);
+		
 		AdhesionRequestManager requestManager = new AdhesionRequestManager();
 		requestManager.doSave(request);
 	}

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import it.carcheck.fastcrud.Database;
 import it.carcheck.model.bean.AdhesionRequestBean;
-import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 import it.carcheck.model.bean.enums.RequestStatus;
 import it.carcheck.model.interfaces.IWorkshop;
+import it.carcheck.utility.PasswordHasher;
 
 public class WorkshopManager implements IWorkshop {
 
@@ -21,14 +21,15 @@ public class WorkshopManager implements IWorkshop {
 
 	@Override
 	public WorkshopBean doLogin(String email, String password) throws SQLException {
-
-		WorkshopBean workshop = doFind("SELECT * FROM workshop WHERE email = " + email + " AND password = " + password).get(0);
+		String cryptedPassword = PasswordHasher.Encrypt(password);
+		WorkshopBean workshop = doFind("SELECT * FROM workshop WHERE email = " + email + " AND password = " + cryptedPassword).get(0);
 		return workshop;
 	}
 
 	@Override
 	public void doChangePassword(WorkshopBean user, String password) throws SQLException {
-		user.setPassword(password);
+		String cryptedPassword = PasswordHasher.Encrypt(password);
+		user.setPassword(cryptedPassword);
 		database.Update(user);
 		
 	}
