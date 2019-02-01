@@ -6,7 +6,7 @@ import java.util.Collection;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 
-public interface IVehicleInspection {
+public interface IVehicleInspection extends IDatabaseOperation<VehicleInspectionBean> {
 	
 	public Collection<VehicleInspectionBean> doRetrieveByLicensePlate(WorkshopBean workshop, String licensePlate) throws SQLException;
 	

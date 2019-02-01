@@ -16,7 +16,7 @@ import it.carcheck.model.interfaces.IAdmin;
 public class AdminManager implements IAdmin{
 	
 	public AdminManager() {
-		this.database = Database.Begin(new Configuration());
+		this.database = Database.GetInstance();
 	}
 	
 	

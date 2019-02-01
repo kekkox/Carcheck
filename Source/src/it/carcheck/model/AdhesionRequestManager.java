@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import it.carcheck.fastcrud.Configuration;
 import it.carcheck.fastcrud.Database;
 import it.carcheck.model.bean.AdhesionRequestBean;
+import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.interfaces.IAdhesionRequest;
 
 public class AdhesionRequestManager implements IAdhesionRequest {
@@ -13,7 +14,7 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 	public AdhesionRequestManager() {
 		this.database = Database.Begin(new Configuration());
 	}
-	
+
 	@Override
 	public void doSave(AdhesionRequestBean element) throws SQLException {
 		database.Update(element);
@@ -26,6 +27,9 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 
 	@Override
 	public void doInsert(AdhesionRequestBean element) throws SQLException {
+		AdminManager adminManager = new AdminManager();
+		AdminBean adminBean = adminManager.doFind("SELECT * FROM admin ORDER BY RAND() LIMIT 1").get(0);
+		element.setAdminCode(adminBean.getId());
 		database.Insert(element);
 	}
 
@@ -39,5 +43,5 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 		adhesionRequest.setStatus(status);
 	}
 
-	Database database;
+	private Database database;
 }
