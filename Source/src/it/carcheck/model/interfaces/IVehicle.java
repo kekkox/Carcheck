@@ -1,5 +1,6 @@
 package it.carcheck.model.interfaces;
 
+import java.sql.SQLException;
 import java.util.Collection;
 
 import it.carcheck.model.bean.InsuranceBean;
@@ -10,9 +11,9 @@ import it.carcheck.model.bean.PeopleBean;
 
 public interface IVehicle extends IDatabaseOperation<VehicleBean> {
 	
-	public PossessionFeeBean doRetrieveLastPossessionFee(VehicleBean vehicle);
-	public InsuranceBean doRetrieveLastInsurance(VehicleBean vehicle);
-	public Collection<PeopleBean> doRetrieveOwners(VehicleBean vehicle);
-	public Collection<VehicleInspectionBean> doRetrieveLastVehicleInspection(VehicleBean vehicle);
+	public PossessionFeeBean doRetrieveLastPossessionFee(VehicleBean vehicle) throws SQLException;
+	public InsuranceBean doRetrieveLastInsurance(VehicleBean vehicle) throws SQLException;
+	public Collection<PeopleBean> doRetrieveOwners(VehicleBean vehicle) throws SQLException;
+	public VehicleInspectionBean doRetrieveLastVehicleInspection(VehicleBean vehicle) throws SQLException;
 	
 }
