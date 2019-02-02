@@ -7,7 +7,10 @@
     <title>Login officina</title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="./js/login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Open+Sans+Condensed:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -15,13 +18,23 @@
     <div class="container">
 
       <div class="login_container">
-
-        <span>Login officina</span>
+        <div class="header">
+          <span>Login officina</span>
+          <div>Username o password errati</div>
+        </div>
 
         <form action="" method="post">
-          <input type="email" name="email" placeholder="Indirizzo email"><br>
-          <input type="password" name="password" placeholder="Password"><br>
-          <button type="button" name="button">LOGIN</button>
+          <div class = "inputBox">
+            <input type="email" name="email" value ="" onkeyup="this.setAttribute('value', this.value);" required>
+            <label>Indirizzo Email</label>
+          </div>
+          <div class = "inputBox">
+            <input type="password" name="password" value ="" required>
+            <label>Password</label>
+          </div>
+          <button type="submit" name="button" value="Login">
+          	LOGIN
+          </button>
         </form>
 
         <div class="form_footer">

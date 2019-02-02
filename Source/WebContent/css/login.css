@@ -7,20 +7,43 @@
 		WHITE:		#fff;
 */
 
-input {
+.inputBox {
+    position: relative;
+}
+
+.inputBox input {
     font-family: 'Open Sans', sans-serif;
-    width: 90%;
-    border: 2px solid transparent;
-    padding: 0 12px;
-    height: 64px;
-    font-size: 15px;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #06c;
+    outline: none;
+    font-size: 16px;
     line-height: 1.2;
     transition: all 0.2s;
 }
 
-input:focus {
-	outline: none;
-	border-bottom: 2px solid #06c;
+.inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: #999999;
+    padding: 10px 0;
+    line-height: 1.2;
+    transition: all .5s;
+    pointer-events: none;
+}
+
+input:focus ~ label,
+input:active ~ label, 
+input:valid ~ label,
+input:not([value=""]):not(:focus):invalid ~ label{
+    top: -20px;
+    font-size: 12px;
+    color: #046DE0;
+    font-weight: 700;
 }
 
 .container {
@@ -33,27 +56,52 @@ input:focus {
 }
 
 .login_container {
-    height: fit-content;
-    padding: 45px 55px;
+    width: 400px;
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
+    box-sizing: border-box;
     box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', sans-serif;
 }
 
-.login_container span {
+.login_container .header {
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 108px;
+    transition: 0.5s all;
+}
+
+.login_container .header div {
+    position: absolute;
+    top: calc(50% + 20px);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    visibility: hidden;
+}
+
+.login_container .header span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     font-weight: 600;
     font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.login_container .header.error span {
+    top: calc(50% - 20px);
 }
 
 .login_container form {
-    margin-top: 0px;
-    margin-bottom: 25px;
+    margin: 30px 55px;
 }
 
 .login_container button {
-    margin-top: 20px;
     width: 100%;
     padding: 25px;
     background-color: #06c;
@@ -63,6 +111,11 @@ input:focus {
     transition: 0.2s all;
 }
 
+.login_container button.loading {
+    font-size: 31px;
+    padding: 14.5px 25px;
+}
+
 .login_container button:hover {
     cursor: pointer;
     background-color: #046de0;
@@ -70,6 +123,7 @@ input:focus {
 
 .form_footer {
     color: #999999;
+    margin-bottom: 45px;
 }
 
 .form_footer a {
@@ -85,6 +139,40 @@ input:focus {
 .form_footer a:visited {
     color: #06c;
 }
+
+.error {
+    background-color: #F44336;
+    color: white;
+}
+
+
+/*
+    Animation
+*/
+
+@keyframes shake {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); } 
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 /*Responsive*/
 @media screen and (max-width: 450px) {
