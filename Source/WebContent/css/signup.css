@@ -1,0 +1,213 @@
+/*
+	Color palette:
+		RED: 		#F44336;
+		GREY:		#f2f2f2;
+		BLUE:		#06c;
+		DARK BLUE: 	#046DE0;
+		WHITE:		#fff;
+*/
+
+
+.inputBox {
+    position: relative;
+}
+
+
+.inputBox input {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #06c;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.2;
+    transition: all 0.2s;
+}
+
+.inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: #999999;
+    padding: 10px 0;
+    line-height: 1.2;
+    transition: all .5s;
+    pointer-events: none;
+}
+
+.inputBox textarea {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid #06c;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.2;
+    transition: all 0.2s;
+    resize: none;
+}
+
+
+textarea:focus ~ label,
+textarea:active ~ label, 
+textarea:valid ~ label
+{
+    top: -20px;
+    font-size: 12px;
+    color: #046DE0;
+    font-weight: 700;
+}
+
+input:focus ~ label,
+input:active ~ label, 
+input:valid ~ label,
+input:not([value=""]):not(:focus):invalid ~ label{
+    top: -20px;
+    font-size: 12px;
+    color: #046DE0;
+    font-weight: 700;
+}
+
+
+.container {
+    height: calc(100% - 70px); /*70px is the height of menu*/
+    width: 100%;
+    background: #f2f2f2;
+    overflow: auto;
+}
+
+.signup_container {
+    width: 400px;
+    text-align: center;
+    background-color: #fff;
+    margin: auto;
+    margin-top:70px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.signup_container .header {
+    position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 108px;
+    transition: 0.5s all;
+}
+
+.signup_container .header div {
+    position: absolute;
+    top: calc(50% + 20px);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    visibility: hidden;
+}
+
+.signup_container .header span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.signup_container .header.error span {
+    top: calc(50% - 20px);
+}
+
+.signup_container form {
+    margin: 30px 55px;
+}
+
+.signup_container button {
+    width: 100%;
+    padding: 25px;
+    background-color: #06c;
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: 0.2s all;
+}
+
+.signup_container button.loading {
+    font-size: 31px;
+    padding: 14.5px 25px;
+}
+
+.signup_container button:hover {
+    cursor: pointer;
+    background-color: #046de0;
+}
+
+.form_footer {
+    color: #999999;
+    margin-bottom: 45px;
+    padding-bottom: 15px;
+}
+
+.form_footer a {
+    color: #06c;
+    text-decoration: none;
+}
+
+.form_footer a:hover {
+    color: #046de0;
+    text-decoration: underline;
+}
+
+.form_footer a:visited {
+    color: #06c;
+}
+
+.error {
+    background-color: #F44336;
+    color: white;
+}
+
+
+/*
+    Animation
+*/
+
+@keyframes shake {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); } 
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/*Responsive*/
+@media screen and (max-width: 450px) {
+	.login_container {
+		padding: 15px 25px;
+		margin: 0 15px;
+		width: 100%;
+	}
+}
