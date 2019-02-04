@@ -31,7 +31,8 @@
    %>
    <li>
    <% }%>
-     <a href=<%=VEHICLE_INSPECTION_URI%>></a><i class="fas fa-wrench"></i><span>Revisioni</span></li>
+     <a href=<%=VEHICLE_INSPECTION_URI%>><i class="fas fa-wrench"></i><span>Revisioni</span></a>
+     </li>
      <%
    	if(uri.equals(SETTINGS_URI)) {
    %>
@@ -41,5 +42,6 @@
    %>
    <li>
    <% }%>
-     <a href=<%=SETTINGS_URI%>></a><i class="fas fa-cog"></i><span>Impostazioni</span></li>
+     <a href=<%=SETTINGS_URI%>><i class="fas fa-cog"></i><span>Impostazioni</span></a>
+     </li>
    </ul>
