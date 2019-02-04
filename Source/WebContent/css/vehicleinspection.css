@@ -1,0 +1,11 @@
+.container{
+	display: inline-flex;
+	overflow-y:auto;
+	height: calc(100% - 70px);
+	width: 100%;
+}
+.content{
+	width: calc(100% - 250px);
+	padding: 10px;
+	background: #f2f2f2;
+}
