@@ -1,0 +1,70 @@
+/*
+	Color palette:
+		RED: 		#F44336;
+		GREY:		#f2f2f2;
+		BLUE:		#06c;
+		DARK BLUE: 	#046DE0;
+		WHITE:		#fff;
+		BLACK:		#31393C;
+*/
+
+.container {
+    display: inline-flex;
+    overflow-y: auto;
+    height: calc(100% - 70px); /*70px is the height of the menu*/
+    width: 100%;
+}
+
+.content {
+    width: calc(100% - 250px);
+    padding: 10px;
+    background: #f2f2f2;
+    font-family: 'Open-sans', sans-serif;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex !important;
+    justify-content: space-around;
+    box-sizing: border-box;
+    align-items: center;
+    width: 300px;
+    margin: 10px;
+    padding: 15px 30px;
+    background-color: white;
+    box-shadow: 4px 8px 9px -2px #c7c5d8;
+}
+
+.card div {
+	margin: 0 10px;
+}
+
+.card .roundBackground {
+	font-size: 20px;
+	color: #fff;
+	border-radius: 50%;
+	background-color: #06c;
+	padding: 20px;
+}
+
+.card .info {
+	text-align: center;
+}
+
+.card .info p {
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.card .info h2 {
+	margin: 0;
+}
+
+.container h1 {
+	text-align: center;
+}
