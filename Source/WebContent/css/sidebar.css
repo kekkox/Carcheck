@@ -1,0 +1,35 @@
+.sidebar {
+	width: 250px;
+	margin: 0;
+	padding: 0;
+    list-style: none;
+    height: 100%;
+    background-color:#31393C;
+}
+
+.sidebar a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.sidebar li {
+	padding: 25px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.sidebar li.selected {
+    border-left: 3px solid white;
+}
+
+.sidebar li:hover {
+	background-color: #06c;
+}
+
+.sidebar li span {
+	margin-left: 10px;
+	text-transform: uppercase;
+}
