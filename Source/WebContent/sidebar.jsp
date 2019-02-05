@@ -44,4 +44,7 @@
    <% }%>
      <a href=<%=SETTINGS_URI%>><i class="fas fa-cog"></i><span>Impostazioni</span></a>
      </li>
+    <li id="last">
+    	<i class="fas fa-sign-out-alt"></i><span>Logout</span>
+    </li>
    </ul>

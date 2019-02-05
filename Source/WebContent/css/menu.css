@@ -16,14 +16,73 @@
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.menu span {
+	display: none;
+	transition: 0.3s all;
+}
+
 .menu.fill {
 	position: initial;
+	display: flex;
+  	align-items: center;
 	background: rgba(4,109,224,0.9);
 	height: 70px;
 }
 
 .menu a {
 	text-decoration: none;
+}
+
+.hamburger {
+	display: none;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	margin: 0 25px;
+	cursor: pointer;
+}
+
+.hamburger .bar {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 30px;
+	height: 6px;
+	background: #fff;
+	transition: 0.5s all;
+}
+
+.hamburger .bar:before,
+.hamburger .bar:after {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 6px;
+	background: #fff;
+	transition: 0.5s all;
+}
+
+.hamburger .bar:before {
+	top: -10px;
+}
+
+.hamburger .bar:after {
+	top: 10px;
+}
+
+.hamburger.active .bar {
+	background: transparent;
+}
+
+.hamburger.active .bar:before {
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.hamburger.active .bar:after {
+	top: 0;
+	transform: rotate(135deg);
 }
 
 .login {

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
-	final String HOMEPAGE_URI = "index.jsp"; 
+	final String HOMEPAGE_URI = "index.jsp";
 	String uri = request.getRequestURI();
 	uri = uri.substring(uri.lastIndexOf('/') + 1);
 	
@@ -16,6 +16,9 @@
 	
 	else { %>
 		<div class="menu fill">
-		  <a class="logo" href="index.jsp">CarCheck</a>
+			<div class = "hamburger">
+				<div class="bar"></div>
+			</div>
+		  	<a class="logo" href="../index.jsp">CarCheck</a>
 		</div>
 <% } %>
