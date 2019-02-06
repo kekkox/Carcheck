@@ -1,10 +1,12 @@
 .sidebar {
+	position: relative;
 	width: 250px;
 	margin: 0;
 	padding: 0;
     list-style: none;
     height: 100%;
     background-color:#31393C;
+    transition: 0.5s all;
 }
 
 .sidebar a {
@@ -29,7 +31,47 @@
 	background-color: #06c;
 }
 
+.sidebar li#last {
+	position: absolute;
+	bottom: 0;
+	width: calc(100% - 50px); /*100% - (padding left + padding right)*/
+}
+
 .sidebar li span {
 	margin-left: 10px;
 	text-transform: uppercase;
+}
+
+@media screen and (min-width: 800px) {
+	.sidebar {
+		margin: 0 !important;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.sidebar {
+		margin-left: -250px;
+	}
+	
+	.content {
+		width: 100%;
+	}
+	
+	.hamburger {
+		display: initial;
+	}
+	
+	.logo {
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.card {
+		width: 250px;
+	}
+	
+	.row .tableContainer {
+		width: 90%;
+	}
 }
