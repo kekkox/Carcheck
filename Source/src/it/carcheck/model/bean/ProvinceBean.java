@@ -1,16 +1,14 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the Province table of database
  */
 public class ProvinceBean {
 	
-	@TableName(name = "province")
+	@Table(name = "province")
     public ProvinceBean() {}
 
 	
@@ -38,7 +36,7 @@ public class ProvinceBean {
 		this.region = region;
 	}
 
-	@EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+	@PrimaryKey(option = PrimaryKeyOption.None )
 	private String provinceCode;
 	private String name;
     private int region;

@@ -2,17 +2,15 @@ package it.carcheck.model.bean;
 
 import java.sql.Date;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the VehicleInspection table of database
  */
 public class VehicleInspectionBean {
 	
-	@TableName(name = "vehicleinspection")
+	@Table(name = "vehicleinspection")
     public VehicleInspectionBean() {}
 	
 	public int getId() {
@@ -79,7 +77,7 @@ public class VehicleInspectionBean {
         this.vehicle = vehicle;
     }
 
-	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+    @PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
     private int id;
     private Date inspectionDate,expirationDate;
     private int km;

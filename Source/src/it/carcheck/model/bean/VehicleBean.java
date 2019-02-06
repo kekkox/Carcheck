@@ -1,16 +1,14 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the Vehicle table of database
  */
 public class VehicleBean {
 
-	@TableName(name = "vehicle")
+	@Table(name = "vehicle")
 	public VehicleBean() {
 	}
 
@@ -85,8 +83,8 @@ public class VehicleBean {
 	public void setEuroClass(String euroClass) {
 		this.euroClass = euroClass;
 	}
-
-	@EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+	
+	@PrimaryKey(option = PrimaryKeyOption.None )
 	private String licensePlate;
 	private String description;
 	private short yearOfRegistration;

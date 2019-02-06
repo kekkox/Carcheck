@@ -2,17 +2,15 @@ package it.carcheck.model.bean;
 
 import java.sql.Date;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the People table of database
  */
 public class PeopleBean {
 	
-	@TableName(name = "people")
+	@Table(name = "people")
     public PeopleBean() {}
 
     public String getFiscalCode() {
@@ -72,7 +70,7 @@ public class PeopleBean {
     }
     
     
-    @EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+    @PrimaryKey(option = PrimaryKeyOption.None )
     private String fiscalCode;
     private String name;
     private String surname;

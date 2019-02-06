@@ -1,16 +1,14 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the InsuranceCompany table of database
  */
 public class InsuranceCompanyBean {
 	
-	@TableName(name = "insurancecompany")
+	@Table(name = "insurancecompany")
     public InsuranceCompanyBean() {}
 
 
@@ -30,7 +28,7 @@ public class InsuranceCompanyBean {
         this.companyName = companyName;
     }
 
-    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+    @PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
     private int id;
     private String companyName;
 }

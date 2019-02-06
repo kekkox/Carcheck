@@ -1,10 +1,10 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.TableName;
+import it.dsoft.fastcrud.core.annotations.*;
 
 public class OwnerBean {
 
-	@TableName(name = "owner")
+	@Table(name = "owner")
 	public OwnerBean() {
 	}
 

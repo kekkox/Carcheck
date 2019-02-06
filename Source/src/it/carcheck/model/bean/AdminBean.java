@@ -1,16 +1,14 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the Admin table of database
  */
 public class AdminBean {
 
-	@TableName(name = "admin")
+	@Table(name = "admin")
 	public AdminBean() {}
 
 	/*
@@ -76,7 +74,7 @@ public class AdminBean {
 	/*
 	 * Instance Variables
 	 */
-	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+	@PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
 	int id;
 	private String name, surname;
 	private String email, password;

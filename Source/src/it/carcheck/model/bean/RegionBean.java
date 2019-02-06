@@ -1,16 +1,14 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the Region table of database
  */
 public class RegionBean {
     
-	@TableName(name = "region")
+	@Table(name = "region")
 	public RegionBean() {}
 
     public short getId() {
@@ -29,7 +27,7 @@ public class RegionBean {
         this.name = name;
     }
     
-    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+    @PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
     private short id;
     private String name;
 }

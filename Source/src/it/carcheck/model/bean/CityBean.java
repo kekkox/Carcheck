@@ -1,9 +1,7 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 
 /**
@@ -11,7 +9,7 @@ import it.carcheck.fastcrud.core.enums.Type;
  */
 public class CityBean {
 	
-	@TableName(name = "city")
+	@Table(name = "city")
     public CityBean() {}
 
     public String getIstat() {
@@ -46,7 +44,7 @@ public class CityBean {
         this.province = province;
     }
     
-    @EntityType(type = Type.PrimaryKey, pkType = PKType.None)
+    @PrimaryKey(option = PrimaryKeyOption.None )
     private String istat;
     private String name;
     private String cap;

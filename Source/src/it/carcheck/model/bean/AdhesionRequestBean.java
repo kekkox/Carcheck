@@ -3,15 +3,13 @@ package it.carcheck.model.bean;
 import java.sql.Date;
 import java.sql.Time;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 public class AdhesionRequestBean {
 
 
-	@TableName(name = "adhesionrequest")
+	@Table(name = "adhesionrequest")
 	public AdhesionRequestBean() {}
 	/*
 	 * Getters and setters methods
@@ -55,7 +53,7 @@ public class AdhesionRequestBean {
 	}
 	
 	
-    @EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+    @PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
 	private int id;
 	private int workshop,admin,status;
 	private Date meetingDate;

@@ -1,16 +1,14 @@
 package it.carcheck.model.bean;
 
-import it.carcheck.fastcrud.core.EntityType;
-import it.carcheck.fastcrud.core.TableName;
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.annotations.*;
+import it.dsoft.fastcrud.core.enums.*;
 
 /**
  * Represent the Workshop table of database
  */
 public class WorkshopBean {
 
-	@TableName(name = "workshop")
+	@Table(name = "workshop")
 	public WorkshopBean() {}
 
 	/*
@@ -108,7 +106,7 @@ public class WorkshopBean {
 	/*
 	 * Instance Variables
 	 */
-	@EntityType(type = Type.PrimaryKey, pkType = PKType.Auto_Increment)
+	@PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
 	private int id;
 	private int city;	
 	private String businessName, pIva, address, owner, description, telephone;
