@@ -10,6 +10,13 @@
           <link rel="stylesheet" href="../css/sidebar.css">
           <link rel="stylesheet" href="../css/searchbar.css">
               <link rel="stylesheet" href="../css/vehicleinspection.css">
+              <link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="css/searchbar.css">
+
+	
     <title>Carchek</title>
 </head>
 <body>
@@ -17,39 +24,52 @@
 <div class="container">
 <jsp:include page="../sidebar.jsp" />
 <div class="content">
-<jsp:include page="../searchbar.jsp" />
     <div class="tableContainer">
+     <jsp:include page="../searchbar.jsp" />
         <table class="table">
             <tr>
-                <th>Nome</th>
-                <th>Cognome</th>
-                <th>Data</th>
-                <th class="lastCell">Scadenza</th>
+                <th>Targa</th>
+                <th>Intestatario</th>
+				<th>Telefono</th>
+				<th>Data Revisione</th>
+				<th>Chilometri</th>
+				<th>Data Scadenza</th>
+				<th>Esito</th>
+                <th class="lastCell">Azioni</th>
+        
             </tr>
             <tr>
-                <td class="mainCell">Milo</td>
-                <td>
-                    <div class='statusCell processing'>
-                        Processing
-                    </div>
-                </td>
-                <td>10/10/12</td>
-                <td>si</td>
+                <td class="mainCell">TC215MZ</td>
+				<td>Braccobaldo D'aragona</td>
+				<td>+390815203651</td>
+				<td>10/10/2015</td>
+				<td>12.530km</td>
+				<td>10/10/2019</td>
+				<td><div class='statusCell positive'>Approvata</div></td>
+				<td><div class="action"><i class="fas fa-eye" id="eye"></i><i class="fas fa-pencil-alt" id="pencil"></i></div></td>
             </tr>
-            <tr>
-                <td>Lio</td>
-                <td>
-                    <div class='statusCell approved'>
-                        Approved
-                    </div>
-                </td>
-                <td>10/10/12</td>
-                <td>Amy Shanks</td>
+			<tr>
+                <td class="mainCell">MO185LT</td>
+				<td>Mario Rossi</td>
+				<td>+393257841502</td>
+				<td>10/10/2015</td>
+				<td>124.530km</td>
+				<td>10/10/2019</td>
+				<td><div class='statusCell negative'>Respinta</div></td>
+				<td><div class="action">
+				<a href="https:/dsjdis"><i class="fas fa-eye" id="eye"></i></a>
+				<a href="https:/dsjdis"><i class="fas fa-pencil-alt" id="pencil"></i></a>
+				</div></td>
             </tr>
         </table>
     </div>
     </div>
-  </div>
+    <Button class="button">	
+   	
+   	<span class="plustxt">+</span>
+   	   	<span class="buttontext">Aggiungi Revisione</span></Button>   
+</div>
+
 </body>
 
 </html>

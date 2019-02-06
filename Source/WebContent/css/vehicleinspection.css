@@ -1,6 +1,5 @@
 .container{
 	display: inline-flex;
-	overflow-y:auto;
 	height: calc(100% - 70px);
 	width: 100%;
 }
@@ -8,4 +7,17 @@
 	width: calc(100% - 250px);
 	padding: 10px;
 	background: #f2f2f2;
+	 top: 50%;
+  	left: 50%;
+  	overflow-y: auto;
+}
+.row{
+	
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.row span {
+	width:450px;
 }
