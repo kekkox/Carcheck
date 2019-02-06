@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import it.carcheck.fastcrud.Database;
+import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 import it.carcheck.model.interfaces.IVehicleInspection;
@@ -14,7 +14,7 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	
 	
 	public VehicleInspectionManager() {
-		this.database = Database.GetInstance();
+		this.database = CarcheckDatabase.getInstance();
 	}
 
 	@Override
@@ -29,27 +29,44 @@ public class VehicleInspectionManager implements IVehicleInspection {
 
 	@Override
 	public void doSave(VehicleInspectionBean element) throws SQLException {
-		database.Update(element);
+		try {
+			database.update(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void doDelete(VehicleInspectionBean element) throws SQLException {
-		database.Delete(element);
+		try {
+			database.delete(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void doInsert(VehicleInspectionBean element) throws SQLException {
-		database.Insert(element);
+		try {
+			database.create(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public ArrayList<VehicleInspectionBean> doFind(String query) throws SQLException {
-		return database.Find(new WorkshopBean(), query);
-	
+		try {
+			return database.find(query, VehicleInspectionBean.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
-	private Database database;
+	private CarcheckDatabase database;
 	
 }

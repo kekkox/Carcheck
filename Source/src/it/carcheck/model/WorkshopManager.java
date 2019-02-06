@@ -3,7 +3,7 @@ package it.carcheck.model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import it.carcheck.fastcrud.Database;
+import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.VehicleInspectionBean;
@@ -16,7 +16,7 @@ public class WorkshopManager implements IWorkshop {
 
 	
 	public WorkshopManager() {
-		this.database = Database.GetInstance();
+		this.database = CarcheckDatabase.getInstance();
 	}
 
 	@Override
@@ -30,29 +30,51 @@ public class WorkshopManager implements IWorkshop {
 	public void doChangePassword(WorkshopBean user, String password) throws SQLException {
 		String cryptedPassword = PasswordHasher.Encrypt(password);
 		user.setPassword(cryptedPassword);
-		database.Update(user);
+		
+		try {
+			database.update(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void doSave(WorkshopBean element) throws SQLException {
-		database.Update(element);		
+		try {
+			database.update(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 
 	@Override
 	public void doDelete(WorkshopBean element) throws SQLException {
-		database.Delete(element);
-		
+		try {
+			database.delete(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void doInsert(WorkshopBean element) throws SQLException {
-		database.Insert(element);
+		try {
+			database.create(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public ArrayList<WorkshopBean> doFind(String query) throws SQLException {
-		return database.Find(new WorkshopBean(), query);
+		try {
+			return database.find(query, WorkshopBean.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	@Override
@@ -67,6 +89,7 @@ public class WorkshopManager implements IWorkshop {
 		AdhesionRequestBean adhesionRequestBean = new AdhesionRequestBean();
 		adhesionRequestBean.setWorkshopCode(workshop.getId());
 		adhesionRequestBean.setStatus(RequestStatus.PROCESSING);
+		
 		AdhesionRequestManager adhesionRequestManager = new AdhesionRequestManager();
 		adhesionRequestManager.doInsert(adhesionRequestBean);	
 		/*
@@ -78,11 +101,12 @@ public class WorkshopManager implements IWorkshop {
 	public void doAddVehicleInspection(WorkshopBean workshop,VehicleInspectionBean vehicleInspection,VehicleBean vehicle) throws SQLException{
 		vehicleInspection.setWorkShop(workshop.getId());
 		vehicleInspection.setVehicle(vehicle.getLicensePlate());
+		
 		VehicleInspectionManager vehicleInspectionManager = new VehicleInspectionManager();
 		vehicleInspectionManager.doInsert(vehicleInspection);	
 	}
 
 
 	
-	private Database database;
+	private CarcheckDatabase database;
 }

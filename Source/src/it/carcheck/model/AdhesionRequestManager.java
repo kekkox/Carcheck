@@ -3,8 +3,7 @@ package it.carcheck.model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import it.carcheck.fastcrud.Configuration;
-import it.carcheck.fastcrud.Database;
+import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.interfaces.IAdhesionRequest;
@@ -12,17 +11,25 @@ import it.carcheck.model.interfaces.IAdhesionRequest;
 public class AdhesionRequestManager implements IAdhesionRequest {
 
 	public AdhesionRequestManager() {
-		this.database = Database.Begin(new Configuration());
+		this.database = CarcheckDatabase.getInstance();
 	}
 
 	@Override
 	public void doSave(AdhesionRequestBean element) throws SQLException {
-		database.Update(element);
+		try {
+			database.update(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void doDelete(AdhesionRequestBean element) throws SQLException {
-		database.Delete(element);
+		try {
+			database.delete(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -30,12 +37,23 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 		AdminManager adminManager = new AdminManager();
 		AdminBean adminBean = adminManager.doFind("SELECT * FROM admin ORDER BY RAND() LIMIT 1").get(0);
 		element.setAdminCode(adminBean.getId());
-		database.Insert(element);
+		
+		try {
+			database.create(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public ArrayList<AdhesionRequestBean> doFind(String query) throws SQLException {
-		return database.Find(new AdhesionRequestBean(), query);
+		try {
+			return database.find(query, AdhesionRequestBean.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	@Override
@@ -43,5 +61,5 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 		adhesionRequest.setStatus(status);
 	}
 
-	private Database database;
+	private CarcheckDatabase database;
 }

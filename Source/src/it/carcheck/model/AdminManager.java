@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
-import it.carcheck.fastcrud.Database;
+import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.enums.Grade;
@@ -16,15 +16,22 @@ import it.carcheck.utility.PasswordHasher;
 public class AdminManager implements IAdmin{
 	
 	public AdminManager() {
-		this.database = Database.GetInstance();
+		this.database = CarcheckDatabase.getInstance();
 	}
 	
 	
 	@Override
 	public AdminBean doLogin(String email, String password) throws SQLException {
 		String cryptedPassword = PasswordHasher.Encrypt(password);
-		AdminBean admin = (AdminBean) database.Find(new AdminBean(), "SELECT * FROM admin WHERE email = " + email + " AND password = " + cryptedPassword).get(0);
-		return admin;
+		
+		AdminBean admin;
+		try {
+			admin = (AdminBean) database.find("SELECT * FROM admin WHERE email = " + email + " AND password = " + cryptedPassword, AdminBean.class).get(0);
+			return admin;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 
@@ -33,35 +40,58 @@ public class AdminManager implements IAdmin{
 	public void doChangePassword(AdminBean user, String password) throws SQLException {
 		String cryptedPassword = PasswordHasher.Encrypt(password);
 		user.setPassword(cryptedPassword);
-		database.Update(user);
+		
+		try {
+			database.update(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
 
 	@Override
 	public void doSave(AdminBean element) throws SQLException {
-		database.Update(element);
+		try {
+			database.update(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
 
 	@Override
 	public void doDelete(AdminBean element) throws SQLException {
-		database.Delete(element);
+		try {
+			database.delete(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
 
 	@Override
 	public void doInsert(AdminBean element) throws SQLException {
-		database.Insert(element);
+		try {
+			database.create(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
 
 	@Override
 	public ArrayList<AdminBean> doFind(String query) throws SQLException {
-		return database.Find(new AdminBean(), query);
+		try {
+			return database.find(query, AdminBean.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 
@@ -120,5 +150,5 @@ public class AdminManager implements IAdmin{
 		requestManager.doSave(request);
 	}
 	
-	private Database database;
+	private CarcheckDatabase database;
 }
