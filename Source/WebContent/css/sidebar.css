@@ -34,11 +34,18 @@
 .sidebar li#last {
 	position: absolute;
 	bottom: 0;
+	width: calc(100% - 50px); /*100% - (padding left + padding right)*/
 }
 
 .sidebar li span {
 	margin-left: 10px;
 	text-transform: uppercase;
+}
+
+@media screen and (min-width: 800px) {
+	.sidebar {
+		margin: 0 !important;
+	}
 }
 
 @media screen and (max-width: 800px) {
