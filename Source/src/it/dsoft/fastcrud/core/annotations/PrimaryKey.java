@@ -1,17 +1,20 @@
-package it.carcheck.fastcrud.core;
+package it.dsoft.fastcrud.core.annotations;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import it.carcheck.fastcrud.core.enums.PKType;
-import it.carcheck.fastcrud.core.enums.Type;
+import it.dsoft.fastcrud.core.enums.PrimaryKeyOption;
 
+/**
+ * Database primary key annotation
+ * @author Daniele De Falco
+ *
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public
-@interface EntityType
-{
-	Type type();
-	PKType pkType();
+@interface PrimaryKey {
+	PrimaryKeyOption option();
 }
