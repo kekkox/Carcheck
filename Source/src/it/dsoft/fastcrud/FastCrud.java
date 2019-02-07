@@ -13,6 +13,7 @@ import it.dsoft.fastcrud.core.interfaces.IBeanEntityFactory;
 import it.dsoft.fastcrud.core.interfaces.IConnectionPool;
 import it.dsoft.fastcrud.enums.OperationType;
 import it.dsoft.fastcrud.enums.StatementType;
+import it.dsoft.fastcrud.exceptions.DatabaseUpdateException;
 import it.dsoft.fastcrud.interfaces.IDatabase;
 
 /**
@@ -80,7 +81,10 @@ public class FastCrud implements IDatabase {
 			String query = this.queryGenerator.generateQuery(entity, OperationType.Update);
 			statement = this.statementFactory.createStatement(StatementType.Update, connection, entity, query);
 			
-			statement.executeUpdate();
+			int resultRow = statement.executeUpdate();
+			if(resultRow <= 0)
+				throw new DatabaseUpdateException("you cannot update primary key");
+			
 			connection.commit();
 		} finally {
 			try { if(statement != null) statement.close(); }
