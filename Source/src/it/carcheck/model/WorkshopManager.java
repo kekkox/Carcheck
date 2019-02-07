@@ -10,6 +10,7 @@ import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 import it.carcheck.model.bean.enums.RequestStatus;
 import it.carcheck.model.interfaces.IWorkshop;
+import it.carcheck.utility.EmailSender;
 import it.carcheck.utility.PasswordHasher;
 
 public class WorkshopManager implements IWorkshop {
@@ -92,9 +93,9 @@ public class WorkshopManager implements IWorkshop {
 		
 		AdhesionRequestManager adhesionRequestManager = new AdhesionRequestManager();
 		adhesionRequestManager.doInsert(adhesionRequestBean);	
-		/*
-		 * TODO must implement email sender
-		 */
+		
+		EmailSender sender = EmailSender.Begin("carcheck.unisa@gmail.com", "Developer9798");
+		sender.SendEmail("Carcheck - Richiesta adesione", String.format(MAIL_BODY, workshop.getOwner(), workshop.getBusinessName()), workshop.getEmail());
 	}
 	
 	@Override
@@ -106,7 +107,6 @@ public class WorkshopManager implements IWorkshop {
 		vehicleInspectionManager.doInsert(vehicleInspection);	
 	}
 
-
-	
 	private CarcheckDatabase database;
+	private static final String MAIL_BODY = "Grazie %s per la richiesta di adesione ai servizi di Carcheck da parte dell'officina %s\n La sua richiesta verrà esaminatada un'operatore e controllata nel più breve tempo possibile";
 }
