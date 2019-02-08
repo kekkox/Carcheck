@@ -1,4 +1,4 @@
-package it.carcheck.control;
+package it.carcheck.control.request;
 
 import java.sql.SQLException;
 
