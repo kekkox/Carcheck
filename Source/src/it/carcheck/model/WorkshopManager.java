@@ -15,8 +15,14 @@ import it.carcheck.utility.PasswordHasher;
 
 public class WorkshopManager implements IWorkshop {
 
+	public static WorkshopManager getInstance() {
+		if(instance == null)
+			instance = new WorkshopManager();
+		
+		return instance;
+	}
 	
-	public WorkshopManager() {
+	private WorkshopManager() {
 		this.database = CarcheckDatabase.getInstance();
 	}
 
@@ -108,5 +114,6 @@ public class WorkshopManager implements IWorkshop {
 	}
 
 	private CarcheckDatabase database;
+	private static WorkshopManager instance;
 	private static final String MAIL_BODY = "Grazie %s per la richiesta di adesione ai servizi di Carcheck da parte dell'officina %s\n La sua richiesta verrà esaminatada un'operatore e controllata nel più breve tempo possibile";
 }

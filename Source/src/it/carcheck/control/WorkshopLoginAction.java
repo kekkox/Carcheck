@@ -17,7 +17,7 @@ public class WorkshopLoginAction implements IAction {
 		String password = request.getParameter("password");
 		
 		try {
-			WorkshopBean user = new WorkshopManager().doLogin(email, password);
+			WorkshopBean user = WorkshopManager.getInstance().doLogin(email, password);
 			
 			if(user != null) {
 				request.getSession().setAttribute("user", user);
