@@ -9,7 +9,14 @@ import it.carcheck.model.interfaces.ILocation;
 
 public class LocationManager implements ILocation {
 
-	public LocationManager() {
+	public static LocationManager getInstance() {
+		if(instance == null)
+			instance = new LocationManager();
+		
+		return instance;
+	}
+	
+	private LocationManager() {
 		this.database = CarcheckDatabase.getInstance();
 	}
 	
@@ -85,4 +92,5 @@ public class LocationManager implements ILocation {
 	}
 	
 	private CarcheckDatabase database;
+	private static LocationManager instance;
 }

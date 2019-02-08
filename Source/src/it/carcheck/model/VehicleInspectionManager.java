@@ -11,9 +11,14 @@ import it.carcheck.model.interfaces.IVehicleInspection;
 
 public class VehicleInspectionManager implements IVehicleInspection {
 
+	public static VehicleInspectionManager getInstance() {
+		if(instance == null)
+			instance = new VehicleInspectionManager();
+		
+		return instance;
+	}
 	
-	
-	public VehicleInspectionManager() {
+	private VehicleInspectionManager() {
 		this.database = CarcheckDatabase.getInstance();
 	}
 
@@ -68,5 +73,5 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	}
 
 	private CarcheckDatabase database;
-	
+	private static VehicleInspectionManager instance;
 }

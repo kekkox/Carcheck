@@ -91,7 +91,7 @@ public class WorkshopManager implements IWorkshop {
 		adhesionRequestBean.setWorkshopCode(workshop.getId());
 		adhesionRequestBean.setStatus(RequestStatus.PROCESSING);
 		
-		AdhesionRequestManager adhesionRequestManager = new AdhesionRequestManager();
+		AdhesionRequestManager adhesionRequestManager = AdhesionRequestManager.getInstance();
 		adhesionRequestManager.doInsert(adhesionRequestBean);	
 		
 		EmailSender sender = EmailSender.Begin("carcheck.unisa@gmail.com", "Developer9798");
@@ -103,7 +103,7 @@ public class WorkshopManager implements IWorkshop {
 		vehicleInspection.setWorkShop(workshop.getId());
 		vehicleInspection.setVehicle(vehicle.getLicensePlate());
 		
-		VehicleInspectionManager vehicleInspectionManager = new VehicleInspectionManager();
+		VehicleInspectionManager vehicleInspectionManager = VehicleInspectionManager.getInstance();
 		vehicleInspectionManager.doInsert(vehicleInspection);	
 	}
 

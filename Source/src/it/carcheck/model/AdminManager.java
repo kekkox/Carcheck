@@ -15,10 +15,16 @@ import it.carcheck.utility.PasswordHasher;
 
 public class AdminManager implements IAdmin{
 	
-	public AdminManager() {
-		this.database = CarcheckDatabase.getInstance();
+	public static AdminManager getInstance() {
+		if(instance == null)
+			instance = new AdminManager();
+		
+		return instance;
 	}
 	
+	private AdminManager() {
+		this.database = CarcheckDatabase.getInstance();
+	}
 	
 	@Override
 	public AdminBean doLogin(String email, String password) throws SQLException {
@@ -125,7 +131,8 @@ public class AdminManager implements IAdmin{
 	@Override
 	public void doApproveRequest(AdhesionRequestBean request) throws SQLException {
 		request.setStatus(RequestStatus.APPROVED);
-		AdhesionRequestManager requestManager = new AdhesionRequestManager();
+		
+		AdhesionRequestManager requestManager = AdhesionRequestManager.getInstance();
 		requestManager.doSave(request);
 	}
 
@@ -134,7 +141,7 @@ public class AdminManager implements IAdmin{
 	@Override
 	public void doRejectRequest(AdhesionRequestBean request) throws SQLException {
 		request.setStatus(RequestStatus.REFUSED);
-		AdhesionRequestManager requestManager = new AdhesionRequestManager();
+		AdhesionRequestManager requestManager = AdhesionRequestManager.getInstance();
 		requestManager.doSave(request);
 	}
 
@@ -146,9 +153,10 @@ public class AdminManager implements IAdmin{
 		request.setMeeetingHour(time);
 		request.setMeetingDate(date);
 		
-		AdhesionRequestManager requestManager = new AdhesionRequestManager();
+		AdhesionRequestManager requestManager = AdhesionRequestManager.getInstance();
 		requestManager.doSave(request);
 	}
 	
 	private CarcheckDatabase database;
+	private static AdminManager instance;
 }

@@ -10,7 +10,14 @@ import it.carcheck.model.interfaces.IAdhesionRequest;
 
 public class AdhesionRequestManager implements IAdhesionRequest {
 
-	public AdhesionRequestManager() {
+	public static AdhesionRequestManager getInstance() {
+		if(instance == null)
+			instance = new AdhesionRequestManager();
+		
+		return instance;
+	}
+	
+	private AdhesionRequestManager() {
 		this.database = CarcheckDatabase.getInstance();
 	}
 
@@ -34,8 +41,9 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 
 	@Override
 	public void doInsert(AdhesionRequestBean element) throws SQLException {
-		AdminManager adminManager = new AdminManager();
+		AdminManager adminManager = AdminManager.getInstance();
 		AdminBean adminBean = adminManager.doFind("SELECT * FROM admin ORDER BY RAND() LIMIT 1").get(0);
+		
 		element.setAdminCode(adminBean.getId());
 		
 		try {
@@ -62,4 +70,5 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 	}
 
 	private CarcheckDatabase database;
+	private static AdhesionRequestManager instance;
 }

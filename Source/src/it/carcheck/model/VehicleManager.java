@@ -14,7 +14,14 @@ import it.carcheck.database.CarcheckDatabase;
 
 public class VehicleManager implements IVehicle {
 
-	public VehicleManager() {
+	public static VehicleManager getInstance() {
+		if(instance == null)
+			instance = new VehicleManager();
+		
+		return instance;
+	}
+	
+	private VehicleManager() {
 		this.database = CarcheckDatabase.getInstance();
 	}
 
@@ -110,5 +117,5 @@ public class VehicleManager implements IVehicle {
 	}
 
 	private CarcheckDatabase database;
-
+	private static VehicleManager instance;
 }
