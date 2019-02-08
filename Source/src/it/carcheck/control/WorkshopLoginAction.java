@@ -21,7 +21,7 @@ public class WorkshopLoginAction implements IAction {
 			
 			if(user != null) {
 				request.getSession().setAttribute("user", user);
-				return "workshop/dashboard.jsp";
+				return "workshop/dashboard";
 			}
 			else {
 				request.setAttribute("error", ERROR_MESSAGE);
