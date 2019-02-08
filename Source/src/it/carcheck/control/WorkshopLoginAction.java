@@ -5,13 +5,14 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.WorkshopManager;
 import it.carcheck.model.bean.WorkshopBean;
 
 public class WorkshopLoginAction implements IAction {
 	
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException{
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
