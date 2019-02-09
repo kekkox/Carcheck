@@ -32,7 +32,7 @@ public class RegionAction implements IAction {
 		else
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", regions)));
 		
-		return "location_service";
+		return "region_service";
 	}
 
 }
