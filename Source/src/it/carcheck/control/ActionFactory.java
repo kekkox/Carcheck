@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import it.carcheck.control.exception.ActionNotFoundException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.control.request.WorkshopLoginAction;
+import it.carcheck.control.service.ProvinceAction;
 import it.carcheck.control.service.RegionAction;
 
 public class ActionFactory {
@@ -19,7 +20,8 @@ public class ActionFactory {
 		actions.put("POST/login", new WorkshopLoginAction());
 		
 		// Services
-		actions.put("POST/location_service", new RegionAction());
+		actions.put("POST/region_service", new RegionAction());
+		actions.put("POST/province_service", new ProvinceAction());
 	}
 	
 	public static IAction getAction(HttpServletRequest request) throws ActionNotFoundException{
