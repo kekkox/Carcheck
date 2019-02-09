@@ -7,6 +7,8 @@ import it.carcheck.model.bean.ProvinceBean;
 import it.carcheck.model.bean.RegionBean;
 
 public interface IProvince extends IDatabaseOperation<ProvinceBean> {
+	
+	public ProvinceBean getProvinceByName(String name);
 	public ProvinceBean getProvinceByCityName(String name);
 	public ProvinceBean getProvinceByCity(CityBean city);
 	public ArrayList<ProvinceBean> getProvincesFromRegion(RegionBean region);
