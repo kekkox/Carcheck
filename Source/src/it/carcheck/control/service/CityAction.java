@@ -34,7 +34,7 @@ public class CityAction implements IAction {
 		else
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", cities)));
 		
-		return "city_action";
+		return "city_service";
 	}
 
 }
