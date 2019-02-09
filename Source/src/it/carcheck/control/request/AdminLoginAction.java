@@ -26,18 +26,18 @@ public class AdminLoginAction implements IAction {
 		else if(user!=null && !user.isFirstLogin())
 		{
 			request.getSession().setAttribute("user", user);
-			return "dashboard";
+			return "admin/dashboard";
 		}
 		else if(user==null){
 			request.setAttribute("error", ERROR_MESSAGE);
-			return "login";
+			return "admin/login";
 		}
 	} 
 	catch (SQLException e) {
-		return "login";
+		return "admin/login";
 	}
-	//RICONTROLLARE IL RETURN 
-	return null;
+	
+	return "admin/login";
 }	
 private static final String ERROR_MESSAGE = "Username o password errati";
 }

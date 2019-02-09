@@ -11,10 +11,9 @@ import it.carcheck.control.interfaces.IAction;
 public class AdminLogoutAction implements IAction {
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException{
-			if(request.getSession().getAttribute("user") != null) {
+		if (request.getSession().getAttribute("user") != null)
 			request.getSession().removeAttribute("user");
-			return "login";
-			}
-			return null;
-			}	
+		
+		return "index";
+	}
 }
