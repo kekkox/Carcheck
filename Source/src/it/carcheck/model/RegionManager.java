@@ -81,4 +81,15 @@ public class RegionManager implements IRegion {
 	}
 
 	private CarcheckDatabase database;
+
+	@Override
+	public ArrayList<RegionBean> getAllRegions() {
+		try {
+			return this.doFind("SELECT * from region");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }
