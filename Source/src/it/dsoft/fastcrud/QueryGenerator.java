@@ -8,6 +8,7 @@ import it.dsoft.fastcrud.core.interfaces.IBeanEntity;
 import it.dsoft.fastcrud.enums.OperationType;
 import it.dsoft.fastcrud.exceptions.ObjectMapException;
 import it.dsoft.fastcrud.exceptions.TableNameException;
+import it.dsoft.fastcrud.utility.CharacterChecking;
 
 /**
  * This class is responsible for generating queries used by FastCrud
@@ -61,8 +62,8 @@ class QueryGenerator {
 		
 		Iterator<String> iterator = map.keySet().iterator();
 		while(iterator.hasNext()) {
-			String key = iterator.next();
-			builder.append("`").append(key).append("`").append(",");
+			String key = CharacterChecking.replaceInvalidCharacters(iterator.next()); //Workaround
+			builder.append("'").append(key).append("'").append(",");
 		}
 		builder.deleteCharAt(builder.length() - 1).append(")").append("VALUES(");
 		
@@ -91,11 +92,11 @@ class QueryGenerator {
 		
 		Iterator<String> iterator = map.keySet().iterator();
 		while(iterator.hasNext()) {
-			String key = iterator.next();
-			builder.append("`").append(key).append("`").append("=?,");
+			String key = CharacterChecking.replaceInvalidCharacters(iterator.next()); //Workaround
+			builder.append("'").append(key).append("'").append("=?,");
 		}
 		builder.deleteCharAt(builder.length() - 1);
-		builder.append(" WHERE ").append("`").append(entity.getPrimaryKey().GetKey()).append("`").append("=?;");
+		builder.append(" WHERE ").append("'").append(entity.getPrimaryKey().GetKey()).append("'").append("=?;");
 		
 		return builder.toString();
 	}
@@ -108,7 +109,7 @@ class QueryGenerator {
 	private <T> String deleteOperation(IBeanEntity<T> entity) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("DELETE FROM ").append(entity.getTableName());
-		builder.append(" WHERE ").append("`").append(entity.getPrimaryKey().GetKey()).append("`").append("=?;");
+		builder.append(" WHERE ").append("'").append(entity.getPrimaryKey().GetKey()).append("'").append("=?;");
 		
 		return builder.toString();
 	}
