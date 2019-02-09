@@ -100,7 +100,7 @@ public class WorkshopManager implements IWorkshop {
 		AdhesionRequestManager adhesionRequestManager = AdhesionRequestManager.getInstance();
 		adhesionRequestManager.doInsert(adhesionRequestBean);	
 		
-		EmailSender sender = EmailSender.Begin("carcheck.unisa@gmail.com", "Developer9798");
+		EmailSender sender = EmailSender.GetInstance();
 		sender.SendEmail("Carcheck - Richiesta adesione", String.format(MAIL_BODY, workshop.getOwner(), workshop.getBusinessName()), workshop.getEmail());
 	}
 	
