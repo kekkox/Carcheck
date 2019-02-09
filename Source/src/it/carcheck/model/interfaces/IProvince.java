@@ -12,5 +12,6 @@ public interface IProvince extends IDatabaseOperation<ProvinceBean> {
 	public ProvinceBean getProvinceByCityName(String name);
 	public ProvinceBean getProvinceByCity(CityBean city);
 	public ArrayList<ProvinceBean> getProvincesFromRegion(RegionBean region);
+	public ArrayList<ProvinceBean> getProvincesByRegionCode(int regionCode);
 	
 }
