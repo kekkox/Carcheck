@@ -55,10 +55,10 @@ public class RegionManager implements IRegion {
 	@Override
 	public RegionBean getRegionFromCityName(String name) {
 		try {
-			CityBean city = this.database.find("SELECT * from city WHERE name = " + name, CityBean.class).get(0);
-			ProvinceBean region = this.database.find("SELECT * from province WHERE provinceCode = " + city.getProvince(), ProvinceBean.class).get(0);
+			CityBean city = this.database.find("SELECT * from city WHERE name = \"" + name + "\"", CityBean.class).get(0);
+			ProvinceBean province = this.database.find("SELECT * from province WHERE provinceCode = \"" + city.getProvince() + "\"", ProvinceBean.class).get(0);
 			
-			return this.database.find("SELECT * from region WHERE id = " + region.getRegion(), RegionBean.class).get(0);
+			return this.database.find("SELECT * from region WHERE id = " + province.getRegion(), RegionBean.class).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -80,16 +80,16 @@ public class RegionManager implements IRegion {
 		return null;
 	}
 
-	private CarcheckDatabase database;
-
 	@Override
 	public ArrayList<RegionBean> getAllRegions() {
 		try {
-			return this.doFind("SELECT * from region");
+			return this.doFind("SELECT * from region ORDER BY name");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		return null;
 	}
+	
+	private CarcheckDatabase database;
 }

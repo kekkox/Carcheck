@@ -1,8 +1,7 @@
 package it.carcheck.control.service;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,21 +24,15 @@ public class RegionAction implements IAction {
 		Gson gson = new Gson(); 
 
 		LocationManager locationManager = LocationManager.getInstance();
-		JsonResponse jsonResponse = new JsonResponse();
-		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
-		
-		String requestJson = reader.readLine();
-		jsonResponse = gson.fromJson(requestJson, JsonResponse.class);
-		
-		if(jsonResponse == null)
-			return gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "json response is null"));
+		PrintWriter writer = response.getWriter();
 		
 		ArrayList<RegionBean> regions = locationManager.getRegionManager().getAllRegions();
 		if(regions != null && regions.size() <= 0)
-			return gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no regions"));
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no regions")));
+		else
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", regions)));
 		
-		return gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", regions));
+		return "location_service";
 	}
 
 }

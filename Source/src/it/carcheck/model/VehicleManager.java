@@ -70,8 +70,8 @@ public class VehicleManager implements IVehicle {
 	@Override
 	public PossessionFeeBean doRetrieveLastPossessionFee(VehicleBean vehicle) throws SQLException {
 		try {
-			return database.find("SELECT * FROM possessionfee WHERE vehicle="
-					+ vehicle.getLicensePlate() + " ORDER BY expirationDate ASC LIMIT 1", PossessionFeeBean.class).get(0);
+			return database.find("SELECT * FROM possessionfee WHERE vehicle=\""
+					+ vehicle.getLicensePlate() + "\" ORDER BY expirationDate ASC LIMIT 1", PossessionFeeBean.class).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -82,8 +82,8 @@ public class VehicleManager implements IVehicle {
 	@Override
 	public InsuranceBean doRetrieveLastInsurance(VehicleBean vehicle) throws SQLException {
 		try {
-			return database.find("SELECT * FROM insurance WHERE vehicle="
-					+ vehicle.getLicensePlate() + " ORDER BY expirationDate ASC LIMIT 1", InsuranceBean.class).get(0);
+			return database.find("SELECT * FROM insurance WHERE vehicle=\""
+					+ vehicle.getLicensePlate() + "\" ORDER BY expirationDate ASC LIMIT 1", InsuranceBean.class).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -94,8 +94,8 @@ public class VehicleManager implements IVehicle {
 	@Override
 	public Collection<PeopleBean> doRetrieveOwners(VehicleBean vehicle) throws SQLException {
 		try {
-			return database.find("SELECT People.* FROM people,owner WHERE Owner.vehicle= "
-					+ vehicle.getLicensePlate() + "and people.fiscalCode=owner.people", PeopleBean.class);
+			return database.find("SELECT People.* FROM people,owner WHERE Owner.vehicle= \""
+					+ vehicle.getLicensePlate() + "\" AND people.fiscalCode=owner.people", PeopleBean.class);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -107,8 +107,8 @@ public class VehicleManager implements IVehicle {
 	public VehicleInspectionBean doRetrieveLastVehicleInspection(VehicleBean vehicle) throws SQLException {
 		try {
 			return database
-					.find("SELECT * FROM vehicleInspection WHERE vehicle=" + vehicle.getLicensePlate()
-							+ " ORDER BY expirationDate ASC LIMIT 1", VehicleInspectionBean.class).get(0);
+					.find("SELECT * FROM vehicleInspection WHERE vehicle=\"" + vehicle.getLicensePlate()
+							+ "\" ORDER BY expirationDate ASC LIMIT 1", VehicleInspectionBean.class).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

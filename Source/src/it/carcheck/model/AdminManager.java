@@ -32,7 +32,7 @@ public class AdminManager implements IAdmin{
 		
 		AdminBean admin;
 		try {
-			admin = database.find("SELECT * FROM admin WHERE email = " + email + " AND password = " + cryptedPassword, AdminBean.class).get(0);
+			admin = database.find("SELECT * FROM admin WHERE email = \"" + email + "\" AND password = \"" + cryptedPassword + "\"", AdminBean.class).get(0);
 			return admin;
 		} catch (Exception e) {
 			e.printStackTrace();

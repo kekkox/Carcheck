@@ -53,10 +53,21 @@ public class ProvinceManager implements IProvince {
 	}
 
 	@Override
+	public ProvinceBean getProvinceByName(String name) {
+		try {
+			return this.database.find("SELECT * FROM province WHERE name = \"" + name + "\"", ProvinceBean.class).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	@Override
 	public ProvinceBean getProvinceByCityName(String name) {
 		try {
-			CityBean city = this.database.find("SELECT * from city WHERE name = " + name, CityBean.class).get(0);
-			return this.database.find("SELECT * from province WHERE provinceCode = " + city.getProvince(), ProvinceBean.class).get(0);
+			CityBean city = this.database.find("SELECT * FROM city WHERE name = \"" + name + "\"", CityBean.class).get(0);
+			return this.database.find("SELECT * FROM province WHERE provinceCode = \"" + city.getProvince() + "\"", ProvinceBean.class).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
