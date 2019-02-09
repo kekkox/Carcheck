@@ -29,8 +29,11 @@ public class WorkshopManager implements IWorkshop {
 	@Override
 	public WorkshopBean doLogin(String email, String password) throws SQLException {
 		String cryptedPassword = PasswordHasher.Encrypt(password);
-		WorkshopBean workshop = doFind("SELECT * FROM workshop WHERE email = \"" + email + " AND password = \"" + cryptedPassword + "\"").get(0);
-		return workshop;
+		ArrayList<WorkshopBean> workshops = doFind("SELECT * FROM workshop WHERE email = \"" + email + "\" AND password = \"" + cryptedPassword + "\"");
+		if(workshops != null && workshops.size() > 0)
+			return workshops.get(0);
+		
+		return null;
 	}
 
 	@Override

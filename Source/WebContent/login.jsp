@@ -20,7 +20,7 @@
       <div class="login_container">
         <div class="header">
           <span>Login officina</span>
-          <div>Username o password errati</div>
+          <div></div>
         </div>
 
         <form action="" method="post">
@@ -38,7 +38,7 @@
         </form>
 
         <div class="form_footer">
-          <div>Non hai un account? <a href="#">Aderisci a Carcheck</a></div>
+          <div>Non hai un account? <a href="./signup.jsp">Aderisci a Carcheck</a></div>
         </div>
 
       </div>
