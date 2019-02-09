@@ -24,9 +24,7 @@ public class RequestHandler extends HttpServlet {
 			String view = action.execute(request, response);
 			String pathInfo = request.getPathInfo().substring(1);
 			
-			if (view.equals(pathInfo))
-				request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
-			else
+			if(!view.equals(pathInfo))
 				response.sendRedirect(view);
 		}
 		catch (ActionNotFoundException e) {

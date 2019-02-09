@@ -83,7 +83,7 @@ public class RegionManager implements IRegion {
 	@Override
 	public ArrayList<RegionBean> getAllRegions() {
 		try {
-			return this.doFind("SELECT * from region");
+			return this.doFind("SELECT * from region ORDER BY name");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
