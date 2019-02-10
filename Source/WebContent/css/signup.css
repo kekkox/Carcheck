@@ -54,6 +54,9 @@
 
 
 textarea:focus ~ label,
+select:focus ~ label,
+input:active ~ label,
+select:active ~ label, 
 textarea:active ~ label, 
 textarea:valid ~ label
 {
@@ -73,6 +76,22 @@ input:not([value=""]):not(:focus):invalid ~ label{
     font-weight: 700;
 }
 
+select:focus ~ label,
+select:active ~ label, 
+select:valid ~ label,
+input:not([value=""]):not(:focus):invalid ~ label {
+	top: -30px !important;
+}
+
+.inputBox select {
+	width: 100%;
+	padding: 10px 0;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #06c;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.2;
+}
 
 .container {
     height: calc(100% - 70px); /*70px is the height of menu*/
@@ -86,7 +105,8 @@ input:not([value=""]):not(:focus):invalid ~ label{
     text-align: center;
     background-color: #fff;
     margin: auto;
-    margin-top:70px;
+    margin-top:35px;
+    margin-bottom: 35px;
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
@@ -151,7 +171,6 @@ input:not([value=""]):not(:focus):invalid ~ label{
 
 .form_footer {
     color: #999999;
-    margin-bottom: 45px;
     padding-bottom: 15px;
 }
 
@@ -174,6 +193,16 @@ input:not([value=""]):not(:focus):invalid ~ label{
     color: white;
 }
 
+div.grid {
+	display: grid;
+	grid-gap: 0 10px;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+}
+
+.col-large {
+	grid-column: span 2;
+}
 
 /*
     Animation
@@ -204,10 +233,15 @@ input:not([value=""]):not(:focus):invalid ~ label{
   }
 
 /*Responsive*/
-@media screen and (max-width: 450px) {
-	.login_container {
-		padding: 15px 25px;
-		margin: 0 15px;
-		width: 100%;
+@media screen and (max-width: 425px) {
+	.signup_container {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	
+	.grid div {
+		grid-column: span 2;
 	}
 }

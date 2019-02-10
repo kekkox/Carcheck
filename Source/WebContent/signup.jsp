@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/signup.css">  
-	<!-- Insert javascript code here -->
+	<!-- Javascript -->
+	<script src="js/signup.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Open+Sans+Condensed:300,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +41,24 @@
             <input type="email" name="email" value ="" onkeyup="this.setAttribute('value', this.value);" required>
             <label>Indirizzo Email</label>
           </div>
+          
+          <div class = "grid">
+          	<div class = "inputBox">
+          		<select id = "region" data-source="RequestHandler/region_service" required disabled>
+          			<option disabled selected></option>
+				</select>
+			</div>
+			<div class = "inputBox">
+				<select id = "province" data-source="RequestHandler/province_service" required disabled>
+          			<option disabled selected></option>
+				</select>
+			</div>
+			<div class = "inputBox col-large">
+				<select id = "city" data-source="RequestHandler/city_service" required disabled>
+          			<option disabled selected></option>
+				</select>
+          	</div>
+          </div>
     
           <div class = "inputBox">
             <input type="text" name="address" value ="" onkeyup="this.setAttribute('value', this.value);" required>
@@ -57,7 +76,7 @@
         </form>
 
         <div class="form_footer">
-          <div>Hai già un account?<a href="#">Effettua il login</a></div>
+          <div>Hai già un account? <a href="login.jsp">Effettua il login</a></div>
         </div>
 
       </div>
