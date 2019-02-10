@@ -15,5 +15,6 @@ public interface IVehicle extends IDatabaseOperation<VehicleBean> {
 	public InsuranceBean doRetrieveLastInsurance(VehicleBean vehicle) throws SQLException;
 	public Collection<PeopleBean> doRetrieveOwners(VehicleBean vehicle) throws SQLException;
 	public VehicleInspectionBean doRetrieveLastVehicleInspection(VehicleBean vehicle) throws SQLException;
+	public VehicleBean doRetriveVehicle(String licensePlate)throws SQLException;
 	
 }

@@ -54,7 +54,14 @@ public class VehicleManager implements IVehicle {
 		}
 
 	}
-
+	public VehicleBean doRetriveVehicle(String licensePlate)  throws SQLException {
+		try {
+			return (VehicleBean) database.find("SELECT * FROM vehicle WHERE licenseplate=\""+licensePlate, VehicleBean.class).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	@Override
 	public ArrayList<VehicleBean> doFind(String query) throws SQLException {
 
