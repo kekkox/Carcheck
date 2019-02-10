@@ -88,6 +88,16 @@ public class ProvinceManager implements IProvince {
 		}
 		return null;
 	}
+	
+	@Override
+	public ArrayList<ProvinceBean> getProvincesByRegionCode(int regionCode) {
+		try {
+			return this.database.find("SELECT * from province WHERE region = " + regionCode, ProvinceBean.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	private CarcheckDatabase database;
 }

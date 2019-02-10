@@ -49,6 +49,7 @@ input:not([value=""]):not(:focus):invalid ~ label{
 .container {
     height: calc(100% - 70px); /*70px is the height of menu*/
     width: 100%;
+    overflow-y:auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,6 +58,7 @@ input:not([value=""]):not(:focus):invalid ~ label{
 
 .login_container {
     width: 400px;
+    margin-top:70px;
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
@@ -177,8 +179,6 @@ input:not([value=""]):not(:focus):invalid ~ label{
 /*Responsive*/
 @media screen and (max-width: 450px) {
 	.login_container {
-		padding: 15px 25px;
-		margin: 0 15px;
-		width: 100%;
+		width: 90%;
 	}
 }

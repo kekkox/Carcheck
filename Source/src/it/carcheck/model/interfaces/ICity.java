@@ -12,4 +12,5 @@ public interface ICity extends IDatabaseOperation<CityBean> {
 	public ArrayList<CityBean> getCitiesFromCap(String cap);
 	public ArrayList<CityBean> getCitiesFromProvince(ProvinceBean province);
 	public ArrayList<CityBean> getCitiesFromRegion(RegionBean region);
+	public ArrayList<CityBean> getCitiesFromProvinceCode(String code);
 }

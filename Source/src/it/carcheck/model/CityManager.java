@@ -109,6 +109,16 @@ public class CityManager implements ICity {
 		}
 		return null;
 	}
+	
+	@Override
+	public ArrayList<CityBean> getCitiesFromProvinceCode(String code) {
+		try {
+			return this.database.find("SELECT * from city WHERE province =\"" + code + "\"", CityBean.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	private CarcheckDatabase database;
 }

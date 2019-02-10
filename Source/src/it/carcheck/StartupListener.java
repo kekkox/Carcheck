@@ -5,6 +5,7 @@ import javax.servlet.ServletContextListener;
 
 import it.carcheck.database.CarcheckConfiguration;
 import it.carcheck.database.CarcheckDatabase;
+import it.carcheck.utility.EmailSender;
 
 public class StartupListener implements ServletContextListener {
 
@@ -20,6 +21,7 @@ public class StartupListener implements ServletContextListener {
 		
 		try {
 			CarcheckDatabase.begin(new CarcheckConfiguration());
+			EmailSender.Begin("carcheck.unisa@gmail.com", "Developer9798");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}

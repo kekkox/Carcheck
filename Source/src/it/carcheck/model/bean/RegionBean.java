@@ -11,11 +11,11 @@ public class RegionBean {
 	@Table(name = "region")
 	public RegionBean() {}
 
-    public short getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(short id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -28,6 +28,6 @@ public class RegionBean {
     }
     
     @PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
-    private short id;
+    private int id;
     private String name;
 }

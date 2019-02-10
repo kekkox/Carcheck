@@ -27,8 +27,8 @@ function onFormSubmit(event) {
 function checkAccount(email,password) {
 	let xhttp = new XMLHttpRequest();
 	const params = "email=" + email + "&password=" + password;
-	xhttp.onreadystatechange = (event) => {responseHandler(event.target);};
-	xhttp.open("POST", "MyServlet", true);
+	xhttp.onreadystatechange = (event) => {responseHandler(event.target)};
+	xhttp.open("POST", "RequestHandler/login", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(params);
 }
@@ -36,8 +36,7 @@ function checkAccount(email,password) {
 function responseHandler(request) {
 	if(request.readyState == 4) {
 		if(request.status == 200)
-			//TODO must implement response check
-			console.log("Risposta ricevuta");
+			responseManager(request.responseText);
 		else 
 			errorHandler();
 		
@@ -58,7 +57,14 @@ function switchButtonStatus() {
 	}
 }
 
-function errorHandler() {
+function responseManager(response) {
+	let jsonObject = JSON.parse(response);
+	
+	if(jsonObject.JsonResponseStatus === 0)
+		errorHandler(jsonObject.JsonResponseMessage);
+}
+
+function errorHandler(message) {
 
 	email_input.style.borderBottom = borderStyle;
 	password_input.style.borderBottom = borderStyle;
@@ -70,6 +76,7 @@ function errorHandler() {
 	}
 
 	errorMessage_element.style.visibility = "visible";
+	errorMessage_element.innerText = message;
 	form_header.classList.add("error");
 	login_container_element.style.animation = "shake 0.5s 1";
 	

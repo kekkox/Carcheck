@@ -7,32 +7,33 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
-import it.carcheck.model.LocationManager;
+import it.carcheck.model.AddressManager;
+import it.carcheck.model.bean.AddressBean;
 import it.carcheck.model.bean.JsonResponse;
-import it.carcheck.model.bean.RegionBean;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
 
-import com.google.gson.*;
-
-public class RegionAction implements IAction {
+public class AddressAction implements IAction {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException, IOException {
 		
+		String istat = request.getParameter("istat");
+		String addressName = request.getParameter("address");
+		
 		Gson gson = new Gson(); 
-
-		LocationManager locationManager = LocationManager.getInstance();
 		PrintWriter writer = response.getWriter();
 		
-		ArrayList<RegionBean> regions = locationManager.getRegionManager().getAllRegions();
-		if(regions != null && regions.size() <= 0)
-			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no regions")));
+		ArrayList<AddressBean> addresses = AddressManager.getInstance().getAddressByName(addressName, istat);
+		if(addresses != null && addresses.size() <= 0)
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no address")));
 		else
-			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", regions)));
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", addresses)));
 		
-		return "region_service";
+		return "address_service";
 	}
 
 }

@@ -6,25 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
-import it.carcheck.model.bean.AdminBean;;
-
 
 
 public class AdminLogoutAction implements IAction {
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException{
-		
-		
-		
-		if(request.getSession().getAttribute("user") != null) {
+		if (request.getSession().getAttribute("user") != null)
 			request.getSession().removeAttribute("user");
-			
-				if((request.getSession().getAttribute("user") instanceof AdminBean))
-					return "admin/login";
-				else
-					return "workshop/login";
-					
-			}
-			return null;
-			}	
+		
+		return "index";
+	}
 }

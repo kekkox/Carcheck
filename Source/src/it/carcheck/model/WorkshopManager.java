@@ -29,8 +29,11 @@ public class WorkshopManager implements IWorkshop {
 	@Override
 	public WorkshopBean doLogin(String email, String password) throws SQLException {
 		String cryptedPassword = PasswordHasher.Encrypt(password);
-		WorkshopBean workshop = doFind("SELECT * FROM workshop WHERE email = \"" + email + " AND password = \"" + cryptedPassword + "\"").get(0);
-		return workshop;
+		ArrayList<WorkshopBean> workshops = doFind("SELECT * FROM workshop WHERE email = \"" + email + "\" AND password = \"" + cryptedPassword + "\"");
+		if(workshops != null && workshops.size() > 0)
+			return workshops.get(0);
+		
+		return null;
 	}
 
 	@Override
@@ -100,7 +103,7 @@ public class WorkshopManager implements IWorkshop {
 		AdhesionRequestManager adhesionRequestManager = AdhesionRequestManager.getInstance();
 		adhesionRequestManager.doInsert(adhesionRequestBean);	
 		
-		EmailSender sender = EmailSender.Begin("carcheck.unisa@gmail.com", "Developer9798");
+		EmailSender sender = EmailSender.GetInstance();
 		sender.SendEmail("Carcheck - Richiesta adesione", String.format(MAIL_BODY, workshop.getOwner(), workshop.getBusinessName()), workshop.getEmail());
 	}
 	
