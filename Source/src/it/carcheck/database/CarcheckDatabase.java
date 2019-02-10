@@ -24,8 +24,8 @@ public class CarcheckDatabase extends FastCrud {
 		return instance;
 	}
 	
-	public <T> ArrayList<T> find(String query, Class<T> clazz) throws Exception {
-		LinkedHashSet<T> result = (LinkedHashSet<T>) super.read(query, clazz);
+	public <T> ArrayList<T> find(Class<T> clazz, String query, Object...args) throws Exception {
+		LinkedHashSet<T> result = (LinkedHashSet<T>) super.read(clazz, query, args);
 		
 		ArrayList<T> elements = new ArrayList<>();
 		

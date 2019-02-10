@@ -54,9 +54,9 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 	}
 
 	@Override
-	public ArrayList<AdhesionRequestBean> doFind(String query) throws SQLException {
+	public ArrayList<AdhesionRequestBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return database.find(query, AdhesionRequestBean.class);
+			return database.find(AdhesionRequestBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

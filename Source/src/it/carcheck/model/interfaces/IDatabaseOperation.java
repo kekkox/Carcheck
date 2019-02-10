@@ -11,5 +11,5 @@ public interface IDatabaseOperation<T> {
 
 	public void doInsert(T element) throws SQLException;
 	
-	public ArrayList<T> doFind(String query) throws SQLException;
+	public ArrayList<T> doFind(String query, Object...args) throws SQLException;
 }

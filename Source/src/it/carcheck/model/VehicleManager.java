@@ -54,31 +54,32 @@ public class VehicleManager implements IVehicle {
 		}
 
 	}
-	public VehicleBean doRetriveVehicle(String licensePlate)  throws SQLException {
-		try {
-			return (VehicleBean) database.find("SELECT * FROM vehicle WHERE licenseplate=\""+licensePlate, VehicleBean.class).get(0);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	
 	@Override
-	public ArrayList<VehicleBean> doFind(String query) throws SQLException {
+	public ArrayList<VehicleBean> doFind(String query, Object...args) throws SQLException {
 
 		try {
-			return database.find(query, VehicleBean.class);
+			return database.find(VehicleBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return null;
 	}
+	
+	public VehicleBean doRetriveVehicle(String licensePlate)  throws SQLException {
+		try {
+			return (VehicleBean) database.find(VehicleBean.class, "SELECT * FROM vehicle WHERE licenseplate = ?", licensePlate).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	@Override
 	public PossessionFeeBean doRetrieveLastPossessionFee(VehicleBean vehicle) throws SQLException {
 		try {
-			return database.find("SELECT * FROM possessionfee WHERE vehicle=\""
-					+ vehicle.getLicensePlate() + "\" ORDER BY expirationDate ASC LIMIT 1", PossessionFeeBean.class).get(0);
+			return database.find(PossessionFeeBean.class, "SELECT * FROM possessionfee WHERE vehicle = ? ORDER BY expirationDate ASC LIMIT 1", vehicle.getLicensePlate()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -89,8 +90,7 @@ public class VehicleManager implements IVehicle {
 	@Override
 	public InsuranceBean doRetrieveLastInsurance(VehicleBean vehicle) throws SQLException {
 		try {
-			return database.find("SELECT * FROM insurance WHERE vehicle=\""
-					+ vehicle.getLicensePlate() + "\" ORDER BY expirationDate ASC LIMIT 1", InsuranceBean.class).get(0);
+			return database.find(InsuranceBean.class, "SELECT * FROM insurance WHERE vehicle = ? ORDER BY expirationDate ASC LIMIT 1", vehicle.getLicensePlate()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -101,8 +101,7 @@ public class VehicleManager implements IVehicle {
 	@Override
 	public Collection<PeopleBean> doRetrieveOwners(VehicleBean vehicle) throws SQLException {
 		try {
-			return database.find("SELECT People.* FROM people,owner WHERE Owner.vehicle= \""
-					+ vehicle.getLicensePlate() + "\" AND people.fiscalCode=owner.people", PeopleBean.class);
+			return database.find(PeopleBean.class, "SELECT people.* FROM people,owner WHERE owner.vehicle = ? AND people.fiscalCode=owner.people", vehicle.getLicensePlate());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -114,8 +113,7 @@ public class VehicleManager implements IVehicle {
 	public VehicleInspectionBean doRetrieveLastVehicleInspection(VehicleBean vehicle) throws SQLException {
 		try {
 			return database
-					.find("SELECT * FROM vehicleInspection WHERE vehicle=\"" + vehicle.getLicensePlate()
-							+ "\" ORDER BY expirationDate ASC LIMIT 1", VehicleInspectionBean.class).get(0);
+					.find(VehicleInspectionBean.class, "SELECT * FROM vehicleInspection WHERE vehicle = ? ORDER BY expirationDate ASC LIMIT 1", vehicle.getLicensePlate()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

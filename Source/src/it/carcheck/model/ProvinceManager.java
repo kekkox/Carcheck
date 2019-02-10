@@ -43,9 +43,9 @@ public class ProvinceManager implements IProvince {
 	}
 
 	@Override
-	public ArrayList<ProvinceBean> doFind(String query) throws SQLException {
+	public ArrayList<ProvinceBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return this.database.find(query, ProvinceBean.class);
+			return this.database.find(ProvinceBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,7 +55,7 @@ public class ProvinceManager implements IProvince {
 	@Override
 	public ProvinceBean getProvinceByName(String name) {
 		try {
-			return this.database.find("SELECT * FROM province WHERE name = \"" + name + "\"", ProvinceBean.class).get(0);
+			return this.database.find(ProvinceBean.class, "SELECT * FROM province WHERE name = ?", name).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,8 +66,8 @@ public class ProvinceManager implements IProvince {
 	@Override
 	public ProvinceBean getProvinceByCityName(String name) {
 		try {
-			CityBean city = this.database.find("SELECT * FROM city WHERE name = \"" + name + "\"", CityBean.class).get(0);
-			return this.database.find("SELECT * FROM province WHERE provinceCode = \"" + city.getProvince() + "\"", ProvinceBean.class).get(0);
+			CityBean city = this.database.find(CityBean.class, "SELECT * FROM city WHERE name = ?", name).get(0);
+			return this.database.find(ProvinceBean.class, "SELECT * FROM province WHERE provinceCode = ?", city.getProvince()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -82,7 +82,7 @@ public class ProvinceManager implements IProvince {
 	@Override
 	public ArrayList<ProvinceBean> getProvincesFromRegion(RegionBean region) {
 		try {
-			return this.database.find("SELECT * from province WHERE region = " + region.getId(), ProvinceBean.class);
+			return this.database.find(ProvinceBean.class, "SELECT * from province WHERE region = ?", region.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -92,7 +92,7 @@ public class ProvinceManager implements IProvince {
 	@Override
 	public ArrayList<ProvinceBean> getProvincesByRegionCode(int regionCode) {
 		try {
-			return this.database.find("SELECT * from province WHERE region = " + regionCode, ProvinceBean.class);
+			return this.database.find(ProvinceBean.class, "SELECT * from province WHERE region = ?", regionCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

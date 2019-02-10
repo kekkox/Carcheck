@@ -43,9 +43,9 @@ public class RegionManager implements IRegion {
 	}
 
 	@Override
-	public ArrayList<RegionBean> doFind(String query) throws SQLException {
+	public ArrayList<RegionBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return this.database.find(query, RegionBean.class);
+			return this.database.find(RegionBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,10 +55,10 @@ public class RegionManager implements IRegion {
 	@Override
 	public RegionBean getRegionFromCityName(String name) {
 		try {
-			CityBean city = this.database.find("SELECT * from city WHERE name = \"" + name + "\"", CityBean.class).get(0);
-			ProvinceBean province = this.database.find("SELECT * from province WHERE provinceCode = \"" + city.getProvince() + "\"", ProvinceBean.class).get(0);
+			CityBean city = this.database.find(CityBean.class, "SELECT * from city WHERE name = ?", name).get(0);
+			ProvinceBean province = this.database.find(ProvinceBean.class, "SELECT * from province WHERE provinceCode = ?", city.getProvince()).get(0);
 			
-			return this.database.find("SELECT * from region WHERE id = " + province.getRegion(), RegionBean.class).get(0);
+			return this.database.find(RegionBean.class, "SELECT * from region WHERE id = ?", province.getRegion()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,7 +73,7 @@ public class RegionManager implements IRegion {
 	@Override
 	public RegionBean getRegionFromProvince(ProvinceBean province) {
 		try {
-			return this.database.find("SELECT * from region WHERE id = " + province.getRegion(), RegionBean.class).get(0);
+			return this.database.find(RegionBean.class, "SELECT * from region WHERE id = ?", province.getRegion()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -49,9 +49,9 @@ public class AddressManager implements IAddress {
 	}
 
 	@Override
-	public ArrayList<AddressBean> doFind(String query) throws SQLException {
+	public ArrayList<AddressBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return database.find(query, AddressBean.class);
+			return database.find(AddressBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -67,7 +67,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getFullAddressByName(String name, String istat) {
 		try {
-			return this.database.find("SELECT * FROM address WHERE name LIKE \"" + name + "%\" AND istat = \"" + istat + "\" LIMIT 10", AddressBean.class);
+			return this.database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE ? AND istat = ? LIMIT 10", name, istat);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -84,7 +84,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getFullAddressByName(String name, CityBean city) {
 		try {
-			return this.database.find("SELECT * FROM address WHERE name = \"" + name + "\" AND istat = \"" + city.getIstat() + "\"", AddressBean.class);
+			return this.database.find(AddressBean.class, "SELECT * FROM address WHERE name = ? AND istat = ?", name, city.getIstat());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -101,7 +101,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getAddressByName(String name, String istat) {
 		try {
-			return database.find("SELECT * FROM address WHERE name LIKE \"" + name + "%\" AND istat = \"" + istat + "\" GROUP BY name LIMIT 10", AddressBean.class);
+			return database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE ? AND istat = ? GROUP BY name LIMIT 10", name, istat);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -118,7 +118,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getAddressByName(String name, CityBean city) {
 		try {
-			return database.find("SELECT * FROM address WHERE name LIKE \"" + name + "%\" AND istat = \"" + city.getIstat() + "\" GROUP BY name LIMIT 10", AddressBean.class);
+			return database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE ? AND istat = ? GROUP BY name LIMIT 10", name, city.getIstat());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

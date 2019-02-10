@@ -29,7 +29,7 @@ public class WorkshopManager implements IWorkshop {
 	@Override
 	public WorkshopBean doLogin(String email, String password) throws SQLException {
 		String cryptedPassword = PasswordHasher.Encrypt(password);
-		ArrayList<WorkshopBean> workshops = doFind("SELECT * FROM workshop WHERE email = \"" + email + "\" AND password = \"" + cryptedPassword + "\"");
+		ArrayList<WorkshopBean> workshops = doFind("SELECT * FROM workshop WHERE email = ? AND password = ?", email, cryptedPassword);
 		if(workshops != null && workshops.size() > 0)
 			return workshops.get(0);
 		
@@ -77,9 +77,9 @@ public class WorkshopManager implements IWorkshop {
 	}
 
 	@Override
-	public ArrayList<WorkshopBean> doFind(String query) throws SQLException {
+	public ArrayList<WorkshopBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return database.find(query, WorkshopBean.class);
+			return database.find(WorkshopBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

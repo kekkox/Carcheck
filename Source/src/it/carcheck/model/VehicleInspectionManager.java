@@ -24,12 +24,12 @@ public class VehicleInspectionManager implements IVehicleInspection {
 
 	@Override
 	public Collection<VehicleInspectionBean> doRetrieveByLicensePlate(WorkshopBean workshop, String licensePlate) throws SQLException {
-		return doFind("SELECT * FROM vehicleinspection WHERE vehicle = \"" + licensePlate + "\" AND workshop = " + workshop.getId());	
+		return doFind("SELECT * FROM vehicleinspection WHERE vehicle = ? AND workshop = ?", licensePlate, workshop.getId());	
 	}
 
 	@Override
 	public Collection<VehicleInspectionBean> doRetrieveByWorkshop(WorkshopBean workshop) throws SQLException {
-		return doFind("SELECT * FROM vehicleinspection WHERE workshop = " + workshop.getId());
+		return doFind("SELECT * FROM vehicleinspection WHERE workshop = ?", workshop.getId());
 	}
 
 	@Override
@@ -62,9 +62,9 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	}
 
 	@Override
-	public ArrayList<VehicleInspectionBean> doFind(String query) throws SQLException {
+	public ArrayList<VehicleInspectionBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return database.find(query, VehicleInspectionBean.class);
+			return database.find(VehicleInspectionBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

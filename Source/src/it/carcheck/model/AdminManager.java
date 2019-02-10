@@ -32,7 +32,7 @@ public class AdminManager implements IAdmin{
 		
 		AdminBean admin;
 		try {
-			admin = database.find("SELECT * FROM admin WHERE email = \"" + email + "\" AND password = \"" + cryptedPassword + "\"", AdminBean.class).get(0);
+			admin = database.find(AdminBean.class, "SELECT * FROM admin WHERE email = ? AND password = ?", email, cryptedPassword).get(0);
 			return admin;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,9 +90,9 @@ public class AdminManager implements IAdmin{
 
 
 	@Override
-	public ArrayList<AdminBean> doFind(String query) throws SQLException {
+	public ArrayList<AdminBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return database.find(query, AdminBean.class);
+			return database.find(AdminBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

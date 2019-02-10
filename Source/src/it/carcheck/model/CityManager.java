@@ -43,9 +43,9 @@ public class CityManager implements ICity {
 	}
 
 	@Override
-	public ArrayList<CityBean> doFind(String query) throws SQLException {
+	public ArrayList<CityBean> doFind(String query, Object...args) throws SQLException {
 		try {
-			return this.database.find(query, CityBean.class);
+			return this.database.find(CityBean.class, query, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -55,7 +55,7 @@ public class CityManager implements ICity {
 	@Override
 	public CityBean getCityByName(String name) {
 		try {
-			return this.database.find("SELECT * from city WHERE name=\"" + name + "\"", CityBean.class).get(0);
+			return this.database.find(CityBean.class, "SELECT * from city WHERE name = ?", name).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,7 +65,7 @@ public class CityManager implements ICity {
 	@Override
 	public CityBean getCityFromNameAndCap(String name, String cap) {
 		try {
-			return this.database.find("SELECT * from city WHERE name=\"" + name + "\" AND cap=\"" + cap + "\"", CityBean.class).get(0);
+			return this.database.find(CityBean.class, "SELECT * from city WHERE name = ? AND cap = ?", name, cap).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,7 +75,7 @@ public class CityManager implements ICity {
 	@Override
 	public ArrayList<CityBean> getCitiesFromCap(String cap) {
 		try {
-			return this.database.find("SELECT * from city WHERE cap=\"" + cap + "\"", CityBean.class);
+			return this.database.find(CityBean.class, "SELECT * from city WHERE cap = ?", cap);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -85,7 +85,7 @@ public class CityManager implements ICity {
 	@Override
 	public ArrayList<CityBean> getCitiesFromProvince(ProvinceBean province) {
 		try {
-			return this.database.find("SELECT * from city WHERE province=\"" + province.getProvinceCode() + "\"", CityBean.class);
+			return this.database.find(CityBean.class, "SELECT * from city WHERE province = ?", province.getProvinceCode());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -97,9 +97,10 @@ public class CityManager implements ICity {
 		ArrayList<CityBean> cities = new ArrayList<>();
 		
 		try {
-			ArrayList<ProvinceBean> provinces = this.database.find("SELECT * from province WHERE region=" + region.getId(), ProvinceBean.class);
+			ArrayList<ProvinceBean> provinces = this.database.find(ProvinceBean.class, "SELECT * from province WHERE region = ?", region.getId());
+			
 			for(int i = 0; i < provinces.size(); i++) {
-				ArrayList<CityBean> db_cities = this.database.find("SELECT * from city where province = \"" + provinces.get(i).getProvinceCode() + "\"", CityBean.class);
+				ArrayList<CityBean> db_cities = this.database.find(CityBean.class, "SELECT * from city where province = ?", provinces.get(i).getProvinceCode());
 				cities.addAll(db_cities);
 			}
 			
@@ -113,7 +114,7 @@ public class CityManager implements ICity {
 	@Override
 	public ArrayList<CityBean> getCitiesFromProvinceCode(String code) {
 		try {
-			return this.database.find("SELECT * from city WHERE province =\"" + code + "\"", CityBean.class);
+			return this.database.find(CityBean.class, "SELECT * from city WHERE province = ?", code);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
