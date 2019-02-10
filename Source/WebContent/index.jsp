@@ -20,17 +20,17 @@
 
        <div class="overlay"></div>
 
-       <div class="search_bar">
-       <div id="error_message">BELLO</div>
+       <form method="POST" action="RequestHandler/find" class="search_bar">
+       <div id="error_message"></div>
          <select name="category">
            <option value="-1" disabled selected>Categoria veicolo</option>
            <option value="1">Autoveicolo</option>
            <option value="2">Motoveicolo</option>
            <option value="3">Ciclomotore</option>
          </select>
-         <input type="text" name="license_plate" placeholder="Targa del veicolo">
+         <input type="text" name="licenseplate" placeholder="Targa del veicolo">
          <button type="submit" name="search"><i class="fas fa-search"></i></button>
-       </div>
+       </form>
      </div>
    </body>
  </html>

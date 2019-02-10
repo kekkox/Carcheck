@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    var btn = document.querySelector(".search_bar button");
-    btn.addEventListener('click', () => {onSearchClick()});
+    form = document.querySelector(".search_bar");
+    form.addEventListener('submit', (event) => {onSearchClick(event)});
     
     document.addEventListener('keydown', (e) => {onEnterPressed(e)});
 
@@ -9,12 +9,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
 }, false);
 
-function onSearchClick() {
-    var licensePlateElement = document.getElementsByName("license_plate")[0];
+function onSearchClick(event) {
+	event.preventDefault();
+    var licensePlateElement = document.getElementsByName("licenseplate")[0];
     var categoryElement = document.getElementsByName("category")[0];
     if(checkVehicleCategory(categoryElement))
     	if(checkLicensePlate(licensePlateElement, categoryElement.value))
-    		console.log("INVIO RICHIESTA AL SERVER...");
+    		sendRequest(licensePlateElement.value);
+}
+
+function sendRequest(param) {
+	let xhttp = new XMLHttpRequest();
+	const params = "licenseplate=" + param;
+	xhttp.onreadystatechange = (event) => {responseHandler(event.target)};
+	xhttp.open("POST", "RequestHandler/find", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send(params);
+}
+
+function responseHandler(request) {
+	if(request.readyState == 4) {
+		if(request.status == 200) {
+			let jsonResponse = JSON.parse(request.responseText);
+			
+			if(jsonResponse.JsonResponseStatus === 0)
+				toggleLicensePlateErrorStatus(true, jsonResponse.JsonResponseMessage); 
+			else {
+				form.removeEventListener('submit', (event) => {onSearchClick(event)});
+	    		form.submit();
+			}
+		}
+		else if(request.status == 500)
+			console.log("ERRORE SERVER");
+	}
 }
 
 function onEnterPressed(e) {
@@ -79,11 +106,11 @@ function checkLicensePlate(element, vehicleID) {
     		!car_validator_1976.test(value) &&
     		!car_validator_1948.test(value)) {
 	    	
-    		toggleLicensePlateErrorStatus(true);
+    		toggleLicensePlateErrorStatus(true, 'Inserire una targa valida');
 	        return false;
 	    }
 	    else {
-	    	toggleLicensePlateErrorStatus(false);
+	    	toggleLicensePlateErrorStatus(false, '');
 	        return true;
 	    }
     
@@ -95,11 +122,11 @@ function checkLicensePlate(element, vehicleID) {
 			!bike_validator_1994.test(value) &&
 			!bike_validator_today.test(value)) {
     		
-    		toggleLicensePlateErrorStatus(true);
+    		toggleLicensePlateErrorStatus(true, 'Inserire una targa valida');
     		return false;
     	}
     	else {
-    		toggleLicensePlateErrorStatus(false);
+    		toggleLicensePlateErrorStatus(false, '');
     		return true;
     	}
     }
@@ -110,11 +137,11 @@ function checkLicensePlate(element, vehicleID) {
     	
     	if(!moped_validator_2006.test(value) && (!moped_validator_today.test(value) && moped_denied_char.test(value))) {
     		
-    		toggleLicensePlateErrorStatus(true);
+    		toggleLicensePlateErrorStatus(true, 'Inserire una targa valida');
     		return false;
     	}
     	else {
-    		toggleLicensePlateErrorStatus(false);
+    		toggleLicensePlateErrorStatus(false, '');
     		return true;
     	}
     		
@@ -122,14 +149,14 @@ function checkLicensePlate(element, vehicleID) {
 }
 
 /*if error status == true the error will be displayed*/
-function toggleLicensePlateErrorStatus(errorStatus) {
+function toggleLicensePlateErrorStatus(errorStatus, message) {
 	
-	var element =  document.getElementsByName("license_plate")[0];
+	var element =  document.getElementsByName("licenseplate")[0];
 	
 	if(errorStatus) {
 		element.classList.add(WRONG_CLASS);
         ERROR_MESSAGE_ELEMENT.style.display = "block";
-        ERROR_MESSAGE_ELEMENT.innerHTML = 'Inserire una targa valida';
+        ERROR_MESSAGE_ELEMENT.innerHTML = message;
 	}
 	else {
 		element.classList.remove(WRONG_CLASS);
@@ -139,3 +166,4 @@ function toggleLicensePlateErrorStatus(errorStatus) {
 
 let WRONG_CLASS = "wrong";
 let ERROR_MESSAGE_ELEMENT;
+let form;
