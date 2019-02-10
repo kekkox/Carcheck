@@ -119,7 +119,7 @@ public class FastCrud implements IDatabase {
 	 * This method allows you to find a generic item from the database
 	 */
 	@Override
-	public <T> LinkedHashSet<T> read(String query, Class<T> clazz) throws Exception {
+	public <T> LinkedHashSet<T> read(Class<T> clazz, String query, Object...args) throws Exception {
 		BeanEntity<T> entity = (BeanEntity<T>) this.beanEntityFactory.create(clazz);
 		
 		Connection connection = null;
@@ -127,7 +127,7 @@ public class FastCrud implements IDatabase {
 		
 		try {
 			connection = this.connectionPool.getConnection();
-			statement = this.statementFactory.createStatement(StatementType.Read, connection, entity, query);
+			statement = this.statementFactory.createStatement(StatementType.Read, connection, entity, query, args);
 			
 			ResultSet resultSet = statement.executeQuery();
 			connection.commit();
