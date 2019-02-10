@@ -9,8 +9,8 @@
 	if(uri.equals(HOMEPAGE_URI)) {
 %>    
 	<div class="menu">
-	  <a class="logo" href="index.jsp">CarCheck</a>
-	  <a class="login" href="login.jsp">Sei un officina? Accedi qui</a>
+	  <a class="logo" href="/CarCheck/index.jsp">CarCheck</a>
+	  <a class="login" href="/CarCheck/login.jsp">Sei un officina? Accedi qui</a>
 	</div>
 <%	}
 	
@@ -19,6 +19,6 @@
 			<div class = "hamburger">
 				<div class="bar"></div>
 			</div>
-		  	<a class="logo" href="../index.jsp">CarCheck</a>
+		  	<a class="logo" href="/CarCheck/index.jsp">CarCheck</a>
 		</div>
 <% } %>
