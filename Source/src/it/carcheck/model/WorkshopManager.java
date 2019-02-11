@@ -48,6 +48,12 @@ public class WorkshopManager implements IWorkshop {
 		}
 		
 	}
+	
+	@Override
+	public WorkshopBean doRetrieveByEmail(String email) throws SQLException {
+		WorkshopBean workshop = this.doFind("SELECT * FROM workshop WHERE email = ?", email).get(0);
+		return workshop;
+	}
 
 	@Override
 	public void doSave(WorkshopBean element) throws SQLException {
