@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import="it.carcheck.model.bean.*"%>
+    
+    <% VehicleBean bean = (VehicleBean) request.getAttribute("vehicle");
+    	if(bean == null)
+    		System.out.println("NON FUNZIONA");
+    %>
 <html>
     <head>
         <title>NAN70642 - Informazioni</title>
-        <link rel="stylesheet" href="css/result.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="../css/result.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/menu.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,700,800|Open+Sans+Condensed:300,700" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
