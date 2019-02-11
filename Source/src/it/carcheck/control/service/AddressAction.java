@@ -30,7 +30,7 @@ public class AddressAction implements IAction {
 		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 		
 		ArrayList<AddressBean> addresses = AddressManager.getInstance().getAddressByName(addressName, istat);
-		if(addresses != null && addresses.size() <= 0)
+		if(addresses == null || addresses.size() <= 0)
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no address")));
 		else
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", addresses)));
