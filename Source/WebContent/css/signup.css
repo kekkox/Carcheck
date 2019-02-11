@@ -12,6 +12,31 @@
     position: relative;
 }
 
+.inputBox ul#addressResult {
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+	transform: translateY(100%) translateY(-30px);
+	width: 100%;
+	max-width:870px;
+	list-style: none;
+	cursor: pointer;
+	overflow-y: auto;
+	max-height: 200px;
+	box-sizing: border-box;
+	z-index: 1001;
+	text-align: left;
+	background: #fff;
+	box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
+}
+
+.inputBox ul#addressResult li {
+	padding: 10px 5px;
+	border: 1px solid #f2f2f2;
+	border-radius: 5px;
+}
 
 .inputBox input {
     font-family: 'Open Sans', sans-serif;
@@ -54,9 +79,6 @@
 
 
 textarea:focus ~ label,
-select:focus ~ label,
-input:active ~ label,
-select:active ~ label, 
 textarea:active ~ label, 
 textarea:valid ~ label
 {
@@ -78,8 +100,10 @@ input:not([value=""]):not(:focus):invalid ~ label{
 
 select:focus ~ label,
 select:active ~ label, 
-select:valid ~ label,
-input:not([value=""]):not(:focus):invalid ~ label {
+select:valid ~ label {
+	font-size: 12px;
+    color: #046DE0;
+    font-weight: 700;
 	top: -30px !important;
 }
 

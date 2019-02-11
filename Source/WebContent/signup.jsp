@@ -27,17 +27,17 @@
 
         <form action="" method="post">
         
-          <div class = "inputBox">
-            <input type="text" name="p_iva" value ="" onkeyup="this.setAttribute('value', this.value);" required>
+          <div class = "inputBox" id = "piva">
+            <input type="text" name="p_iva" value ="" onkeyup="this.setAttribute('value', this.value);" pattern ="^[0-9]{11}$" required>
             <label>Partita Iva</label>
           </div>
     
-          <div class = "inputBox">
-            <input type="text" name="account_holder" value ="" onkeyup="this.setAttribute('value', this.value);" required>
+          <div class = "inputBox" id = "owner">
+            <input type="text" name="account_holder" value ="" onkeyup="this.setAttribute('value', this.value);" pattern = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
             <label>Intestatario officina</label>
           </div>
     
-          <div class = "inputBox">
+          <div class = "inputBox" id = "email">
             <input type="email" name="email" value ="" onkeyup="this.setAttribute('value', this.value);" required>
             <label>Indirizzo Email</label>
           </div>
@@ -47,25 +47,29 @@
           		<select id = "region" data-source="RequestHandler/region_service" required disabled>
           			<option disabled selected></option>
 				</select>
+				<label>Regione</label>
 			</div>
 			<div class = "inputBox">
 				<select id = "province" data-source="RequestHandler/province_service" required disabled>
           			<option disabled selected></option>
 				</select>
+				<label>Provincia</label>
 			</div>
 			<div class = "inputBox col-large">
 				<select id = "city" data-source="RequestHandler/city_service" required disabled>
           			<option disabled selected></option>
 				</select>
+				<label>Citt&agrave;</label>
           	</div>
           </div>
     
-          <div class = "inputBox">
-            <input type="text" name="address" value ="" onkeyup="this.setAttribute('value', this.value);" required>
+          <div class = "inputBox" id="address">
+            <input type="text" name="address" value ="" onkeyup="this.setAttribute('value', this.value);" required disabled>
             <label>Indirizzo</label>
+            <ul id="addressResult"></ul>
           </div>
             
-          <div class = "inputBox">
+          <div class = "inputBox" id="description">
               <textarea rows="3" name="description" value ="" onkeyup="this.setAttribute('value', this.value);" required></textarea>
             <label>Descrizione servizi offerti</label>
           </div>
