@@ -31,6 +31,7 @@ public class VehicleFindAction implements IAction {
 			throw new ActionException("Invalid licensepalte");
 		
 		IVehicle vehiclem =VehicleManager.getInstance();
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 		
 		VehicleBean vehicle;
 		try {
