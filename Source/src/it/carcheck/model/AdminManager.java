@@ -58,8 +58,12 @@ public class AdminManager implements IAdmin{
 	
 	@Override
 	public AdminBean doRetrieveByEmail(String email) throws SQLException {
-		AdminBean admin = this.doFind("SELECT * FROM admin WHERE email = ?", email).get(0);
-		return admin;
+		ArrayList<AdminBean> queryResult = this.doFind("SELECT * FROM admin WHERE email = ?", email);
+		
+		if(queryResult == null || queryResult.size() <= 0)
+			return null;
+		else
+			return queryResult.get(0);
 	}
 
 
