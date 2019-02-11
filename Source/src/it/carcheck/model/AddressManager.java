@@ -84,7 +84,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getFullAddressByName(String name, CityBean city) {
 		try {
-			return this.database.find(AddressBean.class, "SELECT * FROM address WHERE name = ? AND istat = ?", name, city.getIstat());
+			return this.database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE '%?' AND istat = ?", name, city.getIstat());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -101,7 +101,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getAddressByName(String name, String istat) {
 		try {
-			return database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE ? AND istat = ? GROUP BY name LIMIT 10", name, istat);
+			return database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE '" + name + "%' AND istat = ? GROUP BY name LIMIT 10", istat);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -118,7 +118,7 @@ public class AddressManager implements IAddress {
 	@Override
 	public ArrayList<AddressBean> getAddressByName(String name, CityBean city) {
 		try {
-			return database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE ? AND istat = ? GROUP BY name LIMIT 10", name, city.getIstat());
+			return database.find(AddressBean.class, "SELECT * FROM address WHERE name LIKE '" + name + "%' AND istat = ? GROUP BY name LIMIT 10", city.getIstat());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
