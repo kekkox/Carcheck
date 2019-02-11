@@ -69,7 +69,7 @@ public class VehicleFindAction implements IAction {
 	
 	private boolean isValidLicenseplate(String licenseplate) {
 		
-		/*if(licenseplate.matches(CAR_VALIDATOR_1948) || 
+		if(licenseplate.matches(CAR_VALIDATOR_1948) || 
 				licenseplate.matches(CAR_VALIDATOR_1976) || 
 				licenseplate.matches(CAR_VALIDATOR_1999) ||
 				licenseplate.matches(CAR_VALIDATOR_TODAY))
@@ -84,23 +84,23 @@ public class VehicleFindAction implements IAction {
 		if((licenseplate.matches(MOPED_VALIDATOR_2006) ||
 				licenseplate.matches(MOPED_VALIDATOR_TODAY)) &&
 				!licenseplate.matches(MOPED_DENIED_CHAR))
-			return true;*/
+			return true;
 		
-		return true;
+		return false;
 	}
 	
-	private static final String CAR_VALIDATOR_1948 = "\\^(([a-z]){2}([0-9]){5})$\\gi";
-    private static final String CAR_VALIDATOR_1976 = "\\^(([0-9]){6}([a-z]){2})$\\gi";
-    private static final String CAR_VALIDATOR_1999 = "\\^(([a-z]){3}([0-9]){5})$\\gi";
-    private static final String CAR_VALIDATOR_TODAY = "\\^(([a-z]){2}([0-9]){3}([a-z]){2})$\\gi";
+	private static final String CAR_VALIDATOR_1948 = "((?i)([a-z]){2}([0-9]){5})";
+    private static final String CAR_VALIDATOR_1976 = "(([0-9]){6}(?i)([a-z]){2})";
+    private static final String CAR_VALIDATOR_1999 = "((?i)([a-z]){3}([0-9]){5})";
+    private static final String CAR_VALIDATOR_TODAY = "((?i)([a-z]){2}([0-9]){3}([a-z]){2})";
     
-    private static final String BIKE_VALIDATOR_1927 = "\\^(([0-9]){5})$\\gi";
-    private static final String BIKE_VALIDATOR_1932 = "\\^(([0-9]){4}([a-z]){2})\\gi";
-    private static final String BIKE_VALIDATOR_1994 = "\\^(([a-z]){2}([0-9]){6})\\gi";
-    private static final String BIKE_VALIDATOR_TODAY = "\\^(([a-z]){2}([0-9]){5})\\gi";
+    private static final String BIKE_VALIDATOR_1927 = "([0-9]){5})";
+    private static final String BIKE_VALIDATOR_1932 = "([0-9]){4}(?i)([a-z]){2})";
+    private static final String BIKE_VALIDATOR_1994 = "(?i)([a-z]){2}([0-9]){6})";
+    private static final String BIKE_VALIDATOR_TODAY = "((?i)([a-z]){2}([0-9]){5})";
     
-    private static final String MOPED_VALIDATOR_2006 = "\\^([a-z0-9]){5}$\\gi";
-    private static final String MOPED_VALIDATOR_TODAY = "\\^(X([b-z2-9]){5})$\\gi";
-    private static final String MOPED_DENIED_CHAR = "\\[01aeioqu]+\\gi";
+    private static final String MOPED_VALIDATOR_2006 = "(?i)([a-z0-9]){5}";
+    private static final String MOPED_VALIDATOR_TODAY = "(?i)(X([b-z2-9]){5})";
+    private static final String MOPED_DENIED_CHAR = "(?i)[01aeioqu]+";
 }
 
