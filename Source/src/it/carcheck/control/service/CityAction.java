@@ -24,6 +24,7 @@ public class CityAction implements IAction {
 		String provinceCode = request.getParameter("province");
 		
 		Gson gson = new Gson(); 
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 
 		LocationManager locationManager = LocationManager.getInstance();
 		PrintWriter writer = response.getWriter();

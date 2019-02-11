@@ -28,26 +28,21 @@ public class WorkshopLoginAction implements IAction {
 			
 			if(user != null) {
 				request.getSession().setAttribute("user", user);
+				response.setHeader(IAction.HEADER_NAME, IAction.REDIRECT_RESPONSE);
 				return "workshop/dashboard";
 			}
+			
 			else {
-				try {
-					PrintWriter writer = response.getWriter();
-					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, ERROR_MESSAGE)));
-				} catch (IOException e){
-					System.out.println("Eccezione IO");
-					e.printStackTrace();
-					throw new ActionException();
-				}
-				
+				PrintWriter writer = response.getWriter();
+				response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
+				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, ERROR_MESSAGE)));
+		
 				return "login";
 			}
 				
 			
-		} catch (SQLException e) {
-			System.out.println("L'eccezioneeeee");
-			e.printStackTrace();
-			return "login";
+		} catch (SQLException | IOException e) {
+			throw new ActionException();
 		}
 	}
 

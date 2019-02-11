@@ -1,14 +1,19 @@
 package it.carcheck.control.request;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.WorkshopManager;
+import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.WorkshopBean;
+import it.carcheck.model.bean.enums.JsonResponseStatus;
 import it.carcheck.model.interfaces.IWorkshop;
 
 public class WorkshopSignupAction implements IAction {
@@ -32,15 +37,17 @@ public class WorkshopSignupAction implements IAction {
 		workshopBean.setDescription(description);
 		
 		IWorkshop workshopManager = WorkshopManager.getInstance();
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 		
 		try {
 			workshopManager.doSignUp(workshopBean);
+			JsonResponse jsonResponse = new JsonResponse(JsonResponseStatus.OK, SUCCESS_MESSAGE);
+			response.getWriter().println(new Gson().toJson(jsonResponse));
 			return "signup";
-		} catch(SQLException e) {
-			request.setAttribute("error", ERROR_MESSAGE);
-			return "signup";
+		} catch(SQLException | IOException e) {
+			throw new ActionException();
 		}
 	}
 
-	private static final String ERROR_MESSAGE = "Impossibile inviare la richiesta di adesione";
+	private static final String SUCCESS_MESSAGE = "Richiesta inviata con successo. Controlla la tua casella di posta";
 }

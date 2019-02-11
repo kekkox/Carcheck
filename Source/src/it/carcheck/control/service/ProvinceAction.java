@@ -23,7 +23,8 @@ public class ProvinceAction implements IAction {
 		int regionCode = Integer.parseInt(request.getParameter("region"));
 		
 		Gson gson = new Gson(); 
-
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
+		
 		LocationManager locationManager = LocationManager.getInstance();
 		PrintWriter writer = response.getWriter();
 		

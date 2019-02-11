@@ -13,14 +13,19 @@ public class LogoutAction implements IAction {
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException{
 		
+		response.setHeader(IAction.HEADER_NAME, IAction.REDIRECT_RESPONSE);
+		
 		if (request.getSession().getAttribute("user") != null) {
-			request.getSession().removeAttribute("user");
 			
-			if((request.getSession().getAttribute("user")) instanceof AdminBean)
+			if((request.getSession().getAttribute("user")) instanceof AdminBean) {
+				request.getSession().removeAttribute("user");
 				return "admin/login";
-			else 
-				return "index";
+			}
+			else {
+				return "workshop/login";
+			}
 		}
+		
 		return "index";
 	}
 }

@@ -27,6 +27,8 @@ public class AddressAction implements IAction {
 		Gson gson = new Gson(); 
 		PrintWriter writer = response.getWriter();
 		
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
+		
 		ArrayList<AddressBean> addresses = AddressManager.getInstance().getAddressByName(addressName, istat);
 		if(addresses != null && addresses.size() <= 0)
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no address")));

@@ -21,7 +21,8 @@ public class RegionAction implements IAction {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException, IOException {
 		
-		Gson gson = new Gson(); 
+		Gson gson = new Gson();
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 
 		LocationManager locationManager = LocationManager.getInstance();
 		PrintWriter writer = response.getWriter();

@@ -22,12 +22,18 @@ public class RequestHandler extends HttpServlet {
 		try {
 			IAction action = ActionFactory.getAction(request);
 			String view = action.execute(request, response);
-			String pathInfo = request.getPathInfo().substring(1);
 			
-			if(!view.equals(pathInfo)) {
+			if(response.getHeader(IAction.HEADER_NAME).equals(IAction.REDIRECT_RESPONSE)) {
+				response.sendRedirect("/" + view + ".jsp");
+			}
+			
+			if(response.getHeader(IAction.HEADER_NAME).equals(IAction.FORWARD_RESPONSE)) {
 				request.getRequestDispatcher("/" + view + ".jsp").forward(request, response);
 				return;
 			}
+			
+			if(response.getHeader(IAction.HEADER_NAME).equals(IAction.JSON_RESPONSE))
+				return;
 			
 		}
 		catch (ActionNotFoundException e) {
