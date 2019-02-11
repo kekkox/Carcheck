@@ -53,6 +53,14 @@ public class AdminManager implements IAdmin{
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	@Override
+	public AdminBean doRetrieveByEmail(String email) throws SQLException {
+		AdminBean admin = this.doFind("SELECT * FROM admin WHERE email = ?", email).get(0);
+		return admin;
+	}
 
 
 
