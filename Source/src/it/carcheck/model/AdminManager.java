@@ -104,9 +104,15 @@ public class AdminManager implements IAdmin{
 
 	@Override
 	public void doAddAdmin(AdminBean loggedAdmin, AdminBean admin) throws SQLException {
-		if(loggedAdmin.getGrade() == Grade.SUPER_ADMIN)
+		if(loggedAdmin.getGrade() == Grade.SUPER_ADMIN) {
+			AdminBean to_check = this.doFind("SELECT * FROM admin WHERE id = ?", admin.getId()).get(0);
+			
+			if(to_check != null && (to_check.getId() == admin.getId()))
+				return; //TODO Catch exception if admin exist
+			
+			//Not equal
 			this.doInsert(admin);
-		//TODO Catch exception if admin doesn't have permission
+		}
 	}
 
 
