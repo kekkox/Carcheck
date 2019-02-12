@@ -36,7 +36,6 @@
 				<th>Data Scadenza</th>
 				<th>Esito</th>
                 <th class="lastCell">Azioni</th>
-        
             </tr>
             <tr>
                 <td class="mainCell">TC215MZ</td>
@@ -64,10 +63,11 @@
         </table>
     </div>
     </div>
-    <Button class="button">	
+   
+   <a href="addinspection.jsp?property=add"><Button class="button">	
    	
    	<span class="plustxt">+</span>
-   	   	<span class="buttontext">Aggiungi Revisione</span></Button>   
+   	   <span class="buttontext">Aggiungi Revisione</span></Button></a>
 </div>
 
 </body>
