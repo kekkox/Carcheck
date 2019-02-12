@@ -79,6 +79,9 @@ public class BeanEntity<T> implements IBeanEntity<T> {
 					fieldName = this.getModifiedName(field);
 				
 				field.setAccessible(true);
+				if(field.get(entity) == null)
+					continue;
+				
 				hashmap.put(fieldName, field.get(entity));
 			}
 			
