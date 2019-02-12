@@ -23,7 +23,10 @@ String title=request.getParameter("title");
 String classname=request.getParameter("classname");
 String uploadIsVisible=request.getParameter("uploadIsVisible");
 String buttontext=request.getParameter("buttontext");
-  
+String licenseplate=request.getParameter("licenseplate");
+String inspectionDate=request.getParameter("inspectionDate");
+String km=request.getParameter("km");
+String approved=request.getParameter("approved");
 %>
   <body>
     	<jsp:include page = "../WEB-INF/menu.jsp"/>
@@ -40,17 +43,17 @@ String buttontext=request.getParameter("buttontext");
         <form action="" method="post">
         
           <div class = "inputBox">
-            <input type="text" name="licensePlace" value ="" onkeyup="this.setAttribute('value', this.value);" required <%=property %> >
+            <input type="text" name="licensePlace" value =<%=licenseplate %> onkeyup="this.setAttribute('value', this.value);" required <%=property %> >
             <label <%= classname %> >Targa veicolo</label>
           </div>
     
           <div class = "inputBox">
-            <input type="date" name="inspectionDate" value ="" onkeyup="this.setAttribute('value', this.value);" required <%=property %> >
+            <input type="date" name="inspectionDate" value =<%= inspectionDate%> onkeyup="this.setAttribute('value', this.value);" required <%=property %> >
             <label class="active">Data revisione</label>
           </div>
     
           <div class = "inputBox">
-            <input type="number" name="km" value ="" onkeyup="this.setAttribute('value', this.value);" required pattern="\d*" <%=property %>>
+            <input type="number" name="km" value =<%=km %> onkeyup="this.setAttribute('value', this.value);" required pattern="\d*" <%=property %>>
             <label class="active">Chilometri</label>
           </div>
        
