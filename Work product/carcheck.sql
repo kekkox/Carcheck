@@ -29,7 +29,7 @@ CREATE TABLE `adhesionrequest` (
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(128) NOT NULL,
+  `password` varchar(128),
   `isFirstLogin` tinyint(1) NOT NULL DEFAULT '1',
   `name` varchar(50) NOT NULL,
   `surname` varchar(50) NOT NULL,
@@ -8359,7 +8359,7 @@ CREATE TABLE `vehicleinspection` (
 CREATE TABLE `workshop` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(128) NOT NULL,
+  `password` varchar(128),
   `isFirstLogin` tinyint(1) NOT NULL DEFAULT '1',
   `pIva` varchar(11) NOT NULL,
   `businessName` varchar(100) NOT NULL,
