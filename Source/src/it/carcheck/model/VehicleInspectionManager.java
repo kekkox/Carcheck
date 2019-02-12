@@ -26,6 +26,11 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	public Collection<VehicleInspectionBean> doRetrieveByLicensePlate(WorkshopBean workshop, String licensePlate) throws SQLException {
 		return doFind("SELECT * FROM vehicleinspection WHERE vehicle = ? AND workshop = ?", licensePlate, workshop.getId());	
 	}
+	
+	@Override
+	public Collection<VehicleInspectionBean> doRetrieveByKey(WorkshopBean workshop, int inspectionCode) throws SQLException {
+		return doFind("SELECT * FROM vehicleinspection WHERE id = ? AND workshop = ?", inspectionCode, workshop.getId());	
+	}
 
 	@Override
 	public Collection<VehicleInspectionBean> doRetrieveByWorkshop(WorkshopBean workshop) throws SQLException {

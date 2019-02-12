@@ -83,6 +83,26 @@ input:not([value=""]):not(:focus):invalid ~ label{
     color: #046DE0;
     font-weight: 700;
 }
+.active{
+	   top: -20px !important; 
+    font-size: 12px !important;
+    color: #046DE0 !important;
+    font-weight: 700 !important; 
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 25px;
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
 
 
 .container {

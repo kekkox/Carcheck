@@ -20,12 +20,12 @@
     <title>Carchek</title>
 </head>
 <body>
-<jsp:include page="../menu.jsp" />
+<jsp:include page="../WEB-INF/menu.jsp" />
 <div class="container">
-<jsp:include page="../sidebar.jsp" />
+<jsp:include page="../WEB-INF/sidebar.jsp" />
 <div class="content">
     <div class="tableContainer">
-     <jsp:include page="../searchbar.jsp" />
+     <jsp:include page="../WEB-INF/searchbar.jsp" />
         <table class="table">
             <tr>
                 <th>Targa</th>
@@ -36,7 +36,6 @@
 				<th>Data Scadenza</th>
 				<th>Esito</th>
                 <th class="lastCell">Azioni</th>
-        
             </tr>
             <tr>
                 <td class="mainCell">TC215MZ</td>
@@ -64,10 +63,11 @@
         </table>
     </div>
     </div>
-    <Button class="button">	
+   
+   <a href="addinspection.jsp?property=add"><Button class="button">	
    	
    	<span class="plustxt">+</span>
-   	   	<span class="buttontext">Aggiungi Revisione</span></Button>   
+   	   <span class="buttontext">Aggiungi Revisione</span></Button></a>
 </div>
 
 </body>

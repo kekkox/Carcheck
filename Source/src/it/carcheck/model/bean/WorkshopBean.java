@@ -38,11 +38,11 @@ public class WorkshopBean {
 		this.pIva = pIva;
 	}
 
-	public String getAddress() {
+	public int getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(int address) {
 		this.address = address;
 	}
 
@@ -93,14 +93,6 @@ public class WorkshopBean {
 	public void setFirstLogin(boolean isFirstLogin) {
 		this.isFirstLogin = isFirstLogin;
 	}
-	
-	public int getCity() {
-		return city;
-	}
-
-	public void setCity(int city) {
-		this.city = city;
-	}
 
 
 	/*
@@ -108,8 +100,8 @@ public class WorkshopBean {
 	 */
 	@PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
 	private int id;
-	private int city;	
-	private String businessName, pIva, address, owner, description, telephone;
+	private int address;	
+	private String businessName, pIva, owner, description, telephone;
 	private String email, password;
 	private boolean isFirstLogin;
 }

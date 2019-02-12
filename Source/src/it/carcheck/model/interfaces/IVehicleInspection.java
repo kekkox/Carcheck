@@ -11,4 +11,6 @@ public interface IVehicleInspection extends IDatabaseOperation<VehicleInspection
 	public Collection<VehicleInspectionBean> doRetrieveByLicensePlate(WorkshopBean workshop, String licensePlate) throws SQLException;
 	
 	public Collection<VehicleInspectionBean> doRetrieveByWorkshop(WorkshopBean workshop) throws SQLException;
+	
+	public Collection<VehicleInspectionBean> doRetrieveByKey(WorkshopBean workshop, int inspectionCode) throws SQLException;
 }
