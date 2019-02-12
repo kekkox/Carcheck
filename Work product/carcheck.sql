@@ -20,8 +20,8 @@ CREATE TABLE `address` (
 CREATE TABLE `adhesionrequest` (
   `id` int(11) NOT NULL,
   `status` int(2) NOT NULL,
-  `meetingDate` date NOT NULL,
-  `meetingHour` time NOT NULL,
+  `meetingDate` date,
+  `meetingHour` time,
   `workshop` int(11) NOT NULL,
   `admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
