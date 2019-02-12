@@ -1,3 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
  <html lang="it" dir="ltr">
    <head>
@@ -31,7 +36,7 @@
                     </div>
                     <div class="info">
                         <p>Veicoli revisionati</p>
-                        <h2>35</h2>
+                        <h2>${fn:length(param.inspections)}</h2>
                     </div>
                 </div>
                 <div class="card">
@@ -40,13 +45,19 @@
                     </div>
                     <div class="info">
                         <p>Revisioni</p>
-                        <h2>70</h2>
+                        <h2>${fn:length(param.inspections)}</h2>
                     </div>
                 </div>
             </div>
             
             <h1>Revisioni in scadenza</h1>
-            <div class="row">
+            <c:if test="${fn:length(inspections) le 0}">
+            	<div class="row">
+   					<h4>Nessuna revisione in scadenza</h4>
+   				</div>
+			</c:if>
+			<c:if test="${fn:length(inspections) gt 0}">
+   				<div class="row">
             		<div class="tableContainer">
 						<table class="table">
 							<tr>
@@ -55,15 +66,17 @@
 								<th>Chilometri</th>
 								<th class="lastCell">Data scadenza</th>
 							</tr>
-							<tr>
-								<td>NAN70642</td>
-								<td>Fiat Uno</td>
-								<td>100000</td>
-								<td class="mainCell">10/02/2018</td>
-							</tr>
+							<c:forEach items="${inspections}" var="item">
+								<tr>
+									<td>${item.licensePlate}</td>
+									<td>${item.km}</td>
+									<td class="mainCell">${item.expirationDate}</td>
+								</tr>
+							</c:forEach>
 						</table>
 					</div> 
-            </div>
+            	</div>
+			</c:if>
             
         </div>
 

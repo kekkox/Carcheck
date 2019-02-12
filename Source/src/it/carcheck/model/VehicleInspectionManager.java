@@ -36,6 +36,11 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	public Collection<VehicleInspectionBean> doRetrieveByWorkshop(WorkshopBean workshop) throws SQLException {
 		return doFind("SELECT * FROM vehicleinspection WHERE workshop = ?", workshop.getId());
 	}
+	
+	@Override
+	public Collection<VehicleInspectionBean> doRetrieveExpiringInspection(WorkshopBean workshop) throws SQLException {
+		return doFind("SELECT * FROM vehicleinspection WHERE workshop = ? AND expirationDate BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 30 DAY)", workshop.getId());
+	}
 
 	@Override
 	public void doSave(VehicleInspectionBean element) throws SQLException {
