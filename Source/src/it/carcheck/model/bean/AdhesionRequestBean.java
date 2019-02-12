@@ -46,10 +46,10 @@ public class AdhesionRequestBean {
 		this.meetingDate = meetingDate;
 	}
 	public Time getMeeetingHour() {
-		return meeetingHour;
+		return meetingHour;
 	}
 	public void setMeeetingHour(Time meeetingHour) {
-		this.meeetingHour = meeetingHour;
+		this.meetingHour = meeetingHour;
 	}
 	
 	
@@ -57,6 +57,6 @@ public class AdhesionRequestBean {
 	private int id;
 	private int workshop,admin,status;
 	private Date meetingDate;
-	private Time meeetingHour;	
+	private Time meetingHour;	
 	
 }
