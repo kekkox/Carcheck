@@ -87,11 +87,14 @@ public class WorkshopBean {
 	}
 
 	public boolean isFirstLogin() {
-		return isFirstLogin;
+		return isFirstLogin == 1 ? true : false;
 	}
 
 	public void setFirstLogin(boolean isFirstLogin) {
-		this.isFirstLogin = isFirstLogin;
+		if(isFirstLogin)
+			this.isFirstLogin = 1;
+		else
+			this.isFirstLogin = 0;
 	}
 
 
@@ -100,8 +103,8 @@ public class WorkshopBean {
 	 */
 	@PrimaryKey(option = PrimaryKeyOption.Auto_Increment )
 	private int id;
-	private int address;	
+	private int address;
 	private String businessName, pIva, owner, description, telephone;
 	private String email, password;
-	private boolean isFirstLogin;
+	private int isFirstLogin;
 }
