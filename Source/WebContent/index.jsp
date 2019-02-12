@@ -16,7 +16,7 @@
    <body>
      <div class="container">
 
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="./WEB-INF/menu.jsp" />
 
        <div class="overlay"></div>
 

@@ -20,12 +20,12 @@
     <title>Carchek</title>
 </head>
 <body>
-<jsp:include page="../menu.jsp" />
+<jsp:include page="../WEB-INF/menu.jsp" />
 <div class="container">
-<jsp:include page="../sidebar.jsp" />
+<jsp:include page="../WEB-INF/sidebar.jsp" />
 <div class="content">
     <div class="tableContainer">
-     <jsp:include page="../searchbar.jsp" />
+     <jsp:include page="../WEB-INF/searchbar.jsp" />
         <table class="table">
             <tr>
                 <th>Targa</th>

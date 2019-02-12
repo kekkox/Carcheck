@@ -23,9 +23,9 @@
 
 
 <body>
-	<jsp:include page="../menu.jsp" />
+	<jsp:include page="../WEB-INF/menu.jsp" />
 	<div class="container">
-		<jsp:include page="../sidebar.jsp" />
+		<jsp:include page="../WEB-INF/sidebar.jsp" />
 		<div class="content">
 			<h1>Impostazioni account</h1>
 			<div class="row">
