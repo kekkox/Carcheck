@@ -2,6 +2,8 @@ package it.carcheck.model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
 
 import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
@@ -81,7 +83,8 @@ public class WorkshopManager implements IWorkshop {
 	@Override
 	public void doInsert(WorkshopBean element) throws SQLException {
 		try {
-			database.create(element);
+			int id = database.create(element);
+			element.setId(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,7 +105,6 @@ public class WorkshopManager implements IWorkshop {
 	public void doSignUp(WorkshopBean workshop) throws SQLException {	
 		doInsert(workshop);
 		doSendAdhesionRequest(workshop);
-		
 	}
 
 	@Override
@@ -129,5 +131,5 @@ public class WorkshopManager implements IWorkshop {
 
 	private CarcheckDatabase database;
 	private static WorkshopManager instance;
-	private static final String MAIL_BODY = "Grazie %s per la richiesta di adesione ai servizi di Carcheck da parte dell'officina %s\n La sua richiesta verrà esaminatada un'operatore e controllata nel più breve tempo possibile";
+	private static final String MAIL_BODY = "Grazie %s per la richiesta di adesione ai servizi di Carcheck con la sua officina %s .\nLa sua richiesta verra' esaminatada un'operatore e controllata nel piu' breve tempo possibile";
 }

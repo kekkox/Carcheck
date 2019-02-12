@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.AdminBean;
+import it.carcheck.model.bean.enums.RequestStatus;
 import it.carcheck.model.interfaces.IAdhesionRequest;
 
 public class AdhesionRequestManager implements IAdhesionRequest {
@@ -45,6 +46,7 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 		AdminBean adminBean = adminManager.doFind("SELECT * FROM admin ORDER BY RAND() LIMIT 1").get(0);
 		
 		element.setAdminCode(adminBean.getId());
+		element.setStatus(RequestStatus.PROCESSING);
 		
 		try {
 			database.create(element);

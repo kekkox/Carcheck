@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     province_select.addEventListener('change',onProvinceChangeHandler);
     city_select.addEventListener('change', onCityChangeHandler);
     address_input.addEventListener('keyup', (event) => onKeyUpAddressHandler(event));
-    form_element.addEventListener('submit', onFormSubmitHandler);
+    form_element.addEventListener('submit', (event) => {onFormSubmitHandler(event, document.querySelector(".inputBox#email input").value)});
     
     //Send request to load region
     let regionRequest = new XMLHttpRequest();
@@ -194,9 +194,8 @@ function onLiClickHandler(target) {
 
 /**
  * Called when user submit the form.
- * Check if the email is already stored into database.
  */
-let onFormSubmitHandler = (event, email) => {
+function onFormSubmitHandler(event, email) {
 	event.preventDefault();
 	
 	//If the user doesn't select an address
@@ -215,11 +214,11 @@ let onFormSubmitHandler = (event, email) => {
 				let responseJSON = JSON.parse(request.responseText);
 				//If the email is not stored
 				if(responseJSON.JsonResponseContent === false) {
-					form_element.removeEventListener('submit', (event, email) => {onFormSubmitHandler(event, email)});
-					form_element.submit();
+					formSubmit();
 				}
 				else {
 					errorHandler("Email gi&agrave; in uso", document.getElementsByName('email')[0], document.querySelector(".inputBox#email label"));
+					return;
 				}
 			}
 			else {
@@ -254,6 +253,44 @@ function errorHandler(message, element, label) {
 			signup_container_element.style.animation = "";
 		}, 1000);
 	
+}
+
+/*
+ * Called to do signup
+ */
+function formSubmit() {
+	let request = new XMLHttpRequest();
+	const piva = document.querySelector(".inputBox#piva input").value;
+	const email = document.querySelector(".inputBox#email input").value;
+	const owner = document.querySelector(".inputBox#owner input").value;
+	const businessName = document.querySelector(".inputBox#businessName input").value;
+	const telephone = document.querySelector(".inputBox#telephone input").value;
+	const address = address_input.getAttribute('value');
+	const description = document.querySelector(".inputBox#description textarea").value;
+	
+	let params = "email=" + email 
+					+ "&iva=" + piva 
+					+ "&businessName=" + businessName
+					+ "&telephone=" + telephone
+					+ "&owner=" + owner
+					+ "&address=" + address
+					+ "&description=" + description; 
+	
+	request.onreadystatechange = function() {
+		if(this.readyState == 4)
+			if(this.status == 200) {
+				let responseJSON = JSON.parse(request.responseText);
+				swal("Congratulazioni!", responseJSON.JsonResponseMessage, "success").then(() => document.location.href = "login.jsp");
+			}
+			else {
+				swal("OPS!", "Qualcosa &egrave; andato storto. Riprova pi&ugrave; tardi", "error");
+				return;
+			}
+	}
+	
+	request.open("POST", "RequestHandler/signup", true);
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	request.send(params);
 }
 
 let region_select;

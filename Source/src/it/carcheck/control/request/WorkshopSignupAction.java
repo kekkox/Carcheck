@@ -24,16 +24,19 @@ public class WorkshopSignupAction implements IAction {
 		String piva = request.getParameter("iva");
 		String owner = request.getParameter("owner");
 		String email = request.getParameter("email");
-		int city = Integer.parseInt(request.getParameter("city"));
+		String businessName = request.getParameter("businessName");
+		String telephone = request.getParameter("telephone");
 		int address = Integer.parseInt(request.getParameter("address"));
 		String description = request.getParameter("description");
 		
 		WorkshopBean workshopBean = new WorkshopBean();
 		workshopBean.setpIva(piva);
 		workshopBean.setOwner(owner);
+		workshopBean.setBusinessName(businessName);
+		workshopBean.setTelephone(telephone);
 		workshopBean.setEmail(email);
-		workshopBean.setCity(city);
-		workshopBean.setAddress(""+address); //TODO replace with int after database edit
+		workshopBean.setAddress(address);
+		workshopBean.setFirstLogin(true);
 		workshopBean.setDescription(description);
 		
 		IWorkshop workshopManager = WorkshopManager.getInstance();
