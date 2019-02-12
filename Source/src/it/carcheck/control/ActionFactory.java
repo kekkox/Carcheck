@@ -23,6 +23,7 @@ public class ActionFactory {
 		actions.put("POST/loginAdmin", new AdminLoginAction());
 		actions.put("POST/signupAdmin", new AdminSignupAction());
 		actions.put("POST/logout", new LogoutAction());
+		actions.put("POST/workshopRevision", new RevisionAction());
 		
 		// Services
 		actions.put("POST/region_service", new RegionAction());
