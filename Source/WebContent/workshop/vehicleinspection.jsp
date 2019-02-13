@@ -56,15 +56,15 @@
 				<td>10/10/2019</td>
 				<td><div class='statusCell negative'>Respinta</div></td>
 				<td><div class="action">
-				<a href="https:/dsjdis"><i class="fas fa-eye" id="eye"></i></a>
-				<a href="https:/dsjdis"><i class="fas fa-pencil-alt" id="pencil"></i></a>
+				<a href="../RequestHandler/inspectionview?inspectionKey=1020"><i class="fas fa-eye" id="eye"></i></a>
+				<a href="../RequestHandler/inspectionedit?inspectionKey=1020"><i class="fas fa-pencil-alt" id="pencil"></i></a>
 				</div></td>
             </tr>
         </table>
     </div>
     </div>
    
-   <a href="addinspection.jsp?property=add"><Button class="button">	
+   <a href="/RequestHandler/inspectioninsert"><Button class="button">	
    	
    	<span class="plustxt">+</span>
    	   <span class="buttontext">Aggiungi Revisione</span></Button></a>

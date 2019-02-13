@@ -14,7 +14,7 @@ import it.carcheck.model.VehicleManager;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 
-public class InsertInspction implements IAction {
+public class InsertInspection implements IAction {
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException {
 

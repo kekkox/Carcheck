@@ -1,4 +1,4 @@
-package it.carcheck.control;
+/*package it.carcheck.control;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -61,3 +61,4 @@ public class WorkshopFilter implements Filter{
 	}
 
 }
+*/

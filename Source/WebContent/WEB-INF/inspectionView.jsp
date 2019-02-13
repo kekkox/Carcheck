@@ -18,7 +18,6 @@
   <%
   
   String property=request.getParameter("property");
-  
 String title=request.getParameter("title");
 String classname=request.getParameter("classname");
 String uploadIsVisible=request.getParameter("uploadIsVisible");
@@ -89,8 +88,6 @@ String approved=request.getParameter("approved");
           
      </div>
    			
-		  
-      
         </form>
 
 

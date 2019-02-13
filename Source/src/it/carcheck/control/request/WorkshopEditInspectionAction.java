@@ -6,11 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.carcheck.control.exception.ActionException;
+import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.VehicleInspectionManager;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 
-public class WorkshopEditInspectionAction {
+public class WorkshopEditInspectionAction implements IAction {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException {
 		int inspectionKey = Integer.parseInt(request.getParameter("inspectionKey"));
 
