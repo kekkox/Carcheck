@@ -30,10 +30,12 @@ function sendRequest(param) {
 function responseHandler(request) {
 	if(request.readyState == 4) {
 		if(request.status == 200) {
-			let jsonResponse = JSON.parse(request.responseText);
-			
-			if(jsonResponse.JsonResponseStatus === 0)
-				toggleLicensePlateErrorStatus(true, jsonResponse.JsonResponseMessage); 
+			if(isJsonResponse()) {
+				let jsonResponse = JSON.parse(request.responseText);
+				
+				if(jsonResponse.JsonResponseStatus === 0)
+					toggleLicensePlateErrorStatus(true, jsonResponse.JsonResponseMessage); 
+			}
 			else {
 				form.removeEventListener('submit', (event) => {onSearchClick(event)});
 	    		form.submit();
@@ -162,6 +164,21 @@ function toggleLicensePlateErrorStatus(errorStatus, message) {
 		element.classList.remove(WRONG_CLASS);
         ERROR_MESSAGE_ELEMENT.style.display = "none";
 	}
+}
+
+
+/*
+ * Check if a response is in JSON format
+ */
+function isJsonResponse(str) {
+	try {
+		JSON.parse(str);
+	}
+	catch(e) {
+		return false;
+	}
+	
+	return true;
 }
 
 let WRONG_CLASS = "wrong";

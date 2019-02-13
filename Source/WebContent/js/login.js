@@ -62,6 +62,8 @@ function responseManager(response) {
 	
 	if(jsonObject.JsonResponseStatus === 0)
 		errorHandler(jsonObject.JsonResponseMessage);
+	else
+		document.location.href = jsonObject.JsonResponseContent;
 }
 
 function errorHandler(message) {

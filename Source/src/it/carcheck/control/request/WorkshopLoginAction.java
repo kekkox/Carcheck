@@ -23,18 +23,20 @@ public class WorkshopLoginAction implements IAction {
 		String password = request.getParameter("password");
 		Gson gson = new Gson();
 		
+		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
+		
 		try {
+			PrintWriter writer = response.getWriter();
 			WorkshopBean user = WorkshopManager.getInstance().doLogin(email, password);
 			
 			if(user != null) {
 				request.getSession().setAttribute("user", user);
-				response.setHeader(IAction.HEADER_NAME, IAction.REDIRECT_RESPONSE);
+				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, SUCCESS_MESSAGE, request.getContextPath() + "/workshop/dashboard.jsp")));
 				return "workshop/dashboard";
 			}
 			
 			else {
-				PrintWriter writer = response.getWriter();
-				response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
+				writer = response.getWriter();
 				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, ERROR_MESSAGE)));
 		
 				return "login";
@@ -48,4 +50,5 @@ public class WorkshopLoginAction implements IAction {
 
 	
 	private static final String ERROR_MESSAGE = "Username o password errati";
+	private static final String SUCCESS_MESSAGE = "Accesso effettuato";
 }
