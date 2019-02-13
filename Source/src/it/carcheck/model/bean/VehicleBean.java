@@ -28,11 +28,11 @@ public class VehicleBean {
 		this.description = description;
 	}
 
-	public short getYearOfRegistration() {
+	public int getYearOfRegistration() {
 		return yearOfRegistration;
 	}
 
-	public void setYearOfRegistration(short yearOfRegistration) {
+	public void setYearOfRegistration(int yearOfRegistration) {
 		this.yearOfRegistration = yearOfRegistration;
 	}
 
@@ -84,13 +84,23 @@ public class VehicleBean {
 		this.euroClass = euroClass;
 	}
 	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
 	@PrimaryKey(option = PrimaryKeyOption.None )
 	private String licensePlate;
 	private String description;
-	private short yearOfRegistration;
+	private int yearOfRegistration;
 	private int displacement, kw;
 	private boolean scrapped;
 	private String category;
 	private String fuel;
 	private String euroClass;
+	private String photo;
 }

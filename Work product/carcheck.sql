@@ -8342,6 +8342,7 @@ CREATE TABLE `vehicle` (
   `fuel` enum('Petrol','Gasoline','LPG','Hybrid','Electric','Hydrogen','Methane') NOT NULL,
   `category` enum('Motorvehicle','Motorcycle','Moped') NOT NULL,
   `euroClass` enum('1','2','3','4','5','6','6a','6b','6c','6d') NOT NULL,
+  `photo` varchar(200) DEFAULT NULL,
   `scrapped` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
