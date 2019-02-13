@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     form = document.querySelector(".search_bar");
+    button = document.querySelector(".search_bar button");
     form.addEventListener('submit', (event) => {onSearchClick(event)});
     
     document.addEventListener('keydown', (e) => {onEnterPressed(e)});
@@ -19,6 +20,7 @@ function onSearchClick(event) {
 }
 
 function sendRequest(param) {
+	switchButtonStatus();
 	let xhttp = new XMLHttpRequest();
 	const params = "licenseplate=" + param;
 	xhttp.onreadystatechange = (event) => {responseHandler(event.target)};
@@ -30,11 +32,13 @@ function sendRequest(param) {
 function responseHandler(request) {
 	if(request.readyState == 4) {
 		if(request.status == 200) {
-			if(isJsonResponse()) {
+			if(isJsonResponse(request.responseText)) {
 				let jsonResponse = JSON.parse(request.responseText);
 				
-				if(jsonResponse.JsonResponseStatus === 0)
+				if(jsonResponse.JsonResponseStatus === 0) {
 					toggleLicensePlateErrorStatus(true, jsonResponse.JsonResponseMessage); 
+					switchButtonStatus();
+				}
 			}
 			else {
 				form.removeEventListener('submit', (event) => {onSearchClick(event)});
@@ -53,6 +57,9 @@ function onEnterPressed(e) {
 		onSearchClick();
 }
 
+/*
+ * Validate the chosed category
+ */
 function checkVehicleCategory(element) {
     let WRONG_VALUE = -1;
 
@@ -71,6 +78,10 @@ function checkVehicleCategory(element) {
     }
 }
 
+
+/*
+ * Validae a license plate
+ */
 function checkLicensePlate(element, vehicleID) {
 
     var value = element.value.replace(" ", "");
@@ -181,6 +192,24 @@ function isJsonResponse(str) {
 	return true;
 }
 
-let WRONG_CLASS = "wrong";
+function switchButtonStatus() {
+	if(button.innerHTML === loading_spinner) {
+		//button.classList.remove("loading");
+		button.innerHTML = search_icon;
+		button.disabled = false;
+	}
+	else {
+		//button.classList.add("loading");
+		button.innerHTML = loading_spinner;
+		button.disabled = true;
+	}
+}
+
 let ERROR_MESSAGE_ELEMENT;
+
 let form;
+let button;
+
+let loading_spinner = "<i class=\"fa fa-spinner fa-spin\"></i>";
+let search_icon = "<i class='fas fa-search'></i>";
+let WRONG_CLASS = "wrong";

@@ -1,14 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
     import="it.carcheck.model.bean.*"%>
-    
-    <% VehicleBean bean = (VehicleBean) request.getAttribute("vehicle");
-    	if(bean == null)
-    		System.out.println("NON FUNZIONA");
-    %>
 <html>
     <head>
-        <title>NAN70642 - Informazioni</title>
+        <title>${vehicle.licensePlate} - Informazioni</title>
         <link rel="stylesheet" href="../css/result.css">
         <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" href="../css/menu.css">
@@ -23,32 +20,27 @@
         <div class = "container">
         	<div class = "row">
 	        	<div class = "license_palette">
-	    			<b>Targa del veicolo:</b> AB123CD
+	    			<b>Targa del veicolo:</b> ${vehicle.licensePlate}
 	    		</div>
 	        	
 	        	<div class = "left">
 	        		<div class="vehicle_card">
 			            <h1>
-			                <div>2015</div>
-			                Alfa Romeo Giulietta
-			                <small>5 Posti</small>
+			                <div>${vehicle.yearOfRegistration}</div>
+			                ${vehicle.description}
 			            </h1>
-			            <img src="https://www.stavauto.it/wp-content/uploads/sites/21/2017/12/PNGPIX-COM-Alfa-Romeo-Giulietta-Car-PNG-image-1024x564.png" alt="Immagine auto">
+			            <img src="<c:url value="../img/vehiclephoto/${vehicle.photo}"/>" alt="Immagine auto">
 			            <div class="card_footer">
 			                <div class="footer_element">
-			                    <span class = "value">6</span>
+			                    <span class = "value">${vehicle.euroClass}</span>
 			                    <span class = "label">EURO</span>
 			                </div>
 			                <div class="footer_element">
-			                    <span class = "value">120</span>
-			                    <span class = "label">Cavalli</span>
-			                </div>
-			                <div class="footer_element">
-			                    <span class = "value">88</span>
+			                    <span class = "value">${vehicle.kw}</span>
 			                    <span class = "label">kW</span>
 			                </div>
 			                <div class="footer_element">
-			                    <span class = "value">1598</span>
+			                    <span class = "value">${vehicle.displacement}</span>
 			                    <span class = "label">Cilindrata</span>
 			                </div>
 		            	</div>
@@ -58,24 +50,48 @@
         		<div class = "right">
 	        		<div class = "general_info">
 		        		<div class = "info_element">
-		        			<i class="fas fa-user-times negative"></i>
-		        			Il veicolo non può essere guidato da neopatentati.
+		        			<c:if test="${vehicle.kw gt 55}">
+			        			<i class="fas fa-user-times negative"></i>
+			        			Il veicolo non può essere guidato da neopatentati.
+		        			</c:if>
+		        			<c:if test="${vehicle.kw le 55}">
+			        			<i class="fas fa-user positive"></i>
+			        			Il veicolo può essere guidato da neopatentati.
+		        			</c:if>
 		        		</div>
 		        		<div class = "info_element">
 		        			<i class="fas fa-file positive"></i>
 		        			Non sono presenti denunce sul veicolo
 		        		</div>
 		        		<div class = "info_element">
-		        			<i class="fas fa-check-circle positive"></i>
-		        			Bollo in regola - <b>Scadenza:</b> 12/12/19
+		        			<c:if test = "${!possessionFeeExpired}">
+		        				<i class="fas fa-check-circle positive"></i>
+		        				Bollo in regola - <b>Scadenza:</b> ${possessionFeeDate}
+	        				</c:if>
+	        				<c:if test = "${possessionFeeExpired}">
+	        					<i class="fas fa-exclamation-circle negative"></i>
+		        				Bollo scaduto - <b>Scaduto il:</b> ${possessionFeeDate}
+	        				</c:if>
 		        		</div>
 		        		<div class = "info_element">
-		        			<i class="fas fa-check-circle positive"></i>
-		        			Revisione in regola - <b>Scadenza:</b> 25/12/19
+		        			<c:if test = "${!inspectionExpired}">
+		        				<i class="fas fa-check-circle positive"></i>
+		        				Revisione in regola - <b>Scadenza:</b> ${inspectionDate}
+	        				</c:if>
+	        				<c:if test = "${inspectionExpired}">
+	        					<i class="fas fa-exclamation-circle negative"></i>
+		        				Revisione scaduta - <b>Scaduta il:</b> ${inspectionDate}
+	        				</c:if>
 		        		</div>
 		        		<div class = "info_element">
-		        			<i class="fas fa-exclamation-circle negative"></i>
-		        			Assicurazione scaduta - <b>Scadenza:</b> 01/01/19
+		        		<c:if test = "${!insuranceExpired}">
+		        				<i class="fas fa-check-circle positive"></i>
+		        				Assicurazione in regola - <b>Scadenza:</b> ${insuranceDate}
+	        				</c:if>
+	        				<c:if test = "${insuranceExpired}">
+	        					<i class="fas fa-exclamation-circle negative"></i>
+		        				Assicurazione scaduta - <b>Scaduta il:</b> ${insuranceDate}
+	        				</c:if>
 		        		</div>
         			</div>
         		</div>

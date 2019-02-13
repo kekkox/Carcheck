@@ -1,6 +1,7 @@
 package it.carcheck.control.request;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,6 @@ public class VehicleFindAction implements IAction {
 			throw new ActionException("Invalid licensepalte");
 		
 		IVehicle vehiclem =VehicleManager.getInstance();
-		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 		
 		VehicleBean vehicle;
 		try {
@@ -39,6 +39,7 @@ public class VehicleFindAction implements IAction {
 			vehicle = vehiclem.doRetriveVehicle(licenseplate);
 		
 			if(vehicle == null) {
+				response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
 				JsonResponse jsonResponse = new JsonResponse(JsonResponseStatus.FAILED, "Non esiste un veicolo con questa targa");
 				response.getWriter().println(new Gson().toJson(jsonResponse));
 				return "find";
@@ -47,14 +48,27 @@ public class VehicleFindAction implements IAction {
 			VehicleInspectionBean inspection = vehiclem.doRetrieveLastVehicleInspection(vehicle);
 			PossessionFeeBean possessionFee= vehiclem.doRetrieveLastPossessionFee(vehicle);
 			InsuranceBean insurance = vehiclem.doRetrieveLastInsurance(vehicle);
-			  
-			request.setAttribute("vehicle", new VehicleBean());
-			request.setAttribute("inspection", inspection);
-			request.setAttribute("possessionFee", possessionFee);
-			request.setAttribute("insuarance", insurance);
 			
-			JsonResponse jsonResponse = new JsonResponse(JsonResponseStatus.OK, "OK");
-			response.getWriter().println(new Gson().toJson(jsonResponse));
+			boolean inspectionExpired = false;
+			boolean possessionFeeExpired = false;
+			boolean insuranceExpired = false;
+			
+			Date now = new Date(System.currentTimeMillis());
+			
+			if(inspection.getExpirationDate().before(now))
+				inspectionExpired = true;
+			if(possessionFee.getExpirationDate().before(now))
+				possessionFeeExpired = true;
+			if(insurance.getExpirationDate().before(now))
+				insuranceExpired = true;
+			
+			request.setAttribute("vehicle", vehicle);
+			request.setAttribute("inspectionExpired", inspectionExpired);
+			request.setAttribute("inspectionDate", inspection.getExpirationDate());
+			request.setAttribute("possessionFeeDate", possessionFee.getExpirationDate());
+			request.setAttribute("possessionFeeExpired", possessionFeeExpired);
+			request.setAttribute("insuranceDate", insurance.getExpirationDate());
+			request.setAttribute("insuranceExpired", insuranceExpired);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,7 +77,8 @@ public class VehicleFindAction implements IAction {
 			e.printStackTrace();
 			return "find";
 		}
-		  
+		
+		response.setHeader(IAction.HEADER_NAME, IAction.FORWARD_RESPONSE);
 		return "result";
 	
 	}
