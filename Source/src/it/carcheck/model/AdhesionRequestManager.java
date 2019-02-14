@@ -2,6 +2,7 @@ package it.carcheck.model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
@@ -69,6 +70,17 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 	@Override
 	public void doSetState(AdhesionRequestBean adhesionRequest, int status) throws SQLException {
 		adhesionRequest.setStatus(status);
+	}
+	
+	@Override
+	public Collection<AdhesionRequestBean> doRetrieveByAdminId(int id) {
+		try {
+			return this.doFind("SELECT * FROM adhesionrequest WHERE admin = ?", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	private CarcheckDatabase database;
