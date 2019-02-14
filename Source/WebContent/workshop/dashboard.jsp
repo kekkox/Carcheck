@@ -36,7 +36,7 @@
                     </div>
                     <div class="info">
                         <p>Veicoli revisionati</p>
-                        <h2>${fn:length(param.inspections)}</h2>
+                        <h2>${ fn:length(totalInspectionsVehicle)}</h2>
                     </div>
                 </div>
                 <div class="card">
@@ -45,18 +45,18 @@
                     </div>
                     <div class="info">
                         <p>Revisioni</p>
-                        <h2>${fn:length(param.inspections)}</h2>
+                        <h2>${ fn:length(totalInspections)}</h2>
                     </div>
                 </div>
             </div>
             
             <h1>Revisioni in scadenza</h1>
-            <c:if test="${fn:length(inspections) le 0}">
+            <c:if test="${fn:length(expiringInspections) le 0}">
             	<div class="row">
    					<h4>Nessuna revisione in scadenza</h4>
    				</div>
 			</c:if>
-			<c:if test="${fn:length(inspections) gt 0}">
+			<c:if test="${fn:length(expiringInspections) gt 0}">
    				<div class="row">
             		<div class="tableContainer">
 						<table class="table">
@@ -66,11 +66,12 @@
 								<th>Chilometri</th>
 								<th class="lastCell">Data scadenza</th>
 							</tr>
-							<c:forEach items="${inspections}" var="item">
+							<c:forEach items="${expiringInspections}" var="item">
 								<tr>
-									<td>${item.licensePlate}</td>
+									<td class="mainCell">${item.vehicle}</td>
+									<td>Da aggiungere</td>
 									<td>${item.km}</td>
-									<td class="mainCell">${item.expirationDate}</td>
+											<td>${item.expirationDate}</td>
 								</tr>
 							</c:forEach>
 						</table>

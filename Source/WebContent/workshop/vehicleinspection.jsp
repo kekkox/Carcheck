@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -37,29 +39,21 @@
 				<th>Esito</th>
                 <th class="lastCell">Azioni</th>
             </tr>
-            <tr>
-                <td class="mainCell">TC215MZ</td>
-				<td>Braccobaldo D'aragona</td>
-				<td>+390815203651</td>
-				<td>10/10/2015</td>
-				<td>12.530km</td>
-				<td>10/10/2019</td>
-				<td><div class='statusCell positive'>Approvata</div></td>
-				<td><div class="action"><i class="fas fa-eye" id="eye"></i><i class="fas fa-pencil-alt" id="pencil"></i></div></td>
-            </tr>
+		<c:forEach items="${inspections}" var="item">
 			<tr>
-                <td class="mainCell">MO185LT</td>
-				<td>Mario Rossi</td>
-				<td>+393257841502</td>
-				<td>10/10/2015</td>
-				<td>124.530km</td>
-				<td>10/10/2019</td>
+                <td class="mainCell">$item.licenseplate</td>
+				<td>$item.licenseplate.</td>
+				<td>$item.licenseplate</td>
+				<td>$item.licenseplate</td>
+				<td>$item.licenseplate</td>
+				<td>$item.licenseplate</td>
 				<td><div class='statusCell negative'>Respinta</div></td>
 				<td><div class="action">
-				<a href="../RequestHandler/inspectionview?inspectionKey=1020"><i class="fas fa-eye" id="eye"></i></a>
-				<a href="../RequestHandler/inspectionedit?inspectionKey=1020"><i class="fas fa-pencil-alt" id="pencil"></i></a>
+				<a href="../RequestHandler/inspectionview?inspectionKey=1"><i class="fas fa-eye" id="eye"></i></a>
+				<a href="../RequestHandler/inspectionedit?inspectionKey=1"><i class="fas fa-pencil-alt" id="pencil"></i></a>
 				</div></td>
             </tr>
+            </c:forEach>
         </table>
     </div>
     </div>

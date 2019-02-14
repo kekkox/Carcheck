@@ -40,7 +40,9 @@ public class WorkshopFilter implements Filter{
         		IVehicleInspection inspectionManager = VehicleInspectionManager.getInstance();
         		
         		try {
-					request.setAttribute("inspections", inspectionManager.doRetrieveByWorkshop((WorkshopBean) obj));
+					request.setAttribute("totalInspectionsVehicle", inspectionManager.doRetriveTotalVehicle((WorkshopBean) obj));
+					request.setAttribute("totalInspections", inspectionManager.doRetrieveByWorkshop((WorkshopBean) obj));
+					request.setAttribute("expiringInspections", inspectionManager.doRetrieveExpiringInspection((WorkshopBean) obj));
 				} catch (SQLException e) {
 					response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 					return;

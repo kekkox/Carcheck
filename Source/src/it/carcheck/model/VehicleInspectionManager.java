@@ -26,10 +26,9 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	public Collection<VehicleInspectionBean> doRetrieveByLicensePlate(WorkshopBean workshop, String licensePlate) throws SQLException {
 		return doFind("SELECT * FROM vehicleinspection WHERE vehicle = ? AND workshop = ?", licensePlate, workshop.getId());	
 	}
-	
 	@Override
-	public Collection<VehicleInspectionBean> doRetrieveByKey(WorkshopBean workshop, int inspectionCode) throws SQLException {
-		return doFind("SELECT * FROM vehicleinspection WHERE id = ? AND workshop = ?", inspectionCode, workshop.getId());	
+	public VehicleInspectionBean doRetrieveByKey(WorkshopBean workshop, int inspectionCode) throws SQLException {
+		return (VehicleInspectionBean)(doFind("SELECT * FROM vehicleinspection WHERE id = ? AND workshop = ?", inspectionCode, workshop.getId())).get(0);	
 	}
 
 	@Override
@@ -39,7 +38,11 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	
 	@Override
 	public Collection<VehicleInspectionBean> doRetrieveExpiringInspection(WorkshopBean workshop) throws SQLException {
-		return doFind("SELECT * FROM vehicleinspection WHERE workshop = ? AND expirationDate BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 30 DAY)", workshop.getId());
+		return doFind("SELECT * FROM vehicleinspection WHERE workshop = ? AND (expirationDate BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 30 DAY))", workshop.getId());
+	}
+	@Override
+	public  Collection<VehicleInspectionBean> doRetriveTotalVehicle(WorkshopBean workshop) throws SQLException {
+		return doFind("SELECT DISTINCT * FROM vehicleinspection WHERE workshop = ? GROUP BY vehicle", workshop.getId());
 	}
 
 	@Override
@@ -78,7 +81,6 @@ public class VehicleInspectionManager implements IVehicleInspection {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 

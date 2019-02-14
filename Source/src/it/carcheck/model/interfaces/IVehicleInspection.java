@@ -12,7 +12,8 @@ public interface IVehicleInspection extends IDatabaseOperation<VehicleInspection
 	
 	public Collection<VehicleInspectionBean> doRetrieveByWorkshop(WorkshopBean workshop) throws SQLException;
 	
-	public Collection<VehicleInspectionBean> doRetrieveByKey(WorkshopBean workshop, int inspectionCode) throws SQLException;
+	public VehicleInspectionBean doRetrieveByKey(WorkshopBean workshop, int inspectionCode) throws SQLException;
 	
 	public Collection<VehicleInspectionBean> doRetrieveExpiringInspection(WorkshopBean workshop) throws SQLException;
+	public  Collection<VehicleInspectionBean>  doRetriveTotalVehicle(WorkshopBean workshop) throws SQLException;
 }
