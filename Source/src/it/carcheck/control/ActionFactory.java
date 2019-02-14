@@ -33,6 +33,7 @@ public class ActionFactory {
 		actions.put("POST/city_service", new CityAction());
 		actions.put("POST/address_service", new AddressAction());
 		actions.put("POST/mail_check_service", new EmailCheckerAction());
+		actions.put("POST/admin_statistics_service", new AdminStatisticsAction());
 		
 	
 	}
