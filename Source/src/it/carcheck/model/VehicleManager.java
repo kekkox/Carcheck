@@ -120,6 +120,17 @@ public class VehicleManager implements IVehicle {
 		
 		return null;
 	}
+	
+	@Override
+	public Collection<VehicleBean> doRetrieveAll() {
+		try {
+			return this.doFind("SELECT * FROM vehicle");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 	private CarcheckDatabase database;
 	private static VehicleManager instance;
