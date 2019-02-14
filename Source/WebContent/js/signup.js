@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     address_input = document.getElementsByName("address")[0];
     result_ul = document.querySelector("ul#addressResult");
     form_element = document.querySelector('form');
+    button = document.querySelector("form button");
     
     //Adding event listener
     region_select.addEventListener('change', onRegionChangeHandler);
@@ -197,10 +198,12 @@ function onLiClickHandler(target) {
  */
 function onFormSubmitHandler(event, email) {
 	event.preventDefault();
+	switchButtonStatus();
 	
 	//If the user doesn't select an address
 	if((isNaN(address_input.getAttribute('value')))) {
 		errorHandler("Seleziona un indirizzo dall'elenco.\nIndirizzi personalizzati non sono ammessi", address_input, document.querySelector(".inputBox#address label"));
+		switchButtonStatus();
 		return;
 	}
 		
@@ -218,6 +221,7 @@ function onFormSubmitHandler(event, email) {
 				}
 				else {
 					errorHandler("Email gi&agrave; in uso", document.getElementsByName('email')[0], document.querySelector(".inputBox#email label"));
+					switchButtonStatus();
 					return;
 				}
 			}
@@ -277,20 +281,37 @@ function formSubmit() {
 					+ "&description=" + description; 
 	
 	request.onreadystatechange = function() {
-		if(this.readyState == 4)
+		if(this.readyState == 4) {
+			switchButtonStatus();
+			
 			if(this.status == 200) {
 				let responseJSON = JSON.parse(request.responseText);
 				swal("Congratulazioni!", responseJSON.JsonResponseMessage, "success").then(() => document.location.href = "login.jsp");
 			}
 			else {
-				swal("OPS!", "Qualcosa &egrave; andato storto. Riprova pi&ugrave; tardi", "error");
+				swal("OPS!", "Qualcosa e' andato storto. Riprova piu' tardi", "error");
 				return;
 			}
+		}
 	}
 	
 	request.open("POST", "RequestHandler/signup", true);
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	request.send(params);
+}
+
+/*Toggle the loading animation*/
+function switchButtonStatus() {
+	if(button.innerHTML === loading_spinner) {
+		button.classList.remove("loading");
+		button.innerHTML = "REGISTRATI";
+		button.disabled = false;
+	}
+	else {
+		button.classList.add("loading");
+		button.innerHTML = loading_spinner;
+		button.disabled = true;
+	}
 }
 
 let region_select;
@@ -299,7 +320,9 @@ let city_select;
 let result_ul;
 let address_input;
 let form_element;
+let button;
 
 let typingTimer;
 
 let option_value = "<option disabled selected></option>";
+let loading_spinner = "<i class=\"fa fa-spinner fa-spin\"></i>";
