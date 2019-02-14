@@ -17,6 +17,7 @@ import it.carcheck.model.AdhesionRequestManager;
 import it.carcheck.model.VehicleManager;
 import it.carcheck.model.WorkshopManager;
 import it.carcheck.model.bean.AdhesionRequestBean;
+import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.WorkshopBean;
@@ -32,16 +33,15 @@ public class AdminStatisticsAction implements IAction {
 		
 		PrintWriter writer = response.getWriter();
 		
-		String str_adminId = request.getParameter("admin");
-		if(str_adminId == null)
-			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "incorrect or null admin id")));
+		AdminBean admin = (AdminBean)request.getSession().getAttribute("user");
+		if(admin == null)
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "incorrect or null admin")));
 		
 		AdhesionRequestManager adhesionManager = AdhesionRequestManager.getInstance();
 		VehicleManager vehicleManager = VehicleManager.getInstance();
 		WorkshopManager workshopManager = WorkshopManager.getInstance();
 		
-		int adminId = Integer.parseInt(str_adminId);
-		Collection<AdhesionRequestBean> requests = adhesionManager.doRetrieveByAdminId(adminId);
+		Collection<AdhesionRequestBean> requests = adhesionManager.doRetrieveByAdminId(admin.getId());
 		Collection<VehicleBean> vehicles = vehicleManager.doRetrieveAll();
 		Collection<WorkshopBean> workshops = workshopManager.doRetrieveAll();
 		
