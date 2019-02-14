@@ -34,6 +34,7 @@ public class ActionFactory {
 		actions.put("POST/address_service", new AddressAction());
 		actions.put("POST/mail_check_service", new EmailCheckerAction());
 		actions.put("POST/admin_statistics_service", new AdminStatisticsAction());
+		actions.put("POST/requests_service", new RequestsAction());
 		
 	
 	}
