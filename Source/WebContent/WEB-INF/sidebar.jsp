@@ -75,7 +75,7 @@
 				<a href="<c:out value = "${ADHESION_REQUESTS_URI}"/>"><i class="fas fa-clipboard-list"></i><span>Adesioni</span></a>
 			</li>
 		</c:if>
-		<c:if test="${uri ne VEHICLE_INSPECTION_URI}">
+		<c:if test="${uri ne ADHESION_REQUESTS_URI}">
 			<li>
 				<a href="<c:out value = "${ADHESION_REQUESTS_URI}"/>"><i class="fas fa-clipboard-list"></i><span>Adesioni</span></a>
 			</li>
