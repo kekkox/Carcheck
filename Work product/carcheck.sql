@@ -8350,13 +8350,13 @@ CREATE TABLE vehiclecomplaint(
   `id` integer NOT NULL,
 	`licensePlate` varchar(10) NOT NULL,
 	`complaintDate` Date NOT NULL,
-	`description` varchar(200) NOT NULL default(""));
+	`description` varchar(200) NOT NULL default "");
 
-CREATE TABLE vehiclecomplaint_history(
+CREATE TABLE vehiclecomplainthistory(
 	`id` integer NOT NULL,
 	`licensePlate` varchar(10) NOT NULL,
 	`complaintDate` Date NOT NULL,
-	`description` varchar(200) NOT NULL default(""));
+	`description` varchar(200) NOT NULL default "");
 
 CREATE TABLE `vehicleinspection` (
   `id` int(11) NOT NULL,
@@ -8437,13 +8437,13 @@ ALTER TABLE `region`
 ALTER TABLE `vehicle`
   ADD PRIMARY KEY (`licensePlate`);
 
-  ALTER TABLE `vehiclecomplaint`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `vehicle` (`licensePlate`);
+ALTER TABLE `vehiclecomplaint`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `vehicle` (`licensePlate`);
 
-  ALTER TABLE `vehiclecomplaint_history`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `vehicle` (`licensePlate`);
+ALTER TABLE `vehiclecomplainthistory`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `vehicle` (`licensePlate`);
 
 ALTER TABLE `vehicleinspection`
   ADD PRIMARY KEY (`id`),
@@ -8481,7 +8481,7 @@ ALTER TABLE `vehiclecomplaint`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
   MODIFY `licensePlate` varchar(10) NOT NULL UNIQUE;
 
-ALTER TABLE `vehiclecomplaint_history`
+ALTER TABLE `vehiclecomplainthistory`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
   MODIFY `licensePlate` varchar(10) NOT NULL;
 
@@ -8526,8 +8526,8 @@ ALTER TABLE `vehicleinspection`
 ALTER TABLE `vehiclecomplaint`
   ADD CONSTRAINT `vehiclecomplaint_ibfk_1` FOREIGN KEY (`licensePlate`) REFERENCES `vehicle` (`licensePlate`) ON UPDATE CASCADE;
 
-  ALTER TABLE `vehiclecomplaint_history`
-    ADD CONSTRAINT `vehiclecomplaint_history_ibfk_1` FOREIGN KEY (`licensePlate`) REFERENCES `vehicle` (`licensePlate`) ON UPDATE CASCADE;
+ALTER TABLE `vehiclecomplaint_history`
+  ADD CONSTRAINT `vehiclecomplaint_history_ibfk_1` FOREIGN KEY (`licensePlate`) REFERENCES `vehicle` (`licensePlate`) ON UPDATE CASCADE;
 
 ALTER TABLE `workshop`
   ADD CONSTRAINT `workshop_ibfk_1` FOREIGN KEY (`address`) REFERENCES `address` (`id`);

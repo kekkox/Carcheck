@@ -8,7 +8,7 @@ import it.dsoft.fastcrud.core.enums.PrimaryKeyOption;
 
 public class VehicleComplaintHistoryBean {
 	
-	@Table(name = "vehiclecomplaint_history")
+	@Table(name = "vehiclecomplainthistory")
 	public VehicleComplaintHistoryBean() {}
 	
 	public int getId() {
