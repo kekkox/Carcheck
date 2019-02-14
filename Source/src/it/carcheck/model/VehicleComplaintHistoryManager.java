@@ -66,7 +66,7 @@ public class VehicleComplaintHistoryManager implements IVehicleComplaintHistory 
 
 
 	@Override
-	public Collection<VehicleComplaintHistoryBean> getVehicleComplaintsFromLicensePlate(String licensePlate) {
+	public Collection<VehicleComplaintHistoryBean> doGetVehicleComplaintsFromLicensePlate(String licensePlate) {
 		try {
 			return this.doFind("SELECT * FROM vehiclecomplaint_history WHERE licensePlate = ?", licensePlate);
 		} catch (SQLException e) {

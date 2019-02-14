@@ -65,7 +65,7 @@ public class VehicleComplaintManager implements IVehicleComplaint {
 
 
 	@Override
-	public VehicleComplaintBean getVehicleComplaintFromLicensePlate(String licensePlate) {
+	public VehicleComplaintBean doGetVehicleComplaintFromLicensePlate(String licensePlate) {
 		try {
 			ArrayList<VehicleComplaintBean> vehicles = this.doFind("SELECT * FROM vehiclecomplaint WHERE licensePlate = ?", licensePlate);
 			if(vehicles != null && vehicles.size() > 0)
