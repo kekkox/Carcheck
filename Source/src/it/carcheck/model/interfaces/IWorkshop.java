@@ -1,6 +1,7 @@
 package it.carcheck.model.interfaces;
 
 import java.sql.SQLException;
+import java.util.Collection;
 
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.VehicleInspectionBean;
@@ -16,4 +17,5 @@ public interface IWorkshop extends IUser<WorkshopBean>, IDatabaseOperation<Works
 	
 	public void doAddVehicleInspection(WorkshopBean workshop,VehicleInspectionBean vehicleInspection,VehicleBean vehicle) throws SQLException; 
 
+	public Collection<WorkshopBean> doRetrieveAll();
 }

@@ -2,8 +2,7 @@ package it.carcheck.model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.UUID;
+import java.util.Collection;
 
 import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.bean.AdhesionRequestBean;
@@ -127,6 +126,17 @@ public class WorkshopManager implements IWorkshop {
 		
 		VehicleInspectionManager vehicleInspectionManager = VehicleInspectionManager.getInstance();
 		vehicleInspectionManager.doInsert(vehicleInspection);	
+	}
+	
+	@Override
+	public Collection<WorkshopBean> doRetrieveAll() {
+		try {
+			return this.doFind("SELECT * FROM workshop");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	private CarcheckDatabase database;
