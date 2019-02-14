@@ -24,7 +24,7 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 	}
 
 	@Override
-	public void doSave(AdhesionRequestBean element) throws SQLException {
+	public void doSave(AdhesionRequestBean element) {
 		try {
 			database.update(element);
 		} catch (Exception e) {
@@ -68,14 +68,30 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 	}
 
 	@Override
-	public void doSetState(AdhesionRequestBean adhesionRequest, int status) throws SQLException {
+	public void doSetState(AdhesionRequestBean adhesionRequest, int status) {
 		adhesionRequest.setStatus(status);
+		try {
+			this.database.update(adhesionRequest);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
 	public Collection<AdhesionRequestBean> doRetrieveByAdminId(int id) {
 		try {
 			return this.doFind("SELECT * FROM adhesionrequest WHERE admin = ?", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public AdhesionRequestBean doRetrieveByCode(int code) {
+		try {
+			return this.doFind("SELECT * FROM adhesionrequest WHERE id = ?", code).get(0);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
