@@ -5,5 +5,5 @@ import java.util.Collection;
 import it.carcheck.model.bean.VehicleComplaintHistoryBean;
 
 public interface IVehicleComplaintHistory extends IDatabaseOperation<VehicleComplaintHistoryBean> {
-	public Collection<VehicleComplaintHistoryBean> getVehicleComplaintsFromLicensePlate(String licensePlate);
+	public Collection<VehicleComplaintHistoryBean> doGetVehicleComplaintsFromLicensePlate(String licensePlate);
 }
