@@ -17,5 +17,7 @@ public interface IWorkshop extends IUser<WorkshopBean>, IDatabaseOperation<Works
 	
 	public void doAddVehicleInspection(WorkshopBean workshop,VehicleInspectionBean vehicleInspection,VehicleBean vehicle) throws SQLException; 
 
+	public WorkshopBean doRetrieveWorkshopById(int id);
+	
 	public Collection<WorkshopBean> doRetrieveAll();
 }

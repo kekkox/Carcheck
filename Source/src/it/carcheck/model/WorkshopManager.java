@@ -138,6 +138,17 @@ public class WorkshopManager implements IWorkshop {
 		
 		return null;
 	}
+	
+	@Override
+	public WorkshopBean doRetrieveWorkshopById(int id) {
+		try {
+			return this.doFind("SELECT * FROM workshop WHERE id = ?", id).get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 	private CarcheckDatabase database;
 	private static WorkshopManager instance;
