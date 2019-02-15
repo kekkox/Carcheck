@@ -44,6 +44,17 @@ public class VehicleInspectionManager implements IVehicleInspection {
 	public  Collection<VehicleInspectionBean> doRetriveTotalVehicle(WorkshopBean workshop) throws SQLException {
 		return doFind("SELECT DISTINCT * FROM vehicleinspection WHERE workshop = ? GROUP BY vehicle", workshop.getId());
 	}
+	
+	@Override
+	public Collection<VehicleInspectionBean> doRetrieveByWorkshopIdAndLicensePlate(int id, String license) {
+		try {
+			return doFind("SELECT * FROM vehicleinspection WHERE workshop = ? AND vehicle LIKE '" + license + "%'", id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 	@Override
 	public void doSave(VehicleInspectionBean element) throws SQLException {
