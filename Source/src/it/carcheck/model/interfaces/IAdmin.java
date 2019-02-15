@@ -23,4 +23,5 @@ public interface IAdmin extends IUser<AdminBean>, IDatabaseOperation<AdminBean> 
 
 	public void doSetRequestAppointment(AdhesionRequestBean request, Date date, Time time) throws SQLException;
 
+	public AdminBean doRetrieveById(int id);
 }

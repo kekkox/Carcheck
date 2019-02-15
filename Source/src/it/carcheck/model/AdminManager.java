@@ -175,6 +175,17 @@ public class AdminManager implements IAdmin{
 		requestManager.doSave(request);
 	}
 	
+	@Override
+	public AdminBean doRetrieveById(int id) {
+		try {
+			return this.doFind("SELECT * FROM admin WHERE id = ?", id).get(0);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	private CarcheckDatabase database;
 	private static AdminManager instance;
 }
