@@ -25,7 +25,7 @@
      
      <div class="container">
 
-        <jsp:include page="../../WEB-INF/sidebar.jsp" />
+        <jsp:include page="../../WEB-INF/sidebarAdmin.jsp" />
       
         <div class="content">
         
