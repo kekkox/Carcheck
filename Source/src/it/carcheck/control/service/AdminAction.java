@@ -37,6 +37,11 @@ public class AdminAction implements IAction {
 		}
 		
 		Object userSession = request.getSession().getAttribute("user");
+		if(userSession == null) {
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "user not in session (logged in?)")));
+			return "admin_service";
+		}
+		
 		if(userSession instanceof AdminBean) {
 			
 			AdminManager adminManager = AdminManager.getInstance();
