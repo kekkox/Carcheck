@@ -37,6 +37,7 @@ public class ActionFactory {
 		actions.put("POST/requests_service", new RequestsAction());
 		actions.put("POST/admin_service", new AdminAction());
 		actions.put("POST/vehicle_service", new VehicleAction());
+		actions.put("POST/people_service", new PeopleAction());
 		
 	
 	}
