@@ -51,6 +51,16 @@ public class RegionManager implements IRegion {
 		}
 		return null;
 	}
+	
+	@Override
+	public RegionBean getRegionByKey(int id) {
+		try {
+			return this.database.find(RegionBean.class,"SELECT * FROM region WHERE id = ?", id).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	@Override
 	public RegionBean getRegionFromCityName(String name) {

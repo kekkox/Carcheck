@@ -53,6 +53,16 @@ public class CityManager implements ICity {
 	}
 
 	@Override
+	public CityBean getCityByKey(String istat) {
+		try {
+			return this.database.find(CityBean.class, "SELECT * FROM city WHERE istat = ?", istat).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
 	public CityBean getCityByName(String name) {
 		try {
 			return this.database.find(CityBean.class, "SELECT * from city WHERE name = ?", name).get(0);

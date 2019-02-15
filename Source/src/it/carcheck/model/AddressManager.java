@@ -59,6 +59,21 @@ public class AddressManager implements IAddress {
 	}
 
 	/**
+	 * Retrieve from database the address with specified key
+	 * @param id the key value stored into database
+	 * @return the AddressBean with the specified key
+	 */
+	@Override
+	public AddressBean getAddressByKey(int id) {
+		try {
+			return this.database.find(AddressBean.class, "SELECT * FROM address WHERE id = ?", id).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
 	 * Retrieve from database the addresses that are like the specified name
 	 * @param name the address description
 	 * @param istat the ISTAT code of the city to look for

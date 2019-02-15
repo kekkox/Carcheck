@@ -51,6 +51,16 @@ public class ProvinceManager implements IProvince {
 		}
 		return null;
 	}
+	
+	@Override
+	public ProvinceBean getProvinceByKey(String provinceCode) {
+		try {
+			return this.database.find(ProvinceBean.class, "SELECT * FROM province WHERE provinceCode = ?", provinceCode).get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	@Override
 	public ProvinceBean getProvinceByName(String name) {

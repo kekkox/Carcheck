@@ -7,6 +7,7 @@ import it.carcheck.model.bean.ProvinceBean;
 import it.carcheck.model.bean.RegionBean;
 
 public interface ICity extends IDatabaseOperation<CityBean> {
+	public CityBean getCityByKey(String istat);
 	public CityBean getCityByName(String name);
 	public CityBean getCityFromNameAndCap(String name, String cap);
 	public ArrayList<CityBean> getCitiesFromCap(String cap);
