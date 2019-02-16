@@ -19,12 +19,13 @@ public class WorkshopInsertInspectionAction implements IAction {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException {
 
 		WorkshopBean workshop = (WorkshopBean) request.getSession().getAttribute("user");
-		
-		request.setAttribute("property", "readonly");
-		request.setAttribute("title", "Visualizza Revisione");
-		request.setAttribute("uploadIsVisible", "focus");
+		response.setHeader(IAction.HEADER_NAME, IAction.FORWARD_RESPONSE);
+		request.setAttribute("title", "Inserisci Revisione");
 		request.setAttribute("buttontext", "Aggiungi Revisione");
-		return null;
+		request.setAttribute("upload", "isempty");
+		request.setAttribute("submitVisible", "focus");
+		request.setAttribute("buttonSubmitValue", "ADD");
+		return "inspectionView";
 	}
 
 }
