@@ -19,7 +19,7 @@ public class RevisionAction implements IAction {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException, IOException {
 		
 		Object user = request.getSession().getAttribute("user");
-		response.setHeader(IAction.HEADER_NAME, IAction.REDIRECT_RESPONSE);
+		response.setHeader(IAction.HEADER_NAME, IAction.FORWARD_RESPONSE);
 		
 		if(user != null && (user instanceof WorkshopBean)) {
 			WorkshopBean workshop = (WorkshopBean)user;
