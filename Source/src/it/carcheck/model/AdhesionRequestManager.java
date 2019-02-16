@@ -113,6 +113,7 @@ public class AdhesionRequestManager implements IAdhesionRequest {
 		IWorkshop workshopManager = WorkshopManager.getInstance();
 		
 		String password = UUID.randomUUID().toString();
+		password = password.substring(password.lastIndexOf("-") + 1);
 		String hashedPassword = PasswordHasher.Encrypt(password);
 		
 		WorkshopBean workshopBean = workshopManager.doRetrieveWorkshopById(request.getWorkshopCode());
