@@ -1,0 +1,22 @@
+input:not([value=""]) ~ label{
+    top: -20px;
+    font-size: 12px;
+    color: #046DE0;
+    font-weight: 700;
+}
+
+textarea:not([value=""]) ~ label{
+    top: -20px;
+    font-size: 12px;
+    color: #046DE0;
+    font-weight: 700;
+}
+
+button.secondary {
+	background: #5a6268;
+	border-color: #545b62;
+}
+
+button.secondary:hover {
+	background: #434b54;
+}

@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.carcheck.model.WorkshopAdhesionManager;
 import it.carcheck.model.bean.AdminBean;
+import it.carcheck.model.interfaces.IWorkshopAdhesion;
 
 @WebFilter("/admin/internal/*")
 public class AdminFilter implements Filter{
@@ -34,8 +36,13 @@ public class AdminFilter implements Filter{
         	Object obj = session.getAttribute("user");
         	if(obj instanceof AdminBean) {
         		AdminBean admin = (AdminBean) obj;
-        		if(admin.isFirstLogin())
+        		if(admin.isFirstLogin()) {
         			response.sendRedirect(request.getContextPath() + "/admin/changePassword");
+        			return;
+        		}
+        		
+        		IWorkshopAdhesion manager = WorkshopAdhesionManager.getInstance();
+        		request.setAttribute("adhesions", manager.doRetrieveAll(admin));
         		
         		arg2.doFilter(arg0, arg1);
         	}

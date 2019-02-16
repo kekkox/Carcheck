@@ -28,7 +28,7 @@ public class RequestHandler extends HttpServlet {
 			}
 			
 			if(response.getHeader(IAction.HEADER_NAME).equals(IAction.FORWARD_RESPONSE)) {
-				request.getRequestDispatcher("../WEB-INF/" + view + ".jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
 				return;
 			}
 			

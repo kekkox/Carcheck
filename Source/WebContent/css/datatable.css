@@ -35,7 +35,25 @@ table tr:hover{
 .negative {
     background: #FCDFCD;
     color: #F49353;
-      font-weight: bold;
+    font-weight: bold;
+}
+
+.positive {
+    background:#cce7e2;
+    color:#00836b;
+    font-weight: bold;
+}
+
+.neutralHigh {
+	background:#E0D5F5;
+    color:#642BD2;
+    font-weight: bold;
+}
+
+.neutral {
+	background: #CDE4F6;
+	color: #0077D3;
+	font-weight: bold;
 }
 
 .action i{
@@ -52,11 +70,6 @@ table tr:hover{
 	font-size: 21px;
  	transition: width 2s, height 4s;
 	color: #06c;
-}
-.positive {
-    background:#cce7e2;
-    color:#00836b;
-    font-weight: bold;
 }
 .mainCell{
     font-weight: bold;
