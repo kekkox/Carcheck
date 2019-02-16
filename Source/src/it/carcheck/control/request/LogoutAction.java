@@ -22,7 +22,7 @@ public class LogoutAction implements IAction {
 				return "admin/login";
 			}
 			else {
-				return "workshop/login";
+				return "login";
 			}
 		}
 		

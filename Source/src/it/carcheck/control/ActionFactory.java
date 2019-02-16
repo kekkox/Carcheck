@@ -22,7 +22,7 @@ public class ActionFactory {
 		actions.put("POST/find", new VehicleFindAction());
 		actions.put("POST/loginAdmin", new AdminLoginAction());
 		actions.put("POST/signupAdmin", new AdminSignupAction());
-		actions.put("POST/logout", new LogoutAction());
+		actions.put("GET/logout", new LogoutAction());
 		actions.put("POST/workshopRevision", new RevisionAction());
 		actions.put("GET/inspectioninsert", new WorkshopInsertInspectionAction());
 		actions.put("GET/inspectionview", new WorkshopViewInspectionAction());

@@ -24,7 +24,7 @@ public class RequestHandler extends HttpServlet {
 			String view = action.execute(request, response);
 			
 			if(response.getHeader(IAction.HEADER_NAME).equals(IAction.REDIRECT_RESPONSE)) {
-				response.sendRedirect("/" + view + ".jsp");
+				response.sendRedirect(request.getContextPath() + "/" + view + ".jsp");
 			}
 			
 			if(response.getHeader(IAction.HEADER_NAME).equals(IAction.FORWARD_RESPONSE)) {

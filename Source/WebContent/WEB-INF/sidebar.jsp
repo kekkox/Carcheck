@@ -44,4 +44,8 @@
 			<a href="../<c:out value = "${SETTINGS_URI}"/>"><i class="fas fa-cog"></i><span>Impostazioni</span></a>
 		</li>
 	</c:if>
+	
+	<li id="last">
+    	<a href="../RequestHandler/logout"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    </li>
 </ul>
