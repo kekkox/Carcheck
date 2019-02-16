@@ -143,37 +143,7 @@ public class AdminManager implements IAdmin{
 		admin.setGrade(grade);
 		this.doSave(admin);
 	}
-
-
-
-	@Override
-	public void doApproveRequest(AdhesionRequestBean request) throws SQLException {
-		request.setStatus(RequestStatus.APPROVED);
-		
-		AdhesionRequestManager requestManager = AdhesionRequestManager.getInstance();
-		requestManager.doSave(request);
-	}
-
-
-
-	@Override
-	public void doRejectRequest(AdhesionRequestBean request) throws SQLException {
-		request.setStatus(RequestStatus.REFUSED);
-		AdhesionRequestManager requestManager = AdhesionRequestManager.getInstance();
-		requestManager.doSave(request);
-	}
-
-
-
-	@Override
-	public void doSetRequestAppointment(AdhesionRequestBean request, Date date, Time time) throws SQLException {
-		request.setStatus(RequestStatus.APPOINTMENT);
-		request.setMeeetingHour(time);
-		request.setMeetingDate(date);
-		
-		AdhesionRequestManager requestManager = AdhesionRequestManager.getInstance();
-		requestManager.doSave(request);
-	}
+	
 	
 	@Override
 	public AdminBean doRetrieveById(int id) {
