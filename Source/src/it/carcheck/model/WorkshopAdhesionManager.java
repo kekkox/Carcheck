@@ -21,12 +21,12 @@ public class WorkshopAdhesionManager implements IWorkshopAdhesion{
 	}
 	
 	@Override
-	public WorkshopAdhesionBean doRetrieveByWorkshopId(int id) {
+	public WorkshopAdhesionBean doRetrieveByWorkshopId(int id, AdminBean admin) {
 		final String query = "SELECT workshop.id AS workshopId, adhesionrequest.id AS adhesionRequestId, businessName, pIva, owner, description, telephone, email, status, address "
 				+ "FROM workshop, adhesionrequest "
-				+ "WHERE workshop.id = ? AND workshop.id = adhesionrequest.id";
+				+ "WHERE workshop.id = ? AND admin = ? AND workshop.id = adhesionrequest.workshop";
 		try {
-			return database.find(WorkshopAdhesionBean.class, query , id).get(0);
+			return database.find(WorkshopAdhesionBean.class, query , id, admin.getId()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -34,12 +34,12 @@ public class WorkshopAdhesionManager implements IWorkshopAdhesion{
 	}
 
 	@Override
-	public WorkshopAdhesionBean doRetrieveByAdhesionId(int id) {
+	public WorkshopAdhesionBean doRetrieveByAdhesionId(int id, AdminBean admin) {
 		final String query = "SELECT workshop.id AS workshopId, adhesionrequest.id AS adhesionRequestId, businessName, pIva, owner, description, telephone, email, status, address "
 				+ "FROM workshop, adhesionrequest "
-				+ "WHERE adhesionrequest.id = ? AND workshop.id = adhesionrequest.id";
+				+ "WHERE adhesionrequest.id = ? AND admin = ? AND workshop.id = adhesionrequest.workshop";
 		try {
-			return database.find(WorkshopAdhesionBean.class, query , id).get(0);
+			return database.find(WorkshopAdhesionBean.class, query , id, admin.getId()).get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -50,7 +50,7 @@ public class WorkshopAdhesionManager implements IWorkshopAdhesion{
 	public Collection<WorkshopAdhesionBean> doRetrieveAll(AdminBean admin) {
 		final String query = "SELECT workshop.id AS workshopId, adhesionrequest.id AS adhesionRequestId, businessName, pIva, owner, description, telephone, email, status, address "
 				+ "FROM workshop, adhesionrequest "
-				+ "WHERE admin.id = ? AND workshop.id = adhesionrequest.id";
+				+ "WHERE admin = ? AND workshop.id = adhesionrequest.workshop";
 		try {
 			return database.find(WorkshopAdhesionBean.class, query , admin.getId());
 		} catch (Exception e) {
