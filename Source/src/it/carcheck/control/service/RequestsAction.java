@@ -73,6 +73,7 @@ public class RequestsAction implements IAction {
 			break;
 		case 3:
 			adhesionManager.doApproveRequest(adhesion);
+			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "")));
 			break;
 		default:
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "invalid operation type")));

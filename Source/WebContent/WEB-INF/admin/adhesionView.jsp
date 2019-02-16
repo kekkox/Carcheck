@@ -17,7 +17,8 @@
 	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/searchbar.css">
 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-	<script src="/CarCheck/js/adhesionView.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/js/adhesionView.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/js/sidebar.js"></script>
 
 	<title>Carchek</title>
 </head>
@@ -90,7 +91,7 @@
 		          			RESPINGI
 		          		</button>
 						<button type="button" onClick = "setAppointment();" name="appointment">
-		          			APPROVA
+		          			FISSA APPUNTAMENTO
 		          		</button>
 					</div>
 		   		  </c:if>
