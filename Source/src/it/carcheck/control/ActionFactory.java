@@ -27,6 +27,7 @@ public class ActionFactory {
 		actions.put("GET/inspectioninsert", new WorkshopInsertInspectionAction());
 		actions.put("GET/inspectionview", new WorkshopViewInspectionAction());
 		actions.put("GET/inspectionedit", new WorkshopEditInspectionAction());
+		actions.put("GET/adhesionView", new ViewAdhesionAction());
 		// Services
 		actions.put("POST/region_service", new RegionAction());
 		actions.put("POST/province_service", new ProvinceAction());
@@ -34,7 +35,7 @@ public class ActionFactory {
 		actions.put("POST/address_service", new AddressAction());
 		actions.put("POST/mail_check_service", new EmailCheckerAction());
 		actions.put("POST/admin_statistics_service", new AdminStatisticsAction());
-		actions.put("POST/requests_service", new RequestsAction());
+		actions.put("GET/requests_service", new RequestsAction());
 		actions.put("POST/admin_service", new AdminAction());
 		actions.put("POST/vehicle_service", new VehicleAction());
 		actions.put("POST/people_service", new PeopleAction());

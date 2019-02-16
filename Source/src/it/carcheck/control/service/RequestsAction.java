@@ -16,14 +16,13 @@ import it.carcheck.model.AdhesionRequestManager;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
+import it.carcheck.model.interfaces.IAdhesionRequest;
 
 public class RequestsAction implements IAction {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ActionException, IOException {
 		
-		//1 -> change request state
-		//2 -> change date/hour
 		int request_id = Integer.parseInt(request.getParameter("id"));
 		int operation_type = Integer.parseInt(request.getParameter("operation"));
 		
@@ -37,23 +36,27 @@ public class RequestsAction implements IAction {
 			return "requests_service";
 		}
 		
-		AdhesionRequestManager adhesionManager = AdhesionRequestManager.getInstance();
+		IAdhesionRequest adhesionManager = AdhesionRequestManager.getInstance();
 		AdhesionRequestBean adhesion = adhesionManager.doRetrieveByCode(request_id);
 		
 		if(adhesion == null) {
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no adhesion found")));
 			return "requests_service";
 		}
-			
+		
+		//1 -> refuse request
+		//2 -> set appointment
+		//3 -> approve request
 		switch(operation_type) {
 		case 1:
-			int newState = Integer.parseInt(request.getParameter("state"));
-			if(newState == 0) {
-				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "invalid state id")));
+			String cause = request.getParameter("cause");
+			
+			if(cause == null) {
+				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "Null cause")));
 				return "requests_service";
 			}
 			
-			adhesionManager.doSetState(adhesion, newState);
+			adhesionManager.doRejectRequest(adhesion, cause);
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "")));
 			break;
 		case 2:
@@ -65,11 +68,11 @@ public class RequestsAction implements IAction {
 				return "requests_service";
 			}
 			
-			adhesion.setMeetingDate(Date.valueOf(date));
-			adhesion.setMeeetingHour(Time.valueOf(time));
-			
-			adhesionManager.doSave(adhesion);
+			adhesionManager.doSetRequestAppointment(adhesion, Date.valueOf(date), Time.valueOf(time + ":00"));
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "")));
+			break;
+		case 3:
+			adhesionManager.doApproveRequest(adhesion);
 			break;
 		default:
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "invalid operation type")));
