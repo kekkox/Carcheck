@@ -12,36 +12,36 @@
 	<!-- Dashboard li -->
 	<c:if test="${uri eq DASHBOARD_URI}">
 		<li class="selected">
-			<a href="<c:out value = "${DASHBOARD_URI}"/>"><i class="fas fa-home"></i><span>Dashboard</span></a>
+			<a href="/CarCheck/admin/internal/${DASHBOARD_URI}"><i class="fas fa-home"></i><span>Dashboard</span></a>
 		</li>
 	</c:if>
 	<c:if test="${uri ne DASHBOARD_URI}">
 		<li>
-			<a href="<c:out value = "${DASHBOARD_URI}"/>"><i class="fas fa-home"></i><span>Dashboard</span></a>
+			<a href="/CarCheck/admin/internal/${DASHBOARD_URI}"><i class="fas fa-home"></i><span>Dashboard</span></a>
 		</li>
 	</c:if>
 	
 	<!-- AdhesionRequests li -->
 	<c:if test="${uri eq ADHESION_REQUESTS_URI}">
 		<li class="selected">
-			<a href="<c:out value = "${ADHESION_REQUESTS_URI}"/>"><i class="fas fa-clipboard-list"></i><span>Adesioni</span></a>
+			<a href="/CarCheck/admin/internal/${ADHESION_REQUESTS_URI}"><i class="fas fa-clipboard-list"></i><span>Adesioni</span></a>
 		</li>
 	</c:if>
 	<c:if test="${uri ne ADHESION_REQUESTS_URI}">
 		<li>
-			<a href="<c:out value = "${ADHESION_REQUESTS_URI}"/>"><i class="fas fa-clipboard-list"></i><span>Adesioni</span></a>
+			<a href="/CarCheck/admin/internal/${ADHESION_REQUESTS_URI}"><i class="fas fa-clipboard-list"></i><span>Adesioni</span></a>
 		</li>
 	</c:if>
 	
 	<!-- Settings li -->
 	<c:if test="${uri eq SETTINGS_URI}">
 		<li class="selected">
-			<a href="../<c:out value = "${SETTINGS_URI}"/>"><i class="fas fa-cog"></i><span>Impostazioni</span></a>
+			<a href="/CarCheck/admin/internal/${SETTINGS_URI}"><i class="fas fa-cog"></i><span>Impostazioni</span></a>
 		</li>
 	</c:if>
 	<c:if test="${uri ne SETTINGS_URI}">
 		<li>
-			<a href="../<c:out value = "${SETTINGS_URI}"/>"><i class="fas fa-cog"></i><span>Impostazioni</span></a>
+			<a href="/CarCheck/admin/internal/${SETTINGS_URI}"><i class="fas fa-cog"></i><span>Impostazioni</span></a>
 		</li>
 	</c:if>
 </ul>
