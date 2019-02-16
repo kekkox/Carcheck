@@ -62,14 +62,12 @@
 						<table class="table">
 							<tr>
 								<th>Targa</th>
-								<th>Descrizione veicolo</th>
 								<th>Chilometri</th>
 								<th class="lastCell">Data scadenza</th>
 							</tr>
 							<c:forEach items="${expiringInspections}" var="item">
 								<tr>
 									<td class="mainCell">${item.vehicle}</td>
-									<td>Da aggiungere</td>
 									<td>${item.km}</td>
 											<td>${item.expirationDate}</td>
 								</tr>

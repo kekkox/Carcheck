@@ -39,18 +39,18 @@
 				<th>Esito</th>
                 <th class="lastCell">Azioni</th>
             </tr>
-		<c:forEach items="${inspections}" var="item">
+		<c:forEach items="${totalInspections}" var="item">
 			<tr>
-                <td class="mainCell">$item.licenseplate</td>
-				<td>$item.licenseplate.</td>
+                <td class="mainCell">${item.vehicle}</td>
+				<td>$item.licenseplate</td>
 				<td>$item.licenseplate</td>
 				<td>$item.licenseplate</td>
 				<td>$item.licenseplate</td>
 				<td>$item.licenseplate</td>
 				<td><div class='statusCell negative'>Respinta</div></td>
 				<td><div class="action">
-				<a href="../RequestHandler/inspectionview?inspectionKey=1"><i class="fas fa-eye" id="eye"></i></a>
-				<a href="../RequestHandler/inspectionedit?inspectionKey=1"><i class="fas fa-pencil-alt" id="pencil"></i></a>
+				<a href="../RequestHandler/inspectionview?inspectionKey=${item.id}"><i class="fas fa-eye" id="eye"></i></a>
+				<a href="../RequestHandler/inspectionedit?inspectionKey=${item.id}"><i class="fas fa-pencil-alt" id="pencil"></i></a>
 				</div></td>
             </tr>
             </c:forEach>
@@ -58,7 +58,7 @@
     </div>
     </div>
    
-   <a href="/RequestHandler/inspectioninsert"><Button class="button">	
+   <a href="../RequestHandler/inspectioninsert"><Button class="button">	
    	
    	<span class="plustxt">+</span>
    	   <span class="buttontext">Aggiungi Revisione</span></Button></a>
