@@ -16,24 +16,26 @@ public class WorkshopEditInspectionAction implements IAction {
 		int inspectionKey = Integer.parseInt(request.getParameter("inspectionKey"));
 
 		VehicleInspectionManager inspection = VehicleInspectionManager.getInstance();
-
+		response.setHeader(IAction.HEADER_NAME, IAction.FORWARD_RESPONSE);
 		try{
 			WorkshopBean workshop = (WorkshopBean) request.getSession().getAttribute("user");
 			VehicleInspectionBean inspectionBean = (VehicleInspectionBean)inspection.doRetrieveByKey(workshop, inspectionKey);
-		request.setAttribute("property", "readonly");
-		request.setAttribute("class", "classname=active");
-		request.setAttribute("title", "Visualizza Revisione");
-		request.setAttribute("uploadIsVisible", "");
-		request.setAttribute("buttontext", "Modifica Revisione");
-		request.setAttribute("licenseplate", inspectionBean.getVehicle());
-		request.setAttribute("inspectionDate", inspectionBean.getInspectionDate());
-		request.setAttribute("km", inspectionBean.getKm());
-		request.setAttribute("approved", inspectionBean.isResult());
+		request.setAttribute("classname", "class=active");
+		request.setAttribute("title", "Modifica Revisione");
+		request.setAttribute("upload", "full");
+		request.setAttribute("buttontext", "Salva Modifica");
+		request.setAttribute("inspectionsView", inspectionBean);
+		request.setAttribute("submitVisible", "focus");
+		request.setAttribute("buttonSubmitValue", "EDIT");
+		
+		if(inspectionBean.isResult())
+		request.setAttribute("state", "checked");
+		
 		}
 		 catch (SQLException e) {
 			throw new ActionException();
 		}
-		return null;
+		return "inspectionView";
 	}
 }
 
