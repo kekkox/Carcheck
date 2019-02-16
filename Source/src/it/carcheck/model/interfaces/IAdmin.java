@@ -3,6 +3,7 @@ package it.carcheck.model.interfaces;
 import it.carcheck.model.bean.AdminBean;
 
 import java.sql.SQLException;
+import java.util.Collection;
 
 public interface IAdmin extends IUser<AdminBean>, IDatabaseOperation<AdminBean> {
 
@@ -15,4 +16,6 @@ public interface IAdmin extends IUser<AdminBean>, IDatabaseOperation<AdminBean> 
 	public void doSetAdminPermission(AdminBean admin, int grade) throws SQLException;
 
 	public AdminBean doRetrieveById(int id);
+	
+	public Collection<AdminBean> doRetrieveAll();
 }

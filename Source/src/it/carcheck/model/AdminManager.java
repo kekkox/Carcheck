@@ -1,16 +1,15 @@
 package it.carcheck.model;
 
-import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.UUID;
 
 import it.carcheck.database.CarcheckDatabase;
-import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.enums.Grade;
-import it.carcheck.model.bean.enums.RequestStatus;
 import it.carcheck.model.interfaces.IAdmin;
+import it.carcheck.utility.EmailSender;
 import it.carcheck.utility.PasswordHasher;
 
 public class AdminManager implements IAdmin{
@@ -117,13 +116,14 @@ public class AdminManager implements IAdmin{
 	@Override
 	public void doAddAdmin(AdminBean loggedAdmin, AdminBean admin) throws SQLException {
 		if(loggedAdmin.getGrade() == Grade.SUPER_ADMIN) {
-			AdminBean to_check = this.doFind("SELECT * FROM admin WHERE id = ?", admin.getId()).get(0);
-			
-			if(to_check != null && (to_check.getId() == admin.getId()))
-				return; //TODO Catch exception if admin exist
-			
-			//Not equal
+			String password = UUID.randomUUID().toString();
+			password = password.substring(password.lastIndexOf("-") + 1);
+			String encryptedPassword = PasswordHasher.Encrypt(password);
+			admin.setPassword(encryptedPassword);
 			this.doInsert(admin);
+			EmailSender.GetInstance().SendEmail("Benvenuto, " + admin.getName(), 
+					"Gentile " + admin.getName() + ", sei stato nominato nuovo amministratore di CarCheck.\n Accedi ai servizi con la seguente password:\n\n" + password + "\n\nCordiali saluti, CarCheck.", 
+					admin.getEmail());
 		}
 	}
 
@@ -150,6 +150,18 @@ public class AdminManager implements IAdmin{
 		try {
 			return this.doFind("SELECT * FROM admin WHERE id = ?", id).get(0);
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	@Override
+	public Collection<AdminBean> doRetrieveAll() {
+		try {
+			return this.doFind("SELECT * FROM admin");
+		}
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		

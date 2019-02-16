@@ -29,6 +29,9 @@ public class ActionFactory {
 		actions.put("GET/inspectionedit", new WorkshopEditInspectionAction());
 		actions.put("GET/adhesionView", new ViewAdhesionAction());
 		actions.put("POST/workshopRevision", new RevisionAction());
+		actions.put("GET/vehicles", new ShowVehicleAction());
+		actions.put("GET/admins", new AdminListAction());
+		actions.put("GET/adminForm", new AdminViewAction());
 		actions.put("POST/InpectionOperation", new WorkshopInspectionOperation());
 		// Services
 		actions.put("POST/region_service", new RegionAction());

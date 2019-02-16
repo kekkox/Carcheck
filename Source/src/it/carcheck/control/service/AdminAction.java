@@ -30,6 +30,7 @@ public class AdminAction implements IAction {
 		//operation_type
 		// 1 -> insert admin
 		// 2 -> remove admin
+		// 3 -> edit admin
 		String operation_str = request.getParameter("operation");
 		if(operation_str == null) {
 			writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "operation type is null")));
@@ -50,10 +51,11 @@ public class AdminAction implements IAction {
 			int operation_type = Integer.parseInt(operation_str);
 			switch(operation_type) {
 			case 1:
-				//email - name - surname
+				//email - name - surname - grade
 				String email = request.getParameter("email");
 				String name = request.getParameter("name");
 				String surname = request.getParameter("surname");
+				int grade = Integer.parseInt(request.getParameter("grade"));
 				
 				if(email == null || name == null || surname == null) {
 					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "one or more parameters are null")));
@@ -65,36 +67,59 @@ public class AdminAction implements IAction {
 				newAdmin.setName(name);
 				newAdmin.setSurname(surname);
 				newAdmin.setFirstLogin(true);
-				newAdmin.setGrade(Grade.DEFAULT_ADMIN);
+				newAdmin.setGrade(grade);
 				
 				try {
 					adminManager.doAddAdmin(admin, newAdmin);
+					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "Amministratore aggiunto con successo")));
 				} catch (SQLException e) {
 					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "unable to add new admin, exception")));
 				}
 				break;
 			case 2:
-				// admin Id
-				String admin_id = request.getParameter("id");
-				if(admin_id == null) {
+				String adminEmail = request.getParameter("email");
+				if(adminEmail == null) {
 					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "admin id is null")));
 					return "admin_service";
 				}
-				
-				int adminId = Integer.parseInt(admin_id);
-				AdminBean toRemove = adminManager.doRetrieveById(adminId);
-				if(toRemove == null) {
-					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "admin not found into database")));
-					return "admin_service";
-				}
-				
 				try {
+					AdminBean toRemove = adminManager.doRetrieveByEmail(adminEmail);
+					if(toRemove == null) {
+						writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "admin not found into database")));
+						return "admin_service";
+					}
+				
 					adminManager.doRemoveAdmin(admin, toRemove);
-					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "")));
+					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "Admin rimosso con successo")));
 				} catch (SQLException e) {
 					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "unable to remove admin (SQL Ex)")));
 				}
 				break;
+			case 3:
+				String emailAdmin = request.getParameter("email");
+				String adminName = request.getParameter("name");
+				String adminSurname = request.getParameter("surname");
+				int adminGrade = Integer.parseInt(request.getParameter("grade"));
+				
+				if(emailAdmin == null) {
+					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "admin id is null")));
+					return "admin_service";
+				}
+				
+				try {
+					AdminBean bean = adminManager.doRetrieveByEmail(emailAdmin);
+					bean.setGrade(adminGrade);
+					bean.setName(adminName);
+					bean.setSurname(adminSurname);
+					
+					adminManager.doSave(bean);
+					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "Aggiornamento effettuato con successo")));
+				} catch(SQLException e) {
+					writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "unable to remove admin (SQL Ex)")));
+				}
+				
+				break;
+					
 			default:
 				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "invalid operation type")));
 				break;
