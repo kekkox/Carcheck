@@ -46,11 +46,14 @@ public class VehicleInspectionBean {
     }
 
     public boolean isResult() {
-        return result;
+        return this.result == 1 ? true : false;
     }
 
     public void setResult(boolean result) {
-        this.result = result;
+        if(result)
+        	this.result = 1;
+        else
+        	this.result = 0;
     }
 
     public String getPhoto() {
@@ -81,7 +84,7 @@ public class VehicleInspectionBean {
     private int id;
     private Date inspectionDate,expirationDate;
     private int km;
-    private boolean result;
+    private int result;
     private String photo;
     private int workShop;
     private String vehicle;

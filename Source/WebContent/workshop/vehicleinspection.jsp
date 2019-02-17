@@ -31,8 +31,6 @@
         <table class="table">
             <tr>
                 <th>Targa</th>
-                <th>Intestatario</th>
-				<th>Telefono</th>
 				<th>Data Revisione</th>
 				<th>Chilometri</th>
 				<th>Data Scadenza</th>
@@ -42,12 +40,17 @@
 		<c:forEach items="${totalInspections}" var="item">
 			<tr>
                 <td class="mainCell">${item.vehicle}</td>
-				<td>$item.licenseplate</td>
-				<td>$item.licenseplate</td>
-				<td>$item.licenseplate</td>
-				<td>$item.licenseplate</td>
-				<td>$item.licenseplate</td>
-				<td><div class='statusCell negative'>Respinta</div></td>
+				<td>${item.inspectionDate}</td>
+				<td>${item.km}</td>
+				<td class="mainCell">${item.expirationDate}</td>
+				<td>
+					<c:if test="${item.result eq false}">
+						<div class='statusCell negative'>Respinta</div>
+					</c:if>
+					<c:if test="${item.result eq true}">
+						<div class='statusCell positive'>Approvata</div>
+					</c:if>
+				</td>
 				<td><div class="action">
 				<a href="../RequestHandler/inspectionview?inspectionKey=${item.id}"><i class="fas fa-eye" id="eye"></i></a>
 				<a href="../RequestHandler/inspectionedit?inspectionKey=${item.id}"><i class="fas fa-pencil-alt" id="pencil"></i></a>
