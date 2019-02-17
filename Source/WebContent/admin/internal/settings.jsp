@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/settings.css">
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/menu.css">
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/sidebar.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="${pageContext.servletContext.contextPath}/js/sidebar.js"></script>
+<script src="${pageContext.servletContext.contextPath}/js/changePassword.js"></script>
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Open+Sans+Condensed:300,700"
 	rel="stylesheet">
@@ -22,38 +22,35 @@
 
 
 
-<body>
-	<jsp:include page="../../WEB-INF/menu.jsp" />
-	<div class="container">
-		<jsp:include page="../../WEB-INF/sidebarAdmin.jsp" />
-		<div class="content">
-			<h1>Impostazioni account</h1>
-			<div class="row">
-				<div class="settings_container">
-					<h1>Cambio Password</h1>
-					<div class="inputBox">
-						<input type="password" name="password" value="" required>
-						<label>Vecchia password</label>
+	<body>
+		<jsp:include page="../../WEB-INF/menu.jsp" />
+		<div class="container">
+			<jsp:include page="../../WEB-INF/sidebar.jsp" />
+			<div class="content">
+				<h1>Impostazioni account</h1>
+				<div class="row">
+					<div class="settings_container">
+						<form>
+							<h1>Cambio Password</h1>
+							<div class="inputBox">
+								<input type="password" name="password" value="" required>
+								<label>Vecchia password</label>
+							</div>
+							<div class="inputBox">
+								<input type="password" name="password" value="" required>
+								<label>Nuova password</label>
+							</div>
+							<div class="inputBox">
+								<input type="password" name="password" value="" required>
+								<label>Ripeti password</label>
+							</div>
+							<button type="submit" name="button" value="Login">
+								CAMBIA PASSWORD
+							</button>
+						</form>
 					</div>
-					<div class="inputBox">
-						<input type="password" name="password" value="" required>
-						<label>Nuova password</label>
-					</div>
-					<div class="inputBox">
-						<input type="password" name="password" value="" required>
-						<label>Ripeti password</label>
-					</div>
-					<button type="submit" name="button" value="Login">
-					CAMBIA PASSWORD
-					</button>
 				</div>
 			</div>
 		</div>
-
-
-	</div>
-	</div>
-
-
-</body>
+	</body>
 </html>

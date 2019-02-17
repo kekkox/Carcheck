@@ -32,7 +32,7 @@ public class ActionFactory {
 		actions.put("GET/vehicles", new ShowVehicleAction());
 		actions.put("GET/admins", new AdminListAction());
 		actions.put("GET/adminForm", new AdminViewAction());
-		//actions.put("POST/InpectionOperation", new WorkshopInspectionOperation());
+		actions.put("POST/InpectionOperation", new WorkshopInspectionOperation());
 		// Services
 		actions.put("POST/region_service", new RegionAction());
 		actions.put("POST/province_service", new ProvinceAction());
@@ -44,7 +44,7 @@ public class ActionFactory {
 		actions.put("POST/admin_service", new AdminAction());
 		actions.put("POST/vehicle_service", new VehicleAction());
 		actions.put("POST/people_service", new PeopleAction());
-		
+		actions.put("POST/change_password_service", new ChangePasswordAction());
 	
 	}
 	

@@ -17,7 +17,7 @@ import it.carcheck.model.WorkshopAdhesionManager;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.interfaces.IWorkshopAdhesion;
 
-@WebFilter("/admin/internal/*")
+@WebFilter({"/admin/internal/*", "/WEB-INF/admin/*"})
 public class AdminFilter implements Filter{
 
 	@Override
