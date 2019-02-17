@@ -45,7 +45,7 @@ public class ActionFactory {
 		actions.put("POST/vehicle_service", new VehicleAction());
 		actions.put("POST/people_service", new PeopleAction());
 		actions.put("POST/change_password_service", new ChangePasswordAction());
-	
+		actions.put("POST/find_vehicle_service", new FindVehicleAction());
 	}
 	
 	public static IAction getAction(HttpServletRequest request) throws ActionNotFoundException{

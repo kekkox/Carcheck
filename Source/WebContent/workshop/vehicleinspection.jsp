@@ -17,8 +17,7 @@
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 	<link rel="stylesheet" href="css/searchbar.css">
-
-	
+	<script src="../js/vehicleinspection.js"></script>
     <title>Carchek</title>
 </head>
 <body>
