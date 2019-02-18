@@ -34,7 +34,7 @@
           <span>${title}</span>
           <div>Alcuni campi inseriti sono errati.Riprovare!</div>
         </div>
-        <form action="inspectionOperation" method="GET" enctype="multipart/form-data" >
+        <form action="inspectionOperation" method="POST">
      
         
           <div class = "inputBox">
@@ -71,6 +71,7 @@
 	  <div class="containerImage">
 	    <a id="imagepreview" target="_blank" href="http://www.autousata.us/wp-content/uploads/2015/01/ACQUISTO-AUTO-RITIRO-VALUTAZIONE-INCIDENTATE-PER-ESPORTAZIONE-1080x675.jpg">
   <img id="vheicleimage" class=img src="http://www.autousata.us/wp-content/uploads/2015/01/ACQUISTO-AUTO-RITIRO-VALUTAZIONE-INCIDENTATE-PER-ESPORTAZIONE-1080x675.jpg" alt="foto">
+<input type="hidden" name="inspectionKey" value="${inspectionKey}">
 </a>
     	<label for="file-upload" class="custom-file-upload"">
 		<i class="fas fa-cloud-upload-alt"></i> Modifica immagine
