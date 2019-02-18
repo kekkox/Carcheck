@@ -3,9 +3,7 @@ package it.carcheck.control.service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +20,7 @@ import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
+import it.carcheck.model.interfaces.IVehicleInspection;
 
 public class VehicleAction implements IAction {
 
@@ -113,36 +112,20 @@ public class VehicleAction implements IAction {
 				}
 				 break;
 			 case 3:
-				 if(licensePlate == null) {
-					 writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "license plate is null")));
-					 return "vehicle_service";
-				 }
-				 
-				 String workshopId_str = request.getParameter("workshop");
-				 if(workshopId_str == null) {
-					 writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "workshop id is null")));
-					 return "vehicle_service";
-				 }
-				 
-				 int workshopId = Integer.parseInt(workshopId_str);
-				 VehicleInspectionManager inspectionManager = VehicleInspectionManager.getInstance();
-				 
-				 Collection<VehicleInspectionBean> inspections = inspectionManager.doRetrieveByWorkshopIdAndLicensePlate(workshopId, licensePlate);
-				 if(inspections.size() <= 0) {
-					 writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "no vehicles inspection found")));
-					 return "vehicle_service";
-				 }
-				 
-				 ArrayList<String> licensePlates = new ArrayList<>();
-				 Iterator<VehicleInspectionBean> iterator = inspections.iterator();
-				 
-				 while(iterator.hasNext()) {
-					 String license = iterator.next().getVehicle();
-					 licensePlates.add(license);
-				 }
-				 
-				 writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.OK, "", licensePlates)));
-				 break;
+				if (licensePlate == null || licensePlate.length() == 0) {
+					response.getWriter().println(new Gson()
+							.toJson(new JsonResponse(JsonResponseStatus.FAILED, "License plate not specified")));
+					return "vehicle_service";
+				}
+
+				WorkshopBean loggedUser = (WorkshopBean) userSession;
+
+				IVehicleInspection manager = VehicleInspectionManager.getInstance();
+				Collection<VehicleInspectionBean> vehicles = manager.doRetrieveByLicensePlateLike(loggedUser,
+						licensePlate);
+
+				response.getWriter().println(new Gson().toJson(new JsonResponse(JsonResponseStatus.OK, "Success", vehicles)));
+				break;
 			 default:
 				 writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, "invalid operation type")));
 				 break;

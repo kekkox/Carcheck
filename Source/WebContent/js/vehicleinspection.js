@@ -26,7 +26,7 @@ let onKeyUpHandler = (event) => {
 
 function addressRequestHandler(licensePlate) {
 	let request = new XMLHttpRequest();
-	let params = "licensePlate=" + licensePlate; 
+	let params = "license=" + licensePlate + "&operation=3"; 
 	request.onreadystatechange = function() {
 		if(this.readyState == 4)
 			if(this.status == 200) {
@@ -36,7 +36,7 @@ function addressRequestHandler(licensePlate) {
 				console.log("Impossibile ricevere la risposta");
 	}
 	
-	request.open("POST", "/CarCheck/RequestHandler/find_vehicle_service", true);
+	request.open("POST", "/CarCheck/RequestHandler/vehicle_service", true);
 	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	request.send(params);
 }
