@@ -23,12 +23,10 @@ public class ActionFactory {
 		actions.put("POST/loginAdmin", new AdminLoginAction());
 		actions.put("POST/signupAdmin", new AdminSignupAction());
 		actions.put("GET/logout", new LogoutAction());
-		actions.put("POST/workshopRevision", new RevisionAction());
 		actions.put("GET/inspectioninsert", new WorkshopInsertInspectionAction());
 		actions.put("GET/inspectionview", new WorkshopViewInspectionAction());
 		actions.put("GET/inspectionedit", new WorkshopEditInspectionAction());
 		actions.put("GET/adhesionView", new ViewAdhesionAction());
-		actions.put("POST/workshopRevision", new RevisionAction());
 		actions.put("GET/vehicles", new ShowVehicleAction());
 		actions.put("GET/admins", new AdminListAction());
 		actions.put("GET/adminForm", new AdminViewAction());
