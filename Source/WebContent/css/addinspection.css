@@ -98,12 +98,27 @@ img {
   height: 150px;
   margin-bottom: 25px;
 }
-
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+.containerImage img  {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 32px;
+  height: 32px; 
+  margin-bottom: 25px;
+  margin-right: 20px
 }
 
-
+.containerImage img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.containerImage{
+	    display: flex;
+justify-content: center;
+align-items: center;
+}
+.imgedit:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
 
 .container {
     height: calc(100% - 70px); /*70px is the height of menu*/
@@ -288,6 +303,14 @@ margin-bottom: 30px;
 
 input[type="file"] {
     display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #06c;
+    color: white;
+    cursor: pointer;
+    margin-bottom:30px;
 }
 .custom-file-upload {
     display: inline-block;
