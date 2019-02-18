@@ -27,6 +27,8 @@ public class WorkshopEditInspectionAction implements IAction {
 		request.setAttribute("inspectionsView", inspectionBean);
 		request.setAttribute("submitVisible", "focus");
 		request.setAttribute("buttonSubmitValue", "EDIT");
+		request.setAttribute("inspectionKey", inspectionKey);
+		
 		
 		if(inspectionBean.isResult())
 		request.setAttribute("state", "checked");
