@@ -14,7 +14,7 @@ import it.dsoft.fastcrud.exceptions.TableNameException;
  */
 public interface IDatabase {
 	public <T> int create(T object) throws SQLException, ConfigurationException, ObjectMapException, TableNameException, Exception;
-	public <T> void update(T object) throws SQLException, ConfigurationException, ObjectMapException, TableNameException, Exception;
-	public <T> void delete(T object) throws SQLException, ConfigurationException, ObjectMapException, TableNameException, Exception;
+	public <T> int update(T object) throws SQLException, ConfigurationException, ObjectMapException, TableNameException, Exception;
+	public <T> int delete(T object) throws SQLException, ConfigurationException, ObjectMapException, TableNameException, Exception;
 	public <T> LinkedHashSet<T> read(Class<T> clazz, String query, Object...args) throws SQLException, ConfigurationException, Exception;
 }

@@ -70,7 +70,7 @@ public class FastCrud implements IDatabase {
 	 * This method allows you to update a generic item into the database
 	 */
 	@Override
-	public <T> void update(T object) throws Exception {
+	public <T> int update(T object) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
@@ -84,8 +84,9 @@ public class FastCrud implements IDatabase {
 			int resultRow = statement.executeUpdate();
 			if(resultRow <= 0)
 				throw new DatabaseUpdateException("you cannot update primary key");
-			
 			connection.commit();
+			
+			return resultRow;
 		} finally {
 			try { if(statement != null) statement.close(); }
 			finally { this.connectionPool.releaseConnection(connection); }
@@ -96,7 +97,7 @@ public class FastCrud implements IDatabase {
 	 * This method allows you to delete a generic item into the database
 	 */
 	@Override
-	public <T> void delete(T object) throws Exception {
+	public <T> int delete(T object) throws Exception {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		
@@ -107,8 +108,10 @@ public class FastCrud implements IDatabase {
 			String query = this.queryGenerator.generateQuery(entity, OperationType.Delete);
 			statement = this.statementFactory.createStatement(StatementType.Delete, connection, entity, query);
 			
-			statement.executeUpdate();
+			int resultRow = statement.executeUpdate();
 			connection.commit();
+			
+			return resultRow;
 		} finally {
 			try { if(statement != null) statement.close(); }
 			finally { this.connectionPool.releaseConnection(connection); }
