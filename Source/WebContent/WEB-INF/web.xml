@@ -12,4 +12,14 @@
   <listener>
   	<listener-class>it.carcheck.StartupListener</listener-class>
   </listener>
+ <servlet>
+        <servlet-name>FileUpload</servlet-name>
+        <servlet-class>FileUpload</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FileUpload</servlet-name>
+        <url-pattern>/FileUpload</url-pattern>
+    </servlet-mapping>
 </web-app>
+

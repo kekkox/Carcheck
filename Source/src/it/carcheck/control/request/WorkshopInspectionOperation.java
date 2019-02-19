@@ -44,46 +44,20 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 		String licenseplate = request.getParameter("licensePlate");
 		
 		Gson gson = new Gson();
-		response.setHeader(IAction.HEADER_NAME, IAction.JSON_RESPONSE);
+		response.setHeader(IAction.HEADER_NAME, IAction.FORWARD_RESPONSE);
 		 PrintWriter writer = response.getWriter();
 		 WorkshopBean workshop = (WorkshopBean) request.getSession().getAttribute("user");
 			VehicleInspectionManager inspectionman = (VehicleInspectionManager) VehicleInspectionManager.getInstance();
 		 
-		/*   response.setContentType("text/html;charset=UTF-8");
 
-        OutputStream out = null;
-        InputStream filecontent = null;
-    	Part filePart = request.getPart("photofile");
-		 String fileName = filePart.getName();
-		 PrintWriter writer = response.getWriter();
-		 writer.println(fileName);*/
 		
 		try {
 			
-			
-			/* out = new FileOutputStream(new File(UPLOAD_DIRECTORY + File.separator+ fileName));
-	            filecontent = filePart.getInputStream();
-
-	            int read = 0;
-	            final byte[] bytes = new byte[1024];
-
-	            while ((read = filecontent.read(bytes)) != -1) {
-	                out.write(bytes, 0, read);
-	            }
-	            writer.println("New file " + fileName + " created at " + UPLOAD_DIRECTORY);*/
 	
-			 
-			/*writer.println(filePart);
-		    InputStream fileInputStream = filePart.getInputStream();
-		
-		    File fileToSave = new File(UPLOAD_DIRECTORY+ filePart.getSubmittedFileName());
-		    Files.copy(fileInputStream, fileToSave.toPath(), StandardCopyOption.REPLACE_EXISTING);*/
-			
-			//writer.println(licenseplate);
 			VehicleBean vehicle = VehicleManager.getInstance().doRetriveVehicle(licenseplate);
 			if (vehicle == null) {
-				writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, ERROR_LICENSEPLATE)));
-				return "inspectionView";
+				//writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, ERROR_LICENSEPLATE)));
+				return "../workshop/vehicleinspection.jsp";
 			}
 			
 			String inspectionDate = request.getParameter("inspectionDate");
@@ -111,7 +85,7 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 					inspection.setResult(false);
 				inspection.setWorkShop(workshop.getId());
 			inspectionman.doInsert(inspection);
-			
+			return "../workshop/vehicleinspection.jsp";
 				}
 				
 			else if(operation.equals("EDIT"))
@@ -133,7 +107,7 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 				inspection.setResult(false);
 				inspection.setWorkShop(workshop.getId());
 				inspectionman.doSave(inspection);
-				
+				return "../workshop/vehicleinspection.jsp";
 
 			}
 		} 
@@ -143,16 +117,6 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 		}
 		return null;
 
-	}
-	/*private String getFileName(Part part) {
-        for (String content : part.getHeader("content-disposition").split(";")) {
-            if (content.trim().startsWith("filename")) {
-                return content.substring(
-                    content.indexOf('=') + 1).trim().replace("\"", "");
-            }
-        }
-        return null;
-    }*/
 
 	private static final String INSERT_SUCCESS = "Hai inserito una nuova revisione";
 	private static final String EDIT_SUCCESS = "Le modifiche sono state effettuate correttamente";
