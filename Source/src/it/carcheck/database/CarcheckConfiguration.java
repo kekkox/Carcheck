@@ -4,6 +4,6 @@ import it.dsoft.fastcrud.DatabaseConfiguration;
 
 public class CarcheckConfiguration extends DatabaseConfiguration {
 	public CarcheckConfiguration() {
-		super("root", "", "carcheck");
+		super("root", "root", "carcheck");
 	}
 }

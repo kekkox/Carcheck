@@ -1,27 +1,15 @@
 package it.carcheck.control.request;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
-import com.google.gson.Gson;
 
 import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
@@ -30,10 +18,6 @@ import it.carcheck.model.VehicleManager;
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
-import it.carcheck.model.bean.enums.JsonResponseStatus;
-import it.carcheck.utility.JsonResponse;
-
-import java.io.File;
 
 @MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
 public class WorkshopInspectionOperation extends HttpServlet implements IAction{
@@ -43,10 +27,8 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 		String operation = request.getParameter("button");
 		String licenseplate = request.getParameter("licensePlate");
 		
-		Gson gson = new Gson();
-		response.setHeader(IAction.HEADER_NAME, IAction.FORWARD_RESPONSE);
-		 PrintWriter writer = response.getWriter();
-		 WorkshopBean workshop = (WorkshopBean) request.getSession().getAttribute("user");
+		response.setHeader(IAction.HEADER_NAME, IAction.REDIRECT_RESPONSE);
+		WorkshopBean workshop = (WorkshopBean) request.getSession().getAttribute("user");
 			VehicleInspectionManager inspectionman = (VehicleInspectionManager) VehicleInspectionManager.getInstance();
 		 
 
@@ -56,8 +38,7 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 	
 			VehicleBean vehicle = VehicleManager.getInstance().doRetriveVehicle(licenseplate);
 			if (vehicle == null) {
-				//writer.println(gson.toJson(new JsonResponse(JsonResponseStatus.FAILED, ERROR_LICENSEPLATE)));
-				return "../workshop/vehicleinspection.jsp";
+				return "workshop/vehicleinspection";
 			}
 			
 			String inspectionDate = request.getParameter("inspectionDate");
@@ -85,7 +66,7 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 					inspection.setResult(false);
 				inspection.setWorkShop(workshop.getId());
 			inspectionman.doInsert(inspection);
-			return "../workshop/vehicleinspection.jsp";
+			return "workshop/vehicleinspection";
 				}
 				
 			else if(operation.equals("EDIT"))
@@ -107,7 +88,7 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 				inspection.setResult(false);
 				inspection.setWorkShop(workshop.getId());
 				inspectionman.doSave(inspection);
-				return "../workshop/vehicleinspection.jsp";
+				return "workshop/vehicleinspection";
 
 			}
 		} 
@@ -117,10 +98,6 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 		}
 		return null;
 
-
-	private static final String INSERT_SUCCESS = "Hai inserito una nuova revisione";
-	private static final String EDIT_SUCCESS = "Le modifiche sono state effettuate correttamente";
-	private static final String ERROR_LICENSEPLATE = "La targa non � presente nei nostri sistemi";
-	private final String UPLOAD_DIRECTORY = "../workshop/imgVheicle";
+	}
 
 }
