@@ -13,8 +13,8 @@ import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.LocationManager;
 import it.carcheck.model.bean.CityBean;
-import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
+import it.carcheck.utility.JsonResponse;
 
 public class CityAction implements IAction {
 

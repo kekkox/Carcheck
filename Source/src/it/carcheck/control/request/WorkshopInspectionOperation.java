@@ -27,11 +27,12 @@ import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.VehicleInspectionManager;
 import it.carcheck.model.VehicleManager;
-import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.VehicleInspectionBean;
 import it.carcheck.model.bean.WorkshopBean;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
+import it.carcheck.utility.JsonResponse;
+
 import java.io.File;
 
 @MultipartConfig(location="/tmp", fileSizeThreshold=1024*1024, maxFileSize=1024*1024*5, maxRequestSize=1024*1024*5*5)
@@ -155,7 +156,7 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 
 	private static final String INSERT_SUCCESS = "Hai inserito una nuova revisione";
 	private static final String EDIT_SUCCESS = "Le modifiche sono state effettuate correttamente";
-	private static final String ERROR_LICENSEPLATE = "La targa non è presente nei nostri sistemi";
+	private static final String ERROR_LICENSEPLATE = "La targa non ï¿½ presente nei nostri sistemi";
 	private final String UPLOAD_DIRECTORY = "../workshop/imgVheicle";
 
 }

@@ -18,10 +18,10 @@ import it.carcheck.model.VehicleManager;
 import it.carcheck.model.WorkshopManager;
 import it.carcheck.model.bean.AdhesionRequestBean;
 import it.carcheck.model.bean.AdminBean;
-import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.VehicleBean;
 import it.carcheck.model.bean.WorkshopBean;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
+import it.carcheck.utility.JsonResponse;
 
 public class AdminStatisticsAction implements IAction {
 

@@ -14,9 +14,9 @@ import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.AdhesionRequestManager;
 import it.carcheck.model.bean.AdhesionRequestBean;
-import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
 import it.carcheck.model.interfaces.IAdhesionRequest;
+import it.carcheck.utility.JsonResponse;
 
 public class RequestsAction implements IAction {
 

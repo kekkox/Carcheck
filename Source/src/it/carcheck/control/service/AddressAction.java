@@ -13,8 +13,8 @@ import it.carcheck.control.exception.ActionException;
 import it.carcheck.control.interfaces.IAction;
 import it.carcheck.model.AddressManager;
 import it.carcheck.model.bean.AddressBean;
-import it.carcheck.model.bean.JsonResponse;
 import it.carcheck.model.bean.enums.JsonResponseStatus;
+import it.carcheck.utility.JsonResponse;
 
 public class AddressAction implements IAction {
 

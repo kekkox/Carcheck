@@ -1,4 +1,4 @@
-package it.carcheck.model.bean;
+package it.carcheck.utility;
 
 public class JsonResponse {
 
