@@ -60,10 +60,11 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 				
 					inspection.setExpirationDate(Date.valueOf(expirationdate));
 				inspection.setPhoto("photo");
-				if(state=="1")
-				inspection.setResult(true);
-				else 
-					inspection.setResult(false);
+				if(state.equals("on"))
+					if(state==null)
+						inspection.setResult(false);
+						else 
+						inspection.setResult(true);
 				inspection.setWorkShop(workshop.getId());
 			inspectionman.doInsert(inspection);
 			return "workshop/vehicleinspection";
@@ -82,10 +83,10 @@ public class WorkshopInspectionOperation extends HttpServlet implements IAction{
 				expirationdate=year+expirationdate;
 				inspection.setExpirationDate(Date.valueOf(expirationdate));
 				inspection.setPhoto(photo);
-				if(state=="1")
-				inspection.setResult(true);
-				else 
+				if(state==null)
 				inspection.setResult(false);
+				else 
+				inspection.setResult(true);
 				inspection.setWorkShop(workshop.getId());
 				inspectionman.doSave(inspection);
 				return "workshop/vehicleinspection";
