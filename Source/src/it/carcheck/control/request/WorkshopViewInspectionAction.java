@@ -24,8 +24,8 @@ public class WorkshopViewInspectionAction implements IAction {
 		request.setAttribute("classname", "class=active");
 		request.setAttribute("title", "Visualizza Revisione");
 		request.setAttribute("upload", "fullView");
-		
 		request.setAttribute("inspectionsView", inspectionBean);
+		request.setAttribute("photo", inspectionBean.getPhoto());
 		/*
 		request.setAttribute("licenseplate", inspectionBean.getVehicle());
 		request.setAttribute("inspectionDate", inspectionBean.getInspectionDate());

@@ -69,8 +69,8 @@
 	    
 	    <c:if test="${upload eq 'full'}">
 	  <div class="containerImage">
-	    <a id="imagepreview" target="_blank" href="http://www.autousata.us/wp-content/uploads/2015/01/ACQUISTO-AUTO-RITIRO-VALUTAZIONE-INCIDENTATE-PER-ESPORTAZIONE-1080x675.jpg">
-  <img id="vheicleimage" class=img src="http://www.autousata.us/wp-content/uploads/2015/01/ACQUISTO-AUTO-RITIRO-VALUTAZIONE-INCIDENTATE-PER-ESPORTAZIONE-1080x675.jpg" alt="foto">
+	    <a id="imagepreview" target="_blank" href="${photo}">
+  <img id="vheicleimage" class=img src="${photo}" alt="foto">
 <input type="hidden" name="inspectionKey" value="${inspectionKey}">
 </a>
     	<label for="file-upload" class="custom-file-upload"">
@@ -80,8 +80,8 @@
 </div>
 </c:if> 
 	    <c:if test="${upload eq 'fullView'}">
-	    <a id="imagepreview" target="_blank" href="http://www.autousata.us/wp-content/uploads/2015/01/ACQUISTO-AUTO-RITIRO-VALUTAZIONE-INCIDENTATE-PER-ESPORTAZIONE-1080x675.jpg">
-  <img id="vheicleimage" class=img src="http://www.autousata.us/wp-content/uploads/2015/01/ACQUISTO-AUTO-RITIRO-VALUTAZIONE-INCIDENTATE-PER-ESPORTAZIONE-1080x675.jpg" alt="foto">
+	    <a id="imagepreview" target="_blank" href="${photo}">
+  <img id="vheicleimage" class=img src="${photo}" alt="foto">
 </a>
 </c:if> 
 	     <c:if test="${submitVisible eq 'focus'}">
