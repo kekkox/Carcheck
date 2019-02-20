@@ -34,27 +34,32 @@ public class VehicleManagerTesting extends TestCase {
 	}
 	
 	public void doRetriveVehicle() throws Exception {
-		VehicleBean bean = this.manager.doRetriveVehicle("license");
+		VehicleBean bean = this.manager.doRetriveVehicle("NAN70642");
 		assertNotNull(bean);
+		assertEquals(bean.getLicensePlate(), "NAN70642");
 	}
 	
 	public void doRetrieveLastPossessionFee() throws Exception {
-		PossessionFeeBean bean = this.manager.doRetrieveLastPossessionFee(new VehicleBean());
+		VehicleBean vehicleBean = this.manager.doRetriveVehicle("NAN70642");
+		PossessionFeeBean bean = this.manager.doRetrieveLastPossessionFee(vehicleBean);
 		assertNotNull(bean);
 	}
 	
 	public void doRetrieveLastInsurance() throws Exception {
-		InsuranceBean bean = this.manager.doRetrieveLastInsurance(new VehicleBean());
+		VehicleBean vehicleBean = this.manager.doRetriveVehicle("NAN70642");
+		InsuranceBean bean = this.manager.doRetrieveLastInsurance(vehicleBean);
 		assertNotNull(bean);
 	}
 	
 	public void doRetrieveOwners() throws Exception {
-		Collection<PeopleBean> beans = this.manager.doRetrieveOwners(new VehicleBean());
+		VehicleBean vehicleBean = this.manager.doRetriveVehicle("NAN70642");
+		Collection<PeopleBean> beans = this.manager.doRetrieveOwners(vehicleBean);
 		assertNotNull(beans);
 	}
 	
 	public void doRetrieveLastVehicleInspection() throws Exception {
-		VehicleInspectionBean bean = this.manager.doRetrieveLastVehicleInspection(new VehicleBean());
+		VehicleBean vehicleBean = this.manager.doRetriveVehicle("NAN70642");
+		VehicleInspectionBean bean = this.manager.doRetrieveLastVehicleInspection(vehicleBean);
 		assertNotNull(bean);
 	}
 	

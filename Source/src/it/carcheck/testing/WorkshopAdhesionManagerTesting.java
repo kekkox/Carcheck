@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import it.carcheck.database.CarcheckConfiguration;
 import it.carcheck.database.CarcheckDatabase;
+import it.carcheck.model.AdminManager;
 import it.carcheck.model.WorkshopAdhesionManager;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.WorkshopAdhesionBean;
@@ -31,17 +32,23 @@ public class WorkshopAdhesionManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByWorkshopId() throws Exception {
-		WorkshopAdhesionBean bean = manager.doRetrieveByWorkshopId(1, new AdminBean());
+		AdminBean adminBean = AdminManager.getInstance().doRetrieveByEmail("kekkox@live.it");
+		assertNotNull(adminBean);
+		WorkshopAdhesionBean bean = manager.doRetrieveByWorkshopId(11, adminBean);
 		assertNotNull(bean);
+		assertEquals(bean.getWorkshopId(), 11);
 	}
 	
 	public void doRetrieveByAdhesionId() throws Exception {
-		WorkshopAdhesionBean bean = manager.doRetrieveByAdhesionId(1, new AdminBean());
+		AdminBean adminBean = AdminManager.getInstance().doRetrieveByEmail("kekkox@live.it");
+		WorkshopAdhesionBean bean = manager.doRetrieveByAdhesionId(13, adminBean);
 		assertNotNull(bean);
+		assertEquals(bean.getAdhesionRequestId(), 13);
 	}
 	
 	public void doRetrieveAll() throws Exception {
-		Collection<WorkshopAdhesionBean> beans = manager.doRetrieveAll(new AdminBean());
+		AdminBean adminBean = AdminManager.getInstance().doRetrieveByEmail("kekkox@live.it");
+		Collection<WorkshopAdhesionBean> beans = manager.doRetrieveAll(adminBean);
 		assertNotNull(beans);
 	}
 	

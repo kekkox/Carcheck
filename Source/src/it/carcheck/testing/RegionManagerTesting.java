@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import it.carcheck.database.CarcheckConfiguration;
 import it.carcheck.database.CarcheckDatabase;
+import it.carcheck.model.CityManager;
+import it.carcheck.model.ProvinceManager;
 import it.carcheck.model.RegionManager;
 import it.carcheck.model.bean.CityBean;
 import it.carcheck.model.bean.ProvinceBean;
@@ -34,26 +36,32 @@ public class RegionManagerTesting extends TestCase {
 	public void getRegionByKey() throws Exception {
 		RegionBean bean = this.regionManager.getRegionByKey(1);
 		assertNotNull(bean);
+		assertEquals(bean.getId(), 1);
 	}
 	
 	public void getRegionFromCityName() throws Exception {
-		RegionBean bean = this.regionManager.getRegionFromCityName("name");
+		RegionBean bean = this.regionManager.getRegionFromCityName("Napoli");
 		assertNotNull(bean);
+		assertEquals(bean.getName(), "Campania");
 	}
 	
 	public void getRegionFromCity() throws Exception {
-		RegionBean bean = this.regionManager.getRegionFromCity(new CityBean());
+		CityBean city = new CityManager().getCityByName("Napoli");
+		RegionBean bean = this.regionManager.getRegionFromCity(city);
 		assertNotNull(bean);
+		assertEquals(bean.getName(), "Campania");
 	}
 	
 	public void getRegionFromProvince() throws Exception {
-		RegionBean bean = this.regionManager.getRegionFromProvince(new ProvinceBean());
+		ProvinceBean provinceBean = new ProvinceManager().getProvinceByKey("NA");
+		RegionBean bean = this.regionManager.getRegionFromProvince(provinceBean);
 		assertNotNull(bean);
 	}
 	
 	public void getAllRegions() throws Exception {
 		ArrayList<RegionBean> beans = this.regionManager.getAllRegions();
 		assertNotNull(beans);
+		assertEquals(beans.size(), 20);
 	}
 	
 	public static Test suite() {

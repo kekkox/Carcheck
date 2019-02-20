@@ -27,8 +27,9 @@ public class PeopleManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByFiscalCode() throws Exception {
-		PeopleBean bean = manager.doRetrieveByFiscalCode("XXXXX");
+		PeopleBean bean = manager.doRetrieveByFiscalCode("CPRFNC96M14C129F");
 		assertNotNull(bean);
+		assertEquals(bean.getFiscalCode(), "CPRFNC96M14C129F");
 	}
 	
 	public static Test suite() {

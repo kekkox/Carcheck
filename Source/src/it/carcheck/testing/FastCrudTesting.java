@@ -18,7 +18,7 @@ public class FastCrudTesting extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		DatabaseConfiguration configuration = new DatabaseConfiguration("root", "developer9798", "carcheck");
+		DatabaseConfiguration configuration = new DatabaseConfiguration("root", "root", "carcheck");
 		this.database = new FastCrud(configuration);
 	}
 	
@@ -58,7 +58,7 @@ public class FastCrudTesting extends TestCase {
 	}
 	
 	public void testDelete() throws Exception {
-		LinkedHashSet<AdminBean> result = this.database.read(AdminBean.class, "select * from admin");
+		LinkedHashSet<AdminBean> result = this.database.read(AdminBean.class, "select * from admin where email = 'test@gmail.com'");
 		if(result.size() > 0) {
 			AdminBean bean = result.iterator().next();
 			int res = this.database.delete(bean);

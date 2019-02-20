@@ -31,6 +31,7 @@ public class AddressManagerTesting extends TestCase {
 	public void getAddressByKey() throws Exception {
 		AddressBean bean = manager.getAddressByKey(14688226);
 		assertNotNull(bean);
+		assertEquals(bean.getId(), 14688226);
 	}
 	
 	public void getFullAddressByName() throws Exception {

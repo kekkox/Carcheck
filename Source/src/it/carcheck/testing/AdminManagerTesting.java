@@ -8,6 +8,7 @@ import it.carcheck.database.CarcheckDatabase;
 import it.carcheck.model.AdminManager;
 import it.carcheck.model.bean.AdminBean;
 import it.carcheck.model.bean.enums.Grade;
+import it.carcheck.utility.PasswordHasher;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -31,8 +32,10 @@ public class AdminManagerTesting extends TestCase {
 	}
 	
 	public void doLogin() throws Exception {
-		AdminBean bean = manager.doLogin("email", "password");
+		AdminBean bean = manager.doLogin("kekkox@live.it", "newPass");
 		assertNotNull(bean);
+		assertEquals(bean.getEmail(), "kekkox@live.it");
+		assertEquals(bean.getPassword(), PasswordHasher.Encrypt("newPass"));
 	}
 	
 	public void doChangePassword() throws Exception {
@@ -52,17 +55,23 @@ public class AdminManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByEmail() throws Exception {
-		AdminBean admin = manager.doRetrieveByEmail("email");
+		AdminBean admin = manager.doRetrieveByEmail("kekkox@live.it");
 		assertNotNull(admin);
+		assertEquals(admin.getEmail(), "kekkox@live.it");
 	}
 	
 	public void doAddAdmin() throws Exception {
 		AdminBean newAdmin = new AdminBean();
+		newAdmin.setEmail("prova@gmail.com");
+		newAdmin.setPassword(PasswordHasher.Encrypt("root"));
+		newAdmin.setGrade(Grade.DEFAULT_ADMIN);
+		newAdmin.setName("Test");
+		newAdmin.setSurname("Test");
 		
 		ArrayList<AdminBean> admins = manager.doFind("select * from admin where grade = ?", Grade.SUPER_ADMIN);
-		AdminBean admin = admins.get(0);
+		assertNotNull(admins);
 		
-		assertNotNull(admin);
+		AdminBean admin = admins.get(0);
 		
 		manager.doAddAdmin(admin, newAdmin);
 		
@@ -71,7 +80,8 @@ public class AdminManagerTesting extends TestCase {
 	}
 	
 	public void doRemoveAdmin() throws Exception {
-		AdminBean newAdmin = new AdminBean();
+		AdminBean newAdmin = manager.doFind("SELECT * FROM admin WHERE email = ?", "prova@gmail.com").get(0);
+		assertNotNull(newAdmin);
 		
 		ArrayList<AdminBean> admins = manager.doFind("select * from admin where grade = ?", Grade.SUPER_ADMIN);
 		AdminBean admin = admins.get(0);
@@ -81,7 +91,7 @@ public class AdminManagerTesting extends TestCase {
 		manager.doRemoveAdmin(admin, newAdmin);
 		
 		ArrayList<AdminBean> finalAdmins = manager.doFind("select * from admin where email = ?", newAdmin.getEmail());
-		assertNull(finalAdmins);
+		assertEquals(0, finalAdmins.size());
 	}
 	
 	public void doSetAdminPermission() throws Exception {

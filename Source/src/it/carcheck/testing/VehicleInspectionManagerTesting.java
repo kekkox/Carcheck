@@ -30,27 +30,49 @@ public class VehicleInspectionManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByLicensePlate() throws Exception {
-		Collection<VehicleInspectionBean> beans = manager.doRetrieveByLicensePlate(new WorkshopBean(), "license");
+		WorkshopBean workshopBean = new WorkshopBean();
+		workshopBean.setId(11);
+		
+		Collection<VehicleInspectionBean> beans = manager.doRetrieveByLicensePlate(new WorkshopBean(), "NAN70642");
 		assertNotNull(beans);
+		for(VehicleInspectionBean inspection : beans)
+			assertEquals(inspection.getVehicle(), "NAN70642");
 	}
 	
 	public void doRetrieveByLicensePlateLike() throws Exception {
-		Collection<VehicleInspectionBean> beans = manager.doRetrieveByLicensePlateLike(new WorkshopBean(), "license");
+		WorkshopBean workshopBean = new WorkshopBean();
+		workshopBean.setId(11);
+		
+		Collection<VehicleInspectionBean> beans = manager.doRetrieveByLicensePlate(new WorkshopBean(), "NAN");
 		assertNotNull(beans);
+		for(VehicleInspectionBean inspection : beans)
+			assertTrue(inspection.getVehicle().contains("NAN"));
 	}
 	
 	public void doRetrieveByKey() throws Exception {
-		VehicleInspectionBean bean = manager.doRetrieveByKey(new WorkshopBean(), 1);
+		WorkshopBean workshopBean = new WorkshopBean();
+		workshopBean.setId(11);
+		
+		VehicleInspectionBean bean = manager.doRetrieveByKey(workshopBean, 1);
 		assertNotNull(bean);
+		assertEquals(bean.getId(), 1);
 	}
 	
 	public void doRetrieveByWorkshop() throws Exception {
-		Collection<VehicleInspectionBean> beans = manager.doRetrieveByWorkshop(new WorkshopBean());
+		WorkshopBean workshopBean = new WorkshopBean();
+		workshopBean.setId(11);
+		
+		Collection<VehicleInspectionBean> beans = manager.doRetrieveByWorkshop(workshopBean);
 		assertNotNull(beans);
+		for(VehicleInspectionBean inspection : beans)
+			assertEquals(inspection.getWorkShop(), 11);
 	}
 	
 	public void doRetrieveExpiringInspection() throws Exception {
-		Collection<VehicleInspectionBean> beans = manager.doRetrieveExpiringInspection(new WorkshopBean());
+		WorkshopBean workshopBean = new WorkshopBean();
+		workshopBean.setId(11);
+		
+		Collection<VehicleInspectionBean> beans = manager.doRetrieveExpiringInspection(workshopBean);
 		assertNotNull(beans);
 	}
 	
@@ -60,8 +82,13 @@ public class VehicleInspectionManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByWorkshopIdAndLicensePlate() throws Exception {
-		Collection<VehicleInspectionBean> beans = manager.doRetrieveByWorkshopIdAndLicensePlate(1, "license");
+		Collection<VehicleInspectionBean> beans = manager.doRetrieveByWorkshopIdAndLicensePlate(11, "NAN70642");
 		assertNotNull(beans);
+		
+		for(VehicleInspectionBean inspection : beans) {
+			assertEquals(inspection.getWorkShop(), 11);
+			assertEquals(inspection.getVehicle(), "NAN70642");
+		}
 	}
 	
 	public static Test suite() {

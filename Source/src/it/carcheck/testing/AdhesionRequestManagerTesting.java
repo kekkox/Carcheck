@@ -52,7 +52,7 @@ public class AdhesionRequestManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByCode() throws Exception {
-		AdhesionRequestBean bean = manager.doRetrieveByCode(1);
+		AdhesionRequestBean bean = manager.doRetrieveByCode(13);
 		assertNotNull(bean);
 	}
 	

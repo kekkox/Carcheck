@@ -36,7 +36,7 @@ public class WorkshopManagerTesting extends TestCase {
 	}
 	
 	public void doLogin() throws Exception {
-		WorkshopBean bean = this.manager.doLogin("mail", "pass");
+		WorkshopBean bean = this.manager.doLogin("denny9700@gmail.com", "password");
 		assertNotNull(bean);
 	}
 	
@@ -57,12 +57,13 @@ public class WorkshopManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveByEmail() throws Exception {
-		WorkshopBean bean = this.manager.doRetrieveByEmail("mail");
+		WorkshopBean bean = this.manager.doRetrieveByEmail("denny9700@gmail.com");
 		assertNotNull(bean);
 	}
 	
 	public void doSignUp() throws Exception {
 		WorkshopBean ws = new WorkshopBean();
+		ws.setEmail("xerufobo@themailpro.net");
 		this.manager.doSignUp(ws);
 		
 		WorkshopBean workshop = this.manager.doFind("select * from workshop where email = ?", ws.getEmail()).get(0);
@@ -70,7 +71,7 @@ public class WorkshopManagerTesting extends TestCase {
 	}
 	
 	public void doSendAdhesionRequest() throws Exception {
-		WorkshopBean ws = new WorkshopBean();
+		WorkshopBean ws = this.manager.doRetrieveByEmail("xerufobo@themailpro.net");
 		this.manager.doSendAdhesionRequest(ws);
 		
 		AdhesionRequestManager adhesionManager = AdhesionRequestManager.getInstance();
@@ -84,7 +85,7 @@ public class WorkshopManagerTesting extends TestCase {
 		this.manager.doAddVehicleInspection(ws, new VehicleInspectionBean(), new VehicleBean());
 		
 		VehicleInspectionManager vehicleInspection = VehicleInspectionManager.getInstance();
-		VehicleInspectionBean inspection = vehicleInspection.doFind("select * from vehicleinspection where workshop = ?", ws.getId()).get(0);
+		ArrayList<VehicleInspectionBean> inspection = vehicleInspection.doFind("select * from vehicleinspection where workshop = ?", ws.getId());
 		
 		assertNotNull(inspection);
 	}
@@ -95,8 +96,9 @@ public class WorkshopManagerTesting extends TestCase {
 	}
 	
 	public void doRetrieveWorkshopById() throws Exception {
-		WorkshopBean workshop = this.manager.doRetrieveWorkshopById(1);
+		WorkshopBean workshop = this.manager.doRetrieveWorkshopById(14);
 		assertNotNull(workshop);
+		assertEquals(workshop.getId(), 14);
 	}
 	
 	public static Test suite() {

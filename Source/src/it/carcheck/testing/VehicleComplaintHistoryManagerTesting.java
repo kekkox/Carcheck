@@ -29,8 +29,8 @@ public class VehicleComplaintHistoryManagerTesting extends TestCase {
 	}
 	
 	public void doGetVehicleComplaintsFromLicensePlate() throws Exception {
-		Collection<VehicleComplaintHistoryBean> beans = manager.doGetVehicleComplaintsFromLicensePlate("");
-		assertNotNull(beans);
+		Collection<VehicleComplaintHistoryBean> beans = manager.doGetVehicleComplaintsFromLicensePlate("NAN70642");
+		assertNull(beans);
 	}
 	
 	public static Test suite() {
