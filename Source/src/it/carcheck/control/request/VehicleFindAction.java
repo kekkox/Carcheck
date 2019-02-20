@@ -110,9 +110,9 @@ public class VehicleFindAction implements IAction {
     private static final String CAR_VALIDATOR_1999 = "((?i)([a-z]){3}([0-9]){5})";
     private static final String CAR_VALIDATOR_TODAY = "((?i)([a-z]){2}([0-9]){3}([a-z]){2})";
     
-    private static final String BIKE_VALIDATOR_1927 = "([0-9]){5})";
-    private static final String BIKE_VALIDATOR_1932 = "([0-9]){4}(?i)([a-z]){2})";
-    private static final String BIKE_VALIDATOR_1994 = "(?i)([a-z]){2}([0-9]){6})";
+    private static final String BIKE_VALIDATOR_1927 = "([0-9]){5}";
+    private static final String BIKE_VALIDATOR_1932 = "([0-9]){4}(?i)([a-z]){2}";
+    private static final String BIKE_VALIDATOR_1994 = "(?i)([a-z]){2}([0-9]){6}";
     private static final String BIKE_VALIDATOR_TODAY = "((?i)([a-z]){2}([0-9]){5})";
     
     private static final String MOPED_VALIDATOR_2006 = "(?i)([a-z0-9]){5}";
