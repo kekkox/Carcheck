@@ -1,0 +1,3236 @@
+{
+  "id": "4bb3dc0f-7ec3-439b-9cb4-252f77ec938f",
+  "version": "2.0",
+  "name": "Carcheck",
+  "url": "http://localhost:8080/CarCheck/login.jsp",
+  "tests": [{
+    "id": "1955f304-b891-47ff-bb70-dffce74f797e",
+    "name": "Test.1.1.1",
+    "commands": [{
+      "id": "bec1a8ca-3682-4053-9b8b-2c750663c6c4",
+      "comment": "",
+      "command": "open",
+      "target": "/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "076e06a7-1c3f-4ea4-b21a-f9bc7f3e2c9b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fas",
+      "targets": [
+        ["css=.fas", "css:finder"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f13776e6-a6ae-4a4a-b76c-f6e122135053",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Seleziona una categoria di veicolo"
+    }]
+  }, {
+    "id": "56ce785b-aee8-44ff-a8d9-545a15127cbf",
+    "name": "Test.1.1.2",
+    "commands": [{
+      "id": "a14745ba-7a49-402e-97f7-aa3d8238b438",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e66baa2c-0e3e-45ae-953e-d3b8b0e36565",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "35eafae8-3c37-4778-bfc2-f932d211d636",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Autoveicolo"
+    }, {
+      "id": "fcfd59bf-3b7c-40f3-a56b-d0283e59bd73",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4df6d568-8b71-4d91-a303-db2ead543639",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d260e5d3-b1d0-4e3f-a84a-2883585151b5",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Il campo \"Targa\" è obbligatorio"
+    }]
+  }, {
+    "id": "8d8780b2-4939-452d-a1ec-347b049cd55d",
+    "name": "Test.1.1.3",
+    "commands": [{
+      "id": "56f69b6e-8518-4ee0-98dd-8cd9d228a551",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0c968802-7f2b-4eb9-bd1d-9be48a9d54c0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "725bff0d-8729-4027-897e-bdd240103e0f",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "366512c9-85af-46fb-8ab4-5e716950a3ea",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Autoveicolo"
+    }, {
+      "id": "28d9fefc-bbb4-4c09-93b0-e4ecfa50ad87",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00c39aee-8751-4eba-800a-aa5eb56bb465",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c21afa20-63d6-475d-a269-e21ddc63bdc1",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "provaprova"
+    }, {
+      "id": "b58d6cbe-a659-41ab-b502-4c76b5dfe7bd",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8de0ca9-282e-41de-be7e-ff37e8278feb",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Inserire una targa valida"
+    }]
+  }, {
+    "id": "367b6e51-d0b8-46e6-b857-5fc2714124b2",
+    "name": "Test.1.1.4",
+    "commands": [{
+      "id": "b1185820-25cf-4140-b511-603f7b775d09",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b62740f-c743-4d92-9219-ad50435bcdd8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9ec9a1b-f3dd-40fb-9a9e-8158dda6481d",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b249907b-94ae-492d-9c9f-f6741a8120d5",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Autoveicolo"
+    }, {
+      "id": "49e2b30b-8a35-43b2-8b79-458cf75560ad",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf0ae084-0bd9-419c-8032-d164e74d993a",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13aa4d2a-8bc0-4b9f-8a8a-c2a8cca0e5db",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ZZ111XX"
+    }, {
+      "id": "20b55d33-f634-471b-bb80-77686fefb0e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fas",
+      "targets": [
+        ["css=.fas", "css:finder"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5590016-cefd-42f1-85d3-5462012a1834",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [],
+      "value": "Non esiste un veicolo con questa targa"
+    }]
+  }, {
+    "id": "2babbd23-9c91-4485-aacf-dfe46d2a56db",
+    "name": "Test.1.1.5",
+    "commands": [{
+      "id": "846d0860-d706-4456-b664-57cd059ed517",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39fe12aa-61a8-4f9b-966d-56f3b6d4c423",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13b0f4ac-2fe6-44e4-98fc-0ef776e27c2d",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87092691-3175-44d1-9508-f002d8fee808",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Autoveicolo"
+    }, {
+      "id": "582dc34f-8940-4434-87c8-1ef168d8ee69",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf9e7704-e8a3-4e99-ac25-391a58c5b81b",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "27e0b1e3-a756-4a68-b288-37c5684402fd",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "NAN70642"
+    }, {
+      "id": "a249061a-2b29-4e27-8c91-772dd4139d72",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fas",
+      "targets": [
+        ["css=.fas", "css:finder"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "754d7b30-5b0a-494b-857f-f2d8d1fa4338",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "516c1647-164b-4511-b650-a96440d3ca71",
+    "name": "Test.1.2.1",
+    "commands": [{
+      "id": "611425a8-4f69-425c-a3d6-1dbf4494525c",
+      "comment": "",
+      "command": "open",
+      "target": "/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "34f5a2b4-052a-4f9e-b6e9-5798bd205faa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fas",
+      "targets": [
+        ["css=.fas", "css:finder"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "68a2fac5-a7a4-4950-ae24-1c449f90eaa3",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Seleziona una categoria di veicolo"
+    }]
+  }, {
+    "id": "0462735d-b6f7-40f5-b567-b3c262a0d9eb",
+    "name": "Test.1.2.2",
+    "commands": [{
+      "id": "d775b02d-a3f3-4353-8364-fd1c07a3195e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "afc3ee9f-c318-4e99-adc5-04f101591b55",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3e9a70a-f0ee-4700-a28d-16b3d8701e25",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Motoveicolo"
+    }, {
+      "id": "360871de-d9f4-405f-b681-6fb4dd82e955",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4680f49-1939-4cea-b915-494144ad6540",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a239faf6-aa83-43ef-8fb9-96bad2e3aed4",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Il campo \"Targa\" è obbligatorio"
+    }]
+  }, {
+    "id": "92392515-765a-45a9-91b6-12585677a684",
+    "name": "Test.1.2.3",
+    "commands": [{
+      "id": "be7f4aa7-bc85-41ea-8ce4-2f747830954e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a4b9cd9a-2743-45cb-8078-f1093233a000",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1ea50259-72a1-4437-b2f9-a0b922b966c1",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2380aba-cf66-4b7a-b449-9963f5050e1c",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Motoveicolo"
+    }, {
+      "id": "341feb5c-9522-4835-9529-cf16ba040334",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e18c696-8fe8-489c-a213-68ac1a76fc37",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4870190b-eace-4407-a7a0-100c1bb0e499",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "provaprova"
+    }, {
+      "id": "be3116e6-d638-4e79-ac47-b157acdb525f",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fe50efe-faa7-47bc-81cd-ce60c0996db2",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Inserire una targa valida"
+    }]
+  }, {
+    "id": "7d26210a-fcab-4b4e-8199-205e900836bb",
+    "name": "Test.1.2.4",
+    "commands": [{
+      "id": "47025b65-6272-4d82-8614-a60a396f7d69",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e939ba2a-0298-4b50-b8c0-569a1ff8814f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9c1164b5-556c-4d3a-bb66-5c604ed510ac",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3133260-0d04-40b7-8d11-3d2dbb0c90e1",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Motoveicolo"
+    }, {
+      "id": "07c6133c-e2ce-406a-be02-611349ffc79c",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6ed6965-d4f1-41c4-b1b2-208651fba258",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b224d4cd-07a5-4911-8c93-11f9bb808ae9",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "XX007027"
+    }, {
+      "id": "371c3cb8-d1f6-493d-ae99-d806ba2431a8",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3a5e44f-dd30-4c0f-a2bc-9a58f806f209",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Non esiste un veicolo con questa targa"
+    }]
+  }, {
+    "id": "b5a51def-2b3f-4c45-bec1-e4ac45e86009",
+    "name": "Test.1.3.1",
+    "commands": [{
+      "id": "2d08dfe9-6e31-4629-8306-728d3dd17434",
+      "comment": "",
+      "command": "open",
+      "target": "/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17e07cde-8079-424f-b00f-90890e63f8a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fas",
+      "targets": [
+        ["css=.fas", "css:finder"],
+        ["xpath=//i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "631de4b1-237c-4736-a347-ea18adb21a15",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Seleziona una categoria di veicolo"
+    }]
+  }, {
+    "id": "f2fa0707-2123-4a12-a657-746181bb21df",
+    "name": "Test.1.3.2",
+    "commands": [{
+      "id": "0c85b8b4-c02a-4d64-80ef-9abba67ad0e1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d01279b-023b-409f-8ea8-a1a1f78627a9",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e097f8d8-5ca4-4032-a1f2-643a0d973562",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Ciclomotore"
+    }, {
+      "id": "1155f4e0-9a25-4b08-ad06-4e27aa1dd0eb",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd3536bf-a2c7-4187-827f-99d1ba0a71be",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "439d5527-9ffa-40de-a3f8-77c46dca79f5",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Il campo \"Targa\" è obbligatorio"
+    }]
+  }, {
+    "id": "56964ee6-9435-4e49-bd4e-0fcefd803094",
+    "name": "Test.1.3.3",
+    "commands": [{
+      "id": "127f8194-1670-4049-9f0b-f1d906d88667",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9b0f5b09-baab-4386-881b-ca14c31f1279",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a1c6c083-0685-4073-aa91-50f5f4acb392",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "095665c6-404c-4e14-b51e-6f7f2154c09d",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Ciclomotore"
+    }, {
+      "id": "d48cf7c2-fc9f-400a-a017-2799225122d1",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d12c214-a7a7-4bda-9b41-49e0e0366b43",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91da1fff-4f1a-4ca2-b510-16b948cd57ad",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "provaprova"
+    }, {
+      "id": "311ab3c6-99b0-46a5-84ac-f39f46eba491",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34b09b9c-fe57-46be-9beb-cf9ac93442aa",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Inserire una targa valida"
+    }]
+  }, {
+    "id": "57e2b72e-82ea-4bed-bcf1-54761b8eeb9c",
+    "name": "Test.1.3.4",
+    "commands": [{
+      "id": "26296eec-9763-4ad5-9aca-cf21a11e853c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f28a247-6162-4597-8320-9c056ea9f572",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fe234c87-8e7d-407e-8e01-957044df662c",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ea355ef-4589-4992-b7d3-c8316e0ba8ed",
+      "comment": "",
+      "command": "select",
+      "target": "name=category",
+      "targets": [],
+      "value": "label=Ciclomotore"
+    }, {
+      "id": "984bf896-bfa3-4ba9-9267-c219c8123eb0",
+      "comment": "",
+      "command": "click",
+      "target": "name=category",
+      "targets": [
+        ["name=category", "name"],
+        ["css=select", "css:finder"],
+        ["xpath=//select[@name='category']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "718d94a1-8803-4af8-8495-c194b30ebc18",
+      "comment": "",
+      "command": "click",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f2a4ef0-5dcf-4371-a0d8-b21bf3e23f55",
+      "comment": "",
+      "command": "type",
+      "target": "name=licenseplate",
+      "targets": [
+        ["name=licenseplate", "name"],
+        ["css=input", "css:finder"],
+        ["xpath=//input[@name='licenseplate']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "XXXXXX"
+    }, {
+      "id": "d2c9f6be-6e8a-4ce8-b379-cea60cb16835",
+      "comment": "",
+      "command": "click",
+      "target": "name=search",
+      "targets": [
+        ["name=search", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='search']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d75fec9-a249-4347-b117-58b9ef75c226",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error_message",
+      "targets": [
+        ["id=error_message", "id"],
+        ["css=#error_message", "css:finder"],
+        ["xpath=//div[@id='error_message']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": "Non esiste un veicolo con questa targa"
+    }]
+  }, {
+    "id": "14239ea9-2ed5-4313-b8df-412e21809612",
+    "name": "Test.2.1.1",
+    "commands": [{
+      "id": "c6b0f760-b117-4326-b139-e70cc6978270",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b82aa7c4-4dec-40d8-bd1e-a5aab23e8590",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa9f012b-3ca8-4588-972c-8c81b46702d3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sei un officina? Accedi qui",
+      "targets": [
+        ["linkText=Sei un officina? Accedi qui", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Sei un officina? Accedi qui')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/CarCheck/login.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Sei un officina? Accedi qui')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0dcc7ed-0ac1-4e76-8f76-15ea11927437",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2dfbb9da-4d52-441b-ae07-0870ee1e0acc",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7f0255b-acfc-4bf8-8a41-59ad74e59275",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6b40c3cd-3560-4dc4-979d-99b5f070857c",
+      "comment": "",
+      "command": "assertText",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "453da967-7d0b-4626-84bc-c14dc8e0dd56",
+      "comment": "",
+      "command": "assertText",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f12ae044-7c67-4728-bcd7-ede893f6f59e",
+    "name": "Test.2.1.2",
+    "commands": [{
+      "id": "b3835820-af1f-4189-b0c2-3bcdbf2ecec5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f021a4b9-1103-4f98-b9ff-8432bbeaa243",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1e00cd2a-4dce-440a-8d4e-1f965e43da7e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sei un officina? Accedi qui",
+      "targets": [
+        ["linkText=Sei un officina? Accedi qui", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Sei un officina? Accedi qui')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/CarCheck/login.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Sei un officina? Accedi qui')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b0ae02a-96bc-4060-a79d-77930203454c",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cf71bf9-d126-47c7-bae6-de3f3854d8ef",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "885aa0b6-6c69-4d95-90c3-35c17ed14954",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "asd"
+    }, {
+      "id": "052c1db3-567a-484e-82d2-9309b7bd9a25",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "28475720-4b6b-4b40-9e4c-eff6ac8533b5",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e3d91b3-01fa-4148-8876-cdc5cb1370a0",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "167d259e-e39b-471f-be8d-b8f7786b308a",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8a4115cf-5b2c-4865-841f-2474942e2388",
+    "name": "Test.2.1.3",
+    "commands": [{
+      "id": "b4ba3b8d-5e68-457d-8c5b-0eea76c15c07",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "865f7239-42bf-4429-8ec0-173f555ecd00",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d12432a-9c91-40d9-9f96-78d8a4895bbb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sei un officina? Accedi qui",
+      "targets": [
+        ["linkText=Sei un officina? Accedi qui", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Sei un officina? Accedi qui')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/CarCheck/login.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Sei un officina? Accedi qui')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d74c3323-28dd-4da7-86ec-106b89cf17aa",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0176796-ba0c-4113-9440-e33451dc3bd6",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "da554d5e-f62d-46b8-9541-82e5eed931b2",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "b667c173-c658-4a8f-a617-4742ebc70abf",
+    "name": "Test.2.1.4",
+    "commands": [{
+      "id": "8d9f6ac8-5dd9-49b9-8453-009264a611ad",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59b7da09-51ea-4f96-9b7b-1a5d6687015a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e2c7a551-7b5f-48e5-8f23-43d9756b45a7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sei un officina? Accedi qui",
+      "targets": [
+        ["linkText=Sei un officina? Accedi qui", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Sei un officina? Accedi qui')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/CarCheck/login.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Sei un officina? Accedi qui')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a79cb88-f6a6-4f16-bfad-a2b9b97941a2",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a64a0dc-97df-4ccd-9061-31bf4c6f33a9",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "91d34f94-c5df-447c-95a2-938cc26cdf17",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "874ee388-bb5f-4d5a-b2b5-12f1488d80d1",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "proa"
+    }, {
+      "id": "e1f90779-9bd9-4e6e-8167-6872e0bde864",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9efc189f-ffb0-4e35-babb-2566a6f788fb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.header > div",
+      "targets": [
+        ["css=.header > div", "css:finder"],
+        ["xpath=//div[4]/div/div/div", "xpath:position"]
+      ],
+      "value": "Username o password errati"
+    }]
+  }, {
+    "id": "e5d50ca9-9561-4cbb-80aa-f0ae1e2a3a96",
+    "name": "Test.2.1.5",
+    "commands": [{
+      "id": "7d880c93-dfd0-4d19-91d6-2f0dae4cb980",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e30685d-ded3-465d-98be-333eef6f0173",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03fa61fc-e7ed-4222-adca-f4b2c2662324",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sei un officina? Accedi qui",
+      "targets": [
+        ["linkText=Sei un officina? Accedi qui", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Sei un officina? Accedi qui')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/CarCheck/login.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Sei un officina? Accedi qui')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9533fa0-8e34-45fd-9c6e-ee37a3805d6e",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e531c8f-4be5-41a5-9029-e1dfae41da55",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.inputBox:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "denny9700@gmail.com"
+    }, {
+      "id": "0f4171d4-99b7-43c4-989f-e27b342a8514",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57d86bb8-5e53-4adf-82cc-05300a850c0b",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.inputBox:nth-child(2) > input", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "password"
+    }, {
+      "id": "9f917834-c65e-40a9-a353-ffe5507b2e83",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'LOGIN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c28b6b32-5cd5-4050-87ad-75653e070b62",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.sidebar",
+      "targets": [
+        ["css=.sidebar", "css:finder"],
+        ["xpath=//ul", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "507c4ba6-8ef4-483d-aeb1-4103fdacfcb4",
+    "name": "Test.3.1.1",
+    "commands": [{
+      "id": "70999707-94ce-4a3a-adc4-be23eede0649",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "20b3bef8-1edb-4fac-87cc-2aaae0c62abd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dcd4bb0f-327d-4e89-becb-6a07ca3d610b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "634fb26e-26c6-47fd-a6a1-0218e9e3cfa7",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9246c95c-7237-4670-b43d-899ff7fb7e87",
+    "name": "Test.3.5.1",
+    "commands": [{
+      "id": "36c6956f-bada-4b73-b4d3-f071d8c8be1e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1747cc44-33cb-4bd7-88dd-c56ba00555ca",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07dbc7b4-678d-4ddf-98d6-c9d4be6edb95",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c762eb7-67f3-443a-a6e9-9a942bf1941a",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41d4e10d-ad3b-492a-9f15-a8fc5a4a11e8",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "366a6509-2b72-491a-9ac0-fcea3993abe0",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b04baed3-203c-43be-93a1-f46f0cdb5ad8",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba1ad948-048b-4d18-9ef6-dd1250edc889",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "0dcc59ef-0d23-40fd-8a67-963c69ed9117",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "2bb3cb76-7b7e-4e24-bd49-b423efc5e173",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "8e82524c-4c76-468a-920e-1cd4b97c7ca9",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c19907c-b46c-461c-94db-b1ccb702d8dd",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "8a420c40-fab2-4fcb-8efd-2dec95d8036f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ef40e1e-9226-4d06-97ff-47280ab2df2d",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8b4abecf-32b9-460d-881e-ae51817af3b1",
+    "name": "Test.3.6.1",
+    "commands": [{
+      "id": "98724037-58dd-4275-9cab-c816b112f666",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e4d7e54-e554-441e-9650-03c5b1a19036",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7366e524-b566-413c-adbc-dc9e16df63c1",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3e63626-5c23-46c2-8199-983d35adf314",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d936dd4-81ca-4164-971b-98bc34233a86",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "c211f40c-ba5c-4c83-bdd6-0a95e09b4761",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f4a5859-0f0b-4bc7-9db0-c207f865dcc7",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b9c064b-9197-4c1d-898d-457e362b9f7a",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "139c6126-2a26-4cde-9ef6-38a18ed7200b",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "5397960d-f1dd-4fc7-876b-025609c8b219",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "1a8b2e2d-ef3b-4736-a36b-01714014a05a",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1674907-5147-481b-af89-3f1b3037a540",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "ec45fc0b-5e76-4247-a4b7-4dbe33e04e61",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8add2b0-86e4-4328-8521-895ce09d18ac",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac3752a7-f542-4a24-b660-3cb831e59008",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Campania"
+    }, {
+      "id": "99176d94-bab4-4600-89e7-1036a39d06d0",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91a89f99-3d26-4128-959e-8cfe3672e17e",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "edb908ab-f4cb-49b9-a06f-b0092d13f59f",
+    "name": "Test.3.7.1",
+    "commands": [{
+      "id": "29b84cf1-8316-4cd3-b6e3-6c13b777eb7a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "00ef99b4-1bcf-4bda-8bbf-5886dee72e2a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16a9b15b-daf6-4c37-9535-5ab90d72eecb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "400710d7-2bc2-41d3-aaeb-1232336e6e2f",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f66edcc-8cd0-41bd-9e37-99d5026002d9",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "882dcd4b-c60d-41ac-a34b-2e4244d41d51",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "245b1852-6569-47b4-8248-7f671c5327ca",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e539ec2b-a4b7-4466-9d17-2b02a5ee63a7",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "938938b6-4c3f-449c-8c91-285d84ca7e57",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "9ee765c9-9ccb-425c-8b9a-43a52ab40a9c",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "92aab858-b3f4-4b3e-8466-16982a5c9316",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "77266d1c-9b61-4a8b-baf1-f345b2183e45",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "9e6dc634-b8ef-42bf-b04b-2eda2f805c5e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2b58df6-0eda-406f-8fd7-faa6afcbef6c",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfb49de0-2df3-40fa-bda9-a4cf726f3095",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Campania"
+    }, {
+      "id": "d7ed28eb-71bc-455d-a039-18d6deed59c2",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7ef8d40-24aa-4a31-98be-e2ff45e321f7",
+      "comment": "",
+      "command": "select",
+      "target": "id=province",
+      "targets": [],
+      "value": "label=Salerno"
+    }, {
+      "id": "53cd3d3e-7161-4ffa-a1db-df82ffe1cd26",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "44aef58e-b2cf-4fb7-8eab-ec928b994697",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7792f926-890e-4ba8-9175-5533e8c34de0",
+    "name": "Test.3.8.1",
+    "commands": [{
+      "id": "bbe5e050-71e6-4d25-8493-2a312e61e013",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "72ac7ed0-0759-4905-afbc-51a8f6afd04a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "faa72688-9a9c-4e4c-8b6e-3705bd70cf59",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb7b4db0-1669-4f90-8445-9ebe89ad1a97",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab3cf148-5cfc-4593-9bd2-049b8e4379e9",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "1cec083f-b13c-45f9-ad43-833231cec7e8",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48f454b5-4dac-48c6-92a3-3c8c65295e4e",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d225a515-f75e-4482-9f20-9811e21e74ab",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "eed4a083-a1b0-4c3f-859e-cde504fc1b5a",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "767820c4-b61e-4d34-9356-b54a260aa85c",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "46604cd3-719c-4779-ae6d-71ccb897bc69",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0757fed3-c10e-4fdb-ab32-1befbff54a78",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "b4456c11-029f-40b9-94e7-364f407d7504",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f28056b-de48-4ad9-9d22-a8b8ed1ff7ee",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8a8f380-9af0-4c27-a041-f742a8a99c22",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Campania"
+    }, {
+      "id": "5a1fc5d1-b417-49c5-9325-da997f301053",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c86f9b74-17d8-4691-ab3f-d52496702916",
+      "comment": "",
+      "command": "select",
+      "target": "id=province",
+      "targets": [],
+      "value": "label=Salerno"
+    }, {
+      "id": "8c345f9c-9aee-4cdb-a574-084377d94757",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2aa723e-aef6-4095-99e9-0362e59e8578",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9c04887-a4d6-4cf2-8861-ecce3434c2df",
+      "comment": "",
+      "command": "select",
+      "target": "id=city",
+      "targets": [],
+      "value": "label=Fisciano"
+    }, {
+      "id": "80459636-e55d-4b02-8006-9f96dfa327b4",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad477a3d-d597-416b-af55-03484fc16e2c",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d4701a3b-5185-4db8-90e4-88baf9ccea94",
+    "name": "Test.3.9.1",
+    "commands": [{
+      "id": "4aefaa06-8c98-4c20-b44b-a44493ccd319",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2e6729d7-9d0d-482a-b394-acd5644b4aec",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf7e8fee-5ada-476c-b48b-d3b1a7a1f67a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14a34f9d-c40e-4300-bb2a-43bfde0a3c4e",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81109d94-5331-42e0-a03e-292cbf9304b5",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "bd96facf-2f0d-4a77-8ddc-b02fbec851fb",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f9b148d-3ddf-468d-b0a3-7febde34bf9d",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "594b1cd4-7503-49b2-a6e3-19c5a8dc8a3f",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "2a2bc913-c02a-40a0-ba37-3b1f9917714f",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "4c694105-71d3-4468-82dd-9ce7e45f5ff5",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "2d182110-2d38-40ab-92e0-be1cd295b457",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dcb1c50-6281-4465-b97d-91130979b42f",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "61bdaa23-3695-49f7-be76-a8072bd8abf3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4971daf-5c07-46d9-babf-73f5f81ca883",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0aed4d23-a2b6-4775-b307-8e05abf354fd",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Campania"
+    }, {
+      "id": "04c90d11-8050-423f-938e-199604a7ddd6",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "385c7f66-9381-4119-98d2-7c680f598c8d",
+      "comment": "",
+      "command": "select",
+      "target": "id=province",
+      "targets": [],
+      "value": "label=Salerno"
+    }, {
+      "id": "9af7d685-4781-4ce0-8d7d-767e1860e0bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6786b7e4-a776-431c-967b-76196b45db04",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3b98b0e-ed82-4d82-9250-f6eb58e4aafc",
+      "comment": "",
+      "command": "select",
+      "target": "id=city",
+      "targets": [],
+      "value": "label=Fisciano"
+    }, {
+      "id": "02400891-c78c-4120-8857-04d038b722ed",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "990dc4bf-4155-4f72-b552-4e07b1b9d028",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=#address > input", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "shfljsahfjhsaf"
+    }, {
+      "id": "801b56ee-7227-46af-81a9-258dedd60ef7",
+      "comment": "",
+      "command": "click",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='description']", "xpath:attributes"],
+        ["xpath=//div[@id='description']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf9e9abc-d9f0-409e-a0dc-f717b8336c64",
+      "comment": "",
+      "command": "type",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='description']", "xpath:attributes"],
+        ["xpath=//div[@id='description']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Offriamo solide realtà"
+    }, {
+      "id": "cc182445-e2b8-48dd-89be-53fbc39917c3",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf8a1e80-e8d2-4706-892b-58a122d37c5d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.header > div",
+      "targets": [
+        ["css=.header > div", "css:finder"],
+        ["xpath=//div[4]/div/div/div", "xpath:position"]
+      ],
+      "value": "Seleziona un indirizzo dall'elenco. Indirizzi personalizzati non sono ammessi"
+    }]
+  }, {
+    "id": "0b103ebc-0324-4cfc-9502-93bec39bce6d",
+    "name": "Test.3.9.2",
+    "commands": [{
+      "id": "0e17dc16-2971-45d3-8280-2971dc56a2c5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6c00a51-d84e-4a23-9f14-4edb4cd9a2e4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "493c8aab-7a5d-4248-a0c1-f61a7dc120c9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b63e31d-9c41-4f58-9e3e-787394e0fcb1",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57bba472-1713-43b4-ae9e-d2a66b74bd6c",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "5e864532-31eb-4bce-ba34-c0249717a3cb",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "421604d6-efc2-43f0-b0c3-1a7af1ad8dea",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2e997b3-94bd-40d3-87db-f40563c44007",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "5f78ae82-497d-4397-bc0a-7dec5918d1b4",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "bf1d325c-fb3e-460c-bda0-4a38a1bb584f",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "3345424f-216d-4a93-9da0-463ceb18f2a3",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "172a305d-2c68-4334-8604-2e16d0248cf8",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "773f3848-8616-4542-8b0d-0e0bf24e8817",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d54197e-12d3-4c5b-a421-79bec0b79e43",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "15a8a6cf-0c74-44a0-9ab1-0a5ff9e2b5d1",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Campania"
+    }, {
+      "id": "c75e0210-d29d-4f55-86d0-bed645744206",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bdbe363-fbaa-40fe-a3b4-be76546fdf28",
+      "comment": "",
+      "command": "select",
+      "target": "id=province",
+      "targets": [],
+      "value": "label=Salerno"
+    }, {
+      "id": "cd8d41dc-7f50-42d7-b1d4-f561bbc47a91",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45f5869a-4ce3-4801-9a69-881c254b4d9e",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a0bdab0-2052-4ba3-8f7b-33df49599955",
+      "comment": "",
+      "command": "select",
+      "target": "id=city",
+      "targets": [],
+      "value": "label=Fisciano"
+    }, {
+      "id": "4465f5f3-0237-4895-bfc5-db95829135f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aed51bb4-d95b-42a0-8db9-8665016f529d",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=#address > input", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "Via Giov"
+    }, {
+      "id": "66fbd9bb-7428-4db0-8b17-d77e47bcca93",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) > span",
+      "targets": [
+        ["css=li:nth-child(1) > span", "css:finder"],
+        ["xpath=//ul[@id='addressResult']/li/span", "xpath:idRelative"],
+        ["xpath=//li/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Via Giovanni Amendola')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6deb1441-fee3-40f6-855b-9c7eacdd169f",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3b18c18f-ad4b-4af7-ba3f-260a095ee6d9",
+    "name": "Test.3.10.1",
+    "commands": [{
+      "id": "40bbf54e-1d01-4240-9234-72ca5236c73e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/CarCheck/login.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10f0cb61-0281-4500-a0dc-36fd348ca470",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "945x1030",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2e215f51-b0f1-474a-8e9f-4ee8e04081d5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Aderisci a Carcheck",
+      "targets": [
+        ["linkText=Aderisci a Carcheck", "linkText"],
+        ["css=a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Aderisci a Carcheck')]", "xpath:link"],
+        ["xpath=//a[contains(@href, './signup.jsp')]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Aderisci a Carcheck')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "842eba54-1eab-42de-be17-8770791d81f4",
+      "comment": "",
+      "command": "click",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "473aa12c-2788-46d9-b8c3-4ac99ce0b9ed",
+      "comment": "",
+      "command": "type",
+      "target": "name=iva",
+      "targets": [
+        ["name=iva", "name"],
+        ["css=#piva > input", "css:finder"],
+        ["xpath=//input[@name='iva']", "xpath:attributes"],
+        ["xpath=//div[@id='piva']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "01234567890"
+    }, {
+      "id": "e6abd580-8221-46f1-b326-d95c4b446388",
+      "comment": "",
+      "command": "click",
+      "target": "id=piva",
+      "targets": [
+        ["id=piva", "id"],
+        ["css=#piva", "css:finder"],
+        ["xpath=//div[@id='piva']", "xpath:attributes"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "284d2bdf-fcbc-4283-acf8-ac58ae7cc0fa",
+      "comment": "",
+      "command": "click",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1efb18dc-b3ef-436e-9f00-95565df5aac8",
+      "comment": "",
+      "command": "type",
+      "target": "name=businessName",
+      "targets": [
+        ["name=businessName", "name"],
+        ["css=#businessName > input", "css:finder"],
+        ["xpath=//input[@name='businessName']", "xpath:attributes"],
+        ["xpath=//div[@id='businessName']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Car SRL"
+    }, {
+      "id": "9c0be3b9-d3ea-43a4-abd6-d1c411011f84",
+      "comment": "",
+      "command": "type",
+      "target": "name=account_holder",
+      "targets": [
+        ["name=account_holder", "name"],
+        ["css=#owner > input", "css:finder"],
+        ["xpath=//input[@name='account_holder']", "xpath:attributes"],
+        ["xpath=//div[@id='owner']/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Mario Rossi"
+    }, {
+      "id": "592ed836-6a7a-42b6-963a-6fd35aec8168",
+      "comment": "",
+      "command": "type",
+      "target": "name=telephone",
+      "targets": [
+        ["name=telephone", "name"],
+        ["css=#telephone > input", "css:finder"],
+        ["xpath=//input[@name='telephone']", "xpath:attributes"],
+        ["xpath=//div[@id='telephone']/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "333121212"
+    }, {
+      "id": "4f923cfa-ece2-4b9b-8ca9-96dde0d2d4e9",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "015be289-599a-41ef-9c54-9487b44f5b6f",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=#email > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='email']/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "email@dominio.it"
+    }, {
+      "id": "13a80005-fdf7-4b8c-8c9e-2d4cc2b8f15e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b7c5f18-d589-4bf6-ad3a-c3a51b6b29ef",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c7473ed-9a48-43e6-9439-a781e19ccbab",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Campania"
+    }, {
+      "id": "a2bc047c-0f04-4223-8466-7a8797a7b66b",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2219ebe4-653b-4080-91ad-866957c4f6bb",
+      "comment": "",
+      "command": "select",
+      "target": "id=province",
+      "targets": [],
+      "value": "label=Salerno"
+    }, {
+      "id": "b1d29ac8-7ada-42a5-886a-7dedf5869790",
+      "comment": "",
+      "command": "click",
+      "target": "id=province",
+      "targets": [
+        ["id=province", "id"],
+        ["css=#province", "css:finder"],
+        ["xpath=//select[@id='province']", "xpath:attributes"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0f9a89f-d04b-489d-8b15-52355fab9131",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cc23606-ef7d-4bec-96c0-10d6d9d6e3fc",
+      "comment": "",
+      "command": "select",
+      "target": "id=city",
+      "targets": [],
+      "value": "label=Fisciano"
+    }, {
+      "id": "52285e72-abda-4ca6-9d61-559eb939f66c",
+      "comment": "",
+      "command": "click",
+      "target": "id=city",
+      "targets": [
+        ["id=city", "id"],
+        ["css=#city", "css:finder"],
+        ["xpath=//select[@id='city']", "xpath:attributes"],
+        ["xpath=//div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fb78695-87e2-432b-9eb8-0ff40aac2702",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=#address > input", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[@id='address']/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "Via Giov"
+    }, {
+      "id": "fae59b66-4753-4989-81f4-599fc49b405e",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) > span",
+      "targets": [
+        ["css=li:nth-child(1) > span", "css:finder"],
+        ["xpath=//ul[@id='addressResult']/li/span", "xpath:idRelative"],
+        ["xpath=//li/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Via Giovanni Amendola')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "62f11b50-ca59-44ee-a715-3ddc2ce64a9c",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ae41ec6-9a18-4c80-9337-91e7d250433e",
+      "comment": "",
+      "command": "type",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='description']", "xpath:attributes"],
+        ["xpath=//div[@id='description']/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Solide realta"
+    }, {
+      "id": "b92e8325-7b06-49bb-8917-0687b23ab587",
+      "comment": "",
+      "command": "click",
+      "target": "name=button",
+      "targets": [
+        ["name=button", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'REGISTRATI')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "28f08967-7eb5-4e48-980c-c1079a804740",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1955f304-b891-47ff-bb70-dffce74f797e"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/CarCheck/index.jsp", "http://localhost:8080/CarCheck/login.jsp"],
+  "plugins": []
+}
